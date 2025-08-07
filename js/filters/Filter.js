@@ -6,6 +6,8 @@ class Filter {
 
     this.data = data;
     this.boxes = [];
+    this.evtOpt = { detail: { fromDate: false } };
+    this.filterDataEvent = new CustomEvent("filter-data", this.evtOpt);
 
     this.enabledEl.addEventListener("change", () => {
       if (this.enabledEl.checked) {
@@ -16,6 +18,7 @@ class Filter {
           b.checked = false;
         }
       }
+      this.menuEl.dispatchEvent(new CustomEvent("filter-data", { detail: { fromDate: false } }));
     });
   }
 

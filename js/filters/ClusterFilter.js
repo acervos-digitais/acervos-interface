@@ -12,7 +12,7 @@ class ClusterFilter extends Filter {
       inputEl.id = `cluster--${clusterIdx}--radio`;
       inputEl.value = `${clusterIdx}`;
 
-      inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(new CustomEvent("filter-data")));
+      inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
 
       const labelEl = document.createElement("label");
       labelEl.setAttribute("for", inputEl.id);

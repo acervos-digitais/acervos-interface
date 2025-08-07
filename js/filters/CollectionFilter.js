@@ -13,7 +13,7 @@ class CollectionFilter extends Filter {
       inputEl.id = `${labelSlug}--checkbox`;
       inputEl.value = `${col}`;
 
-      inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(new CustomEvent("filter-data")));
+      inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
 
       const labelEl = document.createElement("label");
       labelEl.setAttribute("for", inputEl.id);

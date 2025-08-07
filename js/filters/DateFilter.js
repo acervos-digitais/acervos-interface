@@ -2,6 +2,9 @@ class DateFilter extends Filter {
   constructor(data, menuId, enabledId, itemsId) {
     super(data, menuId, enabledId, itemsId);
 
+    this.evtOpt = { detail: { fromDate: true } };
+    this.filterDataEvent = new CustomEvent("filter-data", this.evtOpt);
+
     const minEl = document.createElement("input");
     minEl.type = "number";
     minEl.value = data.min;
@@ -14,9 +17,8 @@ class DateFilter extends Filter {
     maxEl.min = data.min;
     maxEl.max = data.max;
 
-    const evtOpt = { detail: { fromDate: true } };
-    minEl.addEventListener("change", () => this.menuEl.dispatchEvent(new CustomEvent("filter-data", evtOpt)));
-    maxEl.addEventListener("change", () => this.menuEl.dispatchEvent(new CustomEvent("filter-data", evtOpt)));
+    minEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
+    maxEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
 
     this.itemsEl.appendChild(minEl);
     this.itemsEl.appendChild(maxEl);
