@@ -1,6 +1,6 @@
 class ObjectFilter extends Filter {
-  constructor(data, menuId, enabledId, itemsId) {
-    super(data, menuId, enabledId, itemsId);
+  constructor(data, menuId, itemsId) {
+    super(data, menuId, itemsId);
 
     for (const obj of Object.keys(data)) {
       const labelSlug = obj.replaceAll(" ", "-").toLowerCase();

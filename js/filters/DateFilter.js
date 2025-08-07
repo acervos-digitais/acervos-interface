@@ -1,6 +1,6 @@
 class DateFilter extends Filter {
-  constructor(data, menuId, enabledId, itemsId) {
-    super(data, menuId, enabledId, itemsId);
+  constructor(data, menuId, itemsId) {
+    super(data, menuId, itemsId);
 
     this.evtOpt = { detail: { fromDate: true } };
     this.filterDataEvent = new CustomEvent("filter-data", this.evtOpt);
