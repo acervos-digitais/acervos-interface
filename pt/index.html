@@ -1,0 +1,18 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+    <script src="{{ 'js/load_utils.js' | relative_url }}"></script>
+    <script src="{{ 'js/load.js' | relative_url }}"></script>
+  </head>
+
+  <body>
+    <div class="red">hi</div>
+    {% include menu.html %}
+    {% include menu/filters.html %}
+    {% include menu/sorters.html %}
+  </body>
+</html>

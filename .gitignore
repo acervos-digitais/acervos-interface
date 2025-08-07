@@ -1,0 +1,5 @@
+.DS_Store
+log.txt
+json/
+.jekyll-cache/
+_site/

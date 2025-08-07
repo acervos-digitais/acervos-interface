@@ -1,0 +1,96 @@
+---
+---
+
+.nav--menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  max-width: 300px;
+
+  background-color: var(--bg-color);
+  transition: left 0.33s linear;
+
+  .menu--section {
+    border: 1px #000 solid;
+    padding: 20px;
+
+    .menu--section--title {
+      font-size: 1.25rem;
+    }
+
+    &.button {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--bg-color-hl);
+        color: var(--txt-color-hl);
+      }
+    }
+  }
+}
+
+.common--menu {
+  position: absolute;
+  top: 0;
+  left: -500px;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 20px;
+
+  background-color: var(--bg-color);
+  transition: left 0.33s linear;
+  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+
+  .menu--close--button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: var(--bg-color);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--bg-color-hl);
+    }
+  }
+  
+  .menu--title {
+    font-size: 2rem;
+  }
+
+  .menu--description {
+    margin: 8px 0;
+  }
+  
+  .menu--section {
+    margin: 12px 0;
+    border-top: 1px solid var(--bg-color-hl);
+
+    .menu--section--title {
+      margin-top: 12px;
+      font-size: 1.5rem;
+    }
+
+    .menu--section--description {
+      margin: 8px 0;
+    }
+  
+    .checkbox--item label,
+    .radio--item label {
+      user-select: none;
+    }
+  
+    .menu--section--items.disable {
+      opacity: 50;
+      pointer-events: none;
+    }
+  }  
+}

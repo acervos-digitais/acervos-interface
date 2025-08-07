@@ -1,0 +1,26 @@
+---
+---
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #eee;
+  --bg-color-hl: #aaa;
+  --txt-color: #444;
+  --txt-color-hl: #222;
+  font-size: 16px;
+}
+
+html, body {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+
+}
+
+.red {
+  color: #f00;
+}

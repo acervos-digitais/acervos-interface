@@ -1,0 +1,16 @@
+title: Navegador de Acervos
+
+exclude: [
+  .git,
+  .gitignore,
+  Gemfile,
+  Gemfile.lock,
+  README.md,
+  .sass-cache/,
+  .jekyll-cache/,
+  gemfiles/,
+  node_modules/
+]
+
+markdown: kramdown
+port: 8421

@@ -1,0 +1,49 @@
+<nav class="sorters--menu common--menu" id="sorters--menu">
+  <button class="menu--close--button" id="sorters--close--button">
+    <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
+  </button>
+
+  <div class="menu--title">Visualizações</div>
+  <div class="menu--description">Escolha abaixo como visualizar o conteúdo selecionado</div>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Datas</div>
+    <div class="menu--section--description">Organização por ano de criação</div>
+    {% include radio-item.html id="date--sorter--enable" name="sorter-type" value="date" label="selecionar" %}
+    <div class="menu--section--items disable" id="date--sorter-items">
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Cores</div>
+    <div class="menu--section--description">Organização por cores dominantes</div>
+    {% include radio-item.html id="color--sorter--enable" name="sorter-type" value="color" label="selecionar" %}
+    <div class="menu--section--items disable" id="color--sorter-items">
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Grupos</div>
+    <div class="menu--section--description">Organização por sub-categorias sugeridas por IA</div>
+    {% include radio-item.html id="cluster--sorter--enable" name="sorter-type" value="cluster" label="selecionar" %}
+    <div class="menu--section--items disable" id="cluster--sorter-items">
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Grupos 2D</div>
+    <div class="menu--section--description">Visualização do Espaço Latente</div>
+    {% include radio-item.html id="cluster-2d--sorter--enable" name="sorter-type" value="cluster-2d" label="selecionar" %}
+    <div class="menu--section--items disable" id="cluster-2d--filter-items">
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Datas x Cores</div>
+    <div class="menu--section--description">Organização por cores e ano</div>
+    {% include radio-item.html id="date-color--sorter--enable" name="sorter-type" value="date-color" label="selecionar" %}
+    <div class="menu--section--items disable" id="date-color--filter-items">
+  </section>
+</nav>
+
+<link rel="stylesheet" href="{{ 'css/sorters.css' | relative_url }}" type="text/css" />
+<script src="{{ 'js/sorters.js' | relative_url }}"></script>
