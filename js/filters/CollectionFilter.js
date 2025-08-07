@@ -8,7 +8,14 @@ class CollectionFilter extends Filter {
     }
   }
 
-  filter(inputIds) {
-    // TODO: filter based on checkboxes
+  filterData(inIdsSet) {
+    const selectedVals = this.inputs.filter(el => el.checked).map(el => el.value);
+
+    if (selectedVals.length < 1) {
+      return inIdsSet;
+    }
+
+    const selectedIdsSet = selectedVals.reduce((acc, val) => acc.union(new Set(this.data[val])), new Set());
+    return inIdsSet.intersection(selectedIdsSet);
   }
 }

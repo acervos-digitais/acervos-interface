@@ -31,8 +31,4 @@ class Filter {
     this.itemsEl.appendChild(wrapperEl);
     this.inputs.push(inputEl);
   }
-
-  filter(inputIdsSet) {
-    // TODO: filter Ids
-  }
 }

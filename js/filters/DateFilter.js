@@ -6,16 +6,13 @@ class DateFilter extends Filter {
     this.filterDataEvent = new CustomEvent("filter-data", this.evtOpt);
 
     const minEl = document.createElement("input");
-    minEl.type = "number";
-    minEl.value = data.min;
-    minEl.min = data.min;
-    minEl.max = data.max;
-
     const maxEl = document.createElement("input");
+
+    minEl.type = "number";
     maxEl.type = "number";
-    maxEl.value = data.max;
-    maxEl.min = data.min;
-    maxEl.max = data.max;
+
+    this.inputs = { minEl, maxEl };
+    this.setLimits(data.min, data.max);
 
     minEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
     maxEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
@@ -24,11 +21,39 @@ class DateFilter extends Filter {
     this.itemsEl.appendChild(maxEl);
   }
 
-  update(inputIds) {
-    // TODO: update min-min and max-max
+  setLimits(minVal, maxVal) {
+    this.inputs.minEl.value = minVal;
+    this.inputs.minEl.min = minVal;
+    this.inputs.minEl.max = maxVal;
+
+    this.inputs.maxEl.value = maxVal;
+    this.inputs.maxEl.min = minVal;
+    this.inputs.maxEl.max = maxVal;
   }
 
-  filter(inputIds) {
-    // TODO: filter based on min/max
+  getMinMax(inIdsSet) {
+    const inYears = Array.from(inIdsSet).filter(x => x in this.data.idsYears).map(x => this.data.idsYears[x]);
+    const inMin = Math.min(...inYears);
+    const inMax = Math.max(...inYears);
+    return [inMin, inMax];
+  }
+
+  update(inIdsSet) {
+    const [inMin, inMax] = this.getMinMax(inIdsSet);
+    this.setMinMaxValsLimits(inMin, inMax);
+  }
+
+  filterData(inIdsSet) {
+    const minVal = this.inputs.minEl.valueAsNumber;
+    const maxVal = this.inputs.maxEl.valueAsNumber;
+    const between = (id) => (this.data.idsYears[id] >= minVal && this.data.idsYears[id] <= maxVal);
+
+    const [inMin, inMax] = this.getMinMax(inIdsSet);
+    if (minVal < inMin || maxVal > inMax) {
+      return inIdsSet;
+    }
+
+    const selectedIdsSet = new Set(Object.keys(this.data.idsYears).filter(between));
+    return inIdsSet.intersection(selectedIdsSet);
   }
 }

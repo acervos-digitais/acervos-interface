@@ -19,11 +19,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filterMenuEl = document.getElementById("filter-menu");
   const sorterMenuEl = document.getElementById("sorter--menu");
 
-  const mFilterMenu = new FilterMenu(menuData);
-  const mSorterMenu = new SorterMenu(metaData);
+  const mFilters = new FilterMenu(menuData);
+  const mSorters = new SorterMenu(metaData);
+
+  const allIdsSet = new Set(Object.keys(metaData));
 
   filterMenuEl.addEventListener("filter-data", (evt) => {
-    // TODO: filter data based on filter menu
-    console.log("heard filter-data", evt.detail);
+    const validIds = mFilters.filter(allIdsSet, !evt.detail.fromDate);
   });
 });

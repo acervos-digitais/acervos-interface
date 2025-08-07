@@ -56,22 +56,23 @@ function createMenuData(metaData, clusterData) {
     }
   }
 
-  for (const labelList of clusterData[8].clusters.descriptions.gemma3.pt) {
-    menuData.clusters.push({
-      label: labelList.join(", "),
-      idxs: []
-    });
-  }
+  menuData.clusters.labels = clusterData[8].clusters.descriptions.gemma3.pt.map(x => x.join(", "));
+  menuData.clusters.ids = new Array(8).fill(null).map(() => []);
 
   for (const [id, { cluster, distances }] of Object.entries(clusterData[8].images)) {
-    menuData.clusters[cluster].idxs.push(id);
+    menuData.clusters.ids[cluster].push(id);
   }
 
-  const cleanYears = Object.values(metaData).map(x => x.year).filter(x => x != 9999);
   const nowYear = new Date().getFullYear();
+  const idsYears = Object.values(metaData).map(x => [x.id, x.year]).filter(x => x[1] <= nowYear);
+  const allYears = idsYears.map(x => x[1]);
 
-  menuData.dates.min = Math.min(...cleanYears);
-  menuData.dates.max = Math.min(nowYear, Math.max(...cleanYears));
+  menuData.dates.min = Math.min(...allYears);
+  menuData.dates.max = Math.max(...allYears);
+  menuData.dates.idsYears = idsYears.reduce((acc, [id, year]) => {
+    acc[id] = year;
+    return acc;
+  }, {});
 
   return menuData;
 }

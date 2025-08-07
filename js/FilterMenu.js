@@ -37,7 +37,17 @@ class FilterMenu {
     });
   }
 
-  filter(inputIdxsSet) {
+  filter(inIdsSet, updateDateRange) {
+    // TODO: reduce all except date
+    //       update (or not) date range
+    //       filter by date
 
+    const catIdsSet = this.categoryFilter.filterData(inIdsSet);
+    const cluIdsSet = this.clusterFilter.filterData(inIdsSet);
+    const colIdsSet = this.collectionFilter.filterData(inIdsSet);
+    const dateIdsSet = this.dateFilter.filterData(inIdsSet);
+    const objIdsSet = this. objectFilter.filterData(inIdsSet);
+
+    console.log(catIdsSet.size, cluIdsSet.size, colIdsSet.size, dateIdsSet.size, objIdsSet.size);
   }
 }
