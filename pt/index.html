@@ -5,14 +5,22 @@
 <html lang="en">
   <head>
     {% include head.html %}
+    <script src="{{ 'js/filters/Filter.js' | relative_url }}"></script>
+    <script src="{{ 'js/filters/CategoryFilter.js' | relative_url }}"></script>
+    <script src="{{ 'js/filters/CollectionFilter.js' | relative_url }}"></script>
+    <script src="{{ 'js/filters/ClusterFilter.js' | relative_url }}"></script>
+    <script src="{{ 'js/filters/DateFilter.js' | relative_url }}"></script>
+    <script src="{{ 'js/filters/ObjectFilter.js' | relative_url }}"></script>
+
+    <script src="{{ 'js/menu.js' | relative_url }}"></script>
     <script src="{{ 'js/load_utils.js' | relative_url }}"></script>
     <script src="{{ 'js/load.js' | relative_url }}"></script>
   </head>
 
   <body>
-    <div class="red">hi</div>
+    <div class="image-nav"></div>
     {% include menu.html %}
-    {% include menu/filters.html %}
-    {% include menu/sorters.html %}
+    {% include menu/filter-menu.html %}
+    {% include menu/sorter-menu.html %}
   </body>
 </html>

@@ -10,38 +10,37 @@
     <div class="menu--section--title">Acervos</div>
     <div class="menu--section--description">Escolha quais acervos incluir</div>
     {% include checkbox-item.html id="collection--filter--enable" label="habilitar" %}
-    <div class="menu--section--items disable" id="collection--filter-items">
-    </div>
+    <div class="menu--section--items disabled" id="collection--filter--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Técnicas</div>
     <div class="menu--section--description">Escolha o tipo de objeto ou técnica</div>
-    {% include checkbox-item.html id="categories--filter--enable" label="habilitar" %}
-    <div class="menu--section--items disable" id="categories--filter-items">
+    {% include checkbox-item.html id="category--filter--enable" label="habilitar" %}
+    <div class="menu--section--items disabled" id="category--filter--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Datas</div>
     <div class="menu--section--description">Selecione limite de data por ano de criação</div>
     {% include checkbox-item.html id="date--filter--enable" label="habilitar" %}
-    <div class="menu--section--items disable" id="date--filter-items">
+    <div class="menu--section--items disabled" id="date--filter--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Grupos</div>
     <div class="menu--section--description">Selecione uma das sub-categorias sugeridas por IA</div>
     {% include checkbox-item.html id="cluster--filter--enable" label="habilitar" %}
-    <div class="menu--section--items disable" id="cluster--filter-items">
+    <div class="menu--section--items disabled" id="cluster--filter--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Fauna e Flora</div>
     <div class="menu--section--description">Selecione objetos</div>
-    {% include checkbox-item.html id="objects--filter--enable" label="habilitar" %}
-    <div class="menu--section--items disable" id="objects--filter-items">
+    {% include checkbox-item.html id="object--filter--enable" label="habilitar" %}
+    <div class="menu--section--items disabled" id="object--filter--items"></div>
   </section>
 </nav>
 
-<link rel="stylesheet" href="{{ 'css/filters.css' | relative_url }}" type="text/css" />
-<script src="{{ 'js/filters.js' | relative_url }}"></script>
+<link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
+<script src="{{ 'js/FilterMenu.js' | relative_url }}"></script>

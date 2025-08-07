@@ -25,8 +25,9 @@ function createMenuData(metaData, clusterData) {
   const menuData = {
     categories: {},
     collections: {},
+    clusters: [],
+    dates: {},
     objects: {},
-    clusters: []
   };
   
   for (const id of Object.keys(metaData)) {
@@ -65,6 +66,12 @@ function createMenuData(metaData, clusterData) {
   for (const [id, { cluster, distances }] of Object.entries(clusterData[8].images)) {
     menuData.clusters[cluster].idxs.push(id);
   }
+
+  const cleanYears = Object.values(metaData).map(x => x.year).filter(x => x != 9999);
+  const nowYear = new Date().getFullYear();
+
+  menuData.dates.min = Math.min(...cleanYears);
+  menuData.dates.max = Math.min(nowYear, Math.max(...cleanYears));
 
   return menuData;
 }

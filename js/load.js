@@ -6,11 +6,21 @@ const clusterDataP = fetchData(CLUSTER_DATA_URL);
 
 let metaData = null;
 let clusterData = null;
-
 let menuData = null;
 
 document.addEventListener("DOMContentLoaded", async () => {
   metaData = await metaDataP;
   clusterData = await clusterDataP;
   menuData = createMenuData(metaData, clusterData);
+
+  const filterMenuEl = document.getElementById("filters--menu");
+  const sorterMenuEl = document.getElementById("sorter--menu");
+
+  const mFilterMenu = new FilterMenu(menuData);
+  // TODO: init order menu
+
+  filterMenuEl.addEventListener("filter-data", (evt) => {
+    // TODO: filter data based on filter menu
+    console.log("heard filter-data", evt.detail);
+  });
 });

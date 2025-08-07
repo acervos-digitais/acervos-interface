@@ -6,7 +6,8 @@
   top: 0;
   left: 0;
   z-index: 10;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 500px;
 
   background-color: var(--bg-color);
   transition: left 0.33s linear;
@@ -31,12 +32,18 @@
 }
 
 .common--menu {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: -500px;
   min-width: 300px;
   max-width: 500px;
+  max-height: 100vh;
   padding: 20px;
+  overflow: auto;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
 
   background-color: var(--bg-color);
   transition: left 0.33s linear;
@@ -83,14 +90,38 @@
       margin: 8px 0;
     }
   
-    .checkbox--item label,
-    .radio--item label {
-      user-select: none;
+    .checkbox--item,
+    .radio--item {
+      display: flex;
+
+      input {
+        width: 0;
+        cursor: pointer;
+      }
+
+      label {
+        padding: 4px 6px;
+        border: 1px solid var(--txt-color);
+        border-radius: 10px;
+        user-select: none;
+        cursor: pointer;
+      }
+
+      input:checked + label {
+        background-color: var(--bg-color-hl);
+      }
     }
-  
-    .menu--section--items.disable {
-      opacity: 50;
-      pointer-events: none;
+
+    .menu--section--items {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px 6px;
+
+      &.disabled {
+        opacity: 50%;
+        pointer-events: none;
+      }
     }
   }  
 }
