@@ -3,26 +3,7 @@ class ClusterFilter extends Filter {
     super(data, menuId, enabledId, itemsId);
 
     for (let clusterIdx = 0; clusterIdx < data.length; clusterIdx++) {
-      const wrapperEl = document.createElement("div");
-      wrapperEl.classList.add("radio--item");
-
-      const inputEl = document.createElement("input");
-      inputEl.type = "radio";
-      inputEl.name = "cluster--radio";
-      inputEl.id = `cluster--${clusterIdx}--radio`;
-      inputEl.value = `${clusterIdx}`;
-
-      inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
-
-      const labelEl = document.createElement("label");
-      labelEl.setAttribute("for", inputEl.id);
-      labelEl.innerHTML = data[clusterIdx].label;
-
-      wrapperEl.appendChild(inputEl);
-      wrapperEl.appendChild(labelEl);
-
-      this.itemsEl.appendChild(wrapperEl);
-      this.boxes.push(inputEl);
+      this.createInput("radio", `cluster--${clusterIdx}--radio`, clusterIdx, data[clusterIdx].label, "cluster--radio");
     }
   }
 

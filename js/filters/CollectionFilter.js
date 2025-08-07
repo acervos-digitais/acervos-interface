@@ -4,26 +4,7 @@ class CollectionFilter extends Filter {
 
     for (const col of Object.keys(data)) {
       const labelSlug = col.replaceAll(" ", "-").toLowerCase();
-
-      const wrapperEl = document.createElement("div");
-      wrapperEl.classList.add("checkbox--item");
-
-      const inputEl = document.createElement("input");
-      inputEl.type = "checkbox";
-      inputEl.id = `${labelSlug}--checkbox`;
-      inputEl.value = `${col}`;
-
-      inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
-
-      const labelEl = document.createElement("label");
-      labelEl.setAttribute("for", inputEl.id);
-      labelEl.innerHTML = col;
-
-      wrapperEl.appendChild(inputEl);
-      wrapperEl.appendChild(labelEl);
-
-      this.itemsEl.appendChild(wrapperEl);
-      this.boxes.push(inputEl);
+      this.createInput("checkbox", `${labelSlug}--checkbox`, col, col);
     }
   }
 
