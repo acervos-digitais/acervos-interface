@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   clusterData = await clusterDataP;
   menuData = createMenuData(metaData, clusterData);
 
-  const filterMenuEl = document.getElementById("filters--menu");
+  const filterMenuEl = document.getElementById("filter-menu");
   const sorterMenuEl = document.getElementById("sorter--menu");
 
   const mFilterMenu = new FilterMenu(menuData);
-  // TODO: init order menu
+  const mSorterMenu = new SorterMenu(metaData);
 
   filterMenuEl.addEventListener("filter-data", (evt) => {
     // TODO: filter data based on filter menu
