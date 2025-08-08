@@ -30,9 +30,10 @@ class FilterMenu {
       "object--filter--items"
     );
 
-    this.simpleFilters = [
+    this.allFilters = [
       this.collectionFilter,
       this.categoryFilter,
+      this.dateFilter,
       this.clusterFilter,
       this.objectFilter
     ];
@@ -45,13 +46,7 @@ class FilterMenu {
   }
 
   filter(inIdsSet, updateDateRange) {
-    const simpleIdsSet = this.simpleFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
-
-    if (updateDateRange) {
-      this.dateFilter.updateLimits(simpleIdsSet);
-    }
-
-    const validIdsSet = this.dateFilter.filter(simpleIdsSet);
+    const validIdsSet = this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
 
     return Array.from(validIdsSet);
   }

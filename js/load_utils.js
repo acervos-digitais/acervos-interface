@@ -64,15 +64,23 @@ function createMenuData(metaData, clusterData) {
   }
 
   const nowYear = new Date().getFullYear();
-  const idsYears = Object.values(metaData).map(x => [x.id, x.year]).filter(x => x[1] <= nowYear);
+  const idsYears = Object.values(metaData).map(x => [x.id, x.year]);
   const allYears = idsYears.map(x => x[1]);
+  const validYears = allYears.filter(x => x <= nowYear);
 
-  menuData.dates.min = Math.min(...allYears);
-  menuData.dates.max = Math.max(...allYears);
-  menuData.dates.idsYears = idsYears.reduce((acc, [id, year]) => {
-    acc[id] = year;
+  menuData.dates.min = Math.min(...validYears);
+  menuData.dates.max = Math.max(...validYears);
+  menuData.dates.maxAll = Math.max(...allYears);
+
+  const yearsIds = idsYears.reduce((acc, [id, year]) => {
+    if (!(year in acc)) {
+      acc[year] = [];
+    }
+    acc[year].push(`${id}`);
     return acc;
   }, {});
+
+  menuData.dates.yearsIds = Object.entries(yearsIds).map(([year, ids]) => ({ year: parseInt(year), ids })).toSorted((a,b) => a.year - b.year);
 
   return menuData;
 }
