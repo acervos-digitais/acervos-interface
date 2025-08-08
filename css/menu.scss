@@ -1,20 +1,22 @@
 ---
 ---
 
-.nav--menu {
+.nav-menu {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
-  min-width: 300px;
   max-width: 500px;
+  padding: 30px;
 
-  background-color: var(--bg-color);
-  transition: left 0.33s linear;
+  .menu--close--button {
+    z-index: 15;
+    transition: transform 0.15s linear;
+  }
 
   .menu--section {
     border: 1px #000 solid;
-    padding: 20px 10px;
+    padding: 10px 6px;
 
     .menu--section--title {
       font-size: 1.25rem;
@@ -29,6 +31,18 @@
       }
     }
   }
+
+  &.hidden {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    padding-top: 1.75rem;
+    overflow: hidden;
+
+    .menu--close--button {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .common--menu {
@@ -38,37 +52,13 @@
   top: 0;
   left: -500px;
   min-width: 300px;
-  max-width: 500px;
+  max-width: 450px;
   max-height: 100vh;
   padding: 20px;
   overflow: auto;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
 
-  background-color: var(--bg-color);
-  transition: left 0.33s linear;
-  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.25);
-
-  .menu--close--button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: var(--bg-color);
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--bg-color-hl);
-    }
-  }
-  
   .menu--title {
     font-size: 2rem;
   }
@@ -123,5 +113,38 @@
         pointer-events: none;
       }
     }
-  }  
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.nav-menu,
+.common--menu {
+  background-color: var(--bg-color);
+  transition: left 0.33s linear;
+  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+
+  .menu--close--button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--bg-color-hl);
+    }
+  }
 }
