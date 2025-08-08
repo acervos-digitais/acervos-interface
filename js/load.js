@@ -26,5 +26,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   filterMenuEl.addEventListener("filter-data", (evt) => {
     const validIds = mFilters.filter(allIdsSet, !evt.detail.fromDate);
+    console.log(validIds.length);
   });
 });

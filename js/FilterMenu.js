@@ -28,7 +28,14 @@ class FilterMenu {
       menuData.objects,
       "filter-menu",
       "object--filter--items"
-    )
+    );
+
+    this.simpleFilters = [
+      this.collectionFilter,
+      this.categoryFilter,
+      this.clusterFilter,
+      this.objectFilter
+    ];
 
     const menuEl = document.getElementById("filter-menu");
     const closeButton = document.getElementById("filters--close--button");
@@ -38,16 +45,14 @@ class FilterMenu {
   }
 
   filter(inIdsSet, updateDateRange) {
-    // TODO: reduce all except date
-    //       update (or not) date range
-    //       filter by date
+    const simpleIdsSet = this.simpleFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
 
-    const catIdsSet = this.categoryFilter.filterData(inIdsSet);
-    const cluIdsSet = this.clusterFilter.filterData(inIdsSet);
-    const colIdsSet = this.collectionFilter.filterData(inIdsSet);
-    const dateIdsSet = this.dateFilter.filterData(inIdsSet);
-    const objIdsSet = this. objectFilter.filterData(inIdsSet);
+    if (updateDateRange) {
+      this.dateFilter.updateLimits(simpleIdsSet);
+    }
 
-    console.log(catIdsSet.size, cluIdsSet.size, colIdsSet.size, dateIdsSet.size, objIdsSet.size);
+    const validIdsSet = this.dateFilter.filter(simpleIdsSet);
+
+    return Array.from(validIdsSet);
   }
 }

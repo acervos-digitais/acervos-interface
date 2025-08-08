@@ -38,12 +38,12 @@ class DateFilter extends Filter {
     return [inMin, inMax];
   }
 
-  update(inIdsSet) {
+  updateLimits(inIdsSet) {
     const [inMin, inMax] = this.getMinMax(inIdsSet);
-    this.setMinMaxValsLimits(inMin, inMax);
+    this.setLimits(inMin, inMax);
   }
 
-  filterData(inIdsSet) {
+  filter(inIdsSet) {
     const minVal = this.inputs.minEl.valueAsNumber;
     const maxVal = this.inputs.maxEl.valueAsNumber;
     const between = (id) => (this.data.idsYears[id] >= minVal && this.data.idsYears[id] <= maxVal);

@@ -7,7 +7,7 @@ class ClusterFilter extends Filter {
     }
   }
 
-  filterData(inIdsSet) {
+  filter(inIdsSet) {
     const selectedVals = this.inputs.filter(el => el.checked).map(x => parseInt(x.value));
 
     if (selectedVals.length < 1) {

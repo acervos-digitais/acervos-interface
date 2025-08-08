@@ -8,7 +8,7 @@ class CollectionFilter extends Filter {
     }
   }
 
-  filterData(inIdsSet) {
+  filter(inIdsSet) {
     const selectedVals = this.inputs.filter(el => el.checked).map(el => el.value);
 
     if (selectedVals.length < 1) {
