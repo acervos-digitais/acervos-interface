@@ -16,13 +16,8 @@ class CanvasArtWork {
       this.h0 = this.img.height;
     };
 
-    if (Math.random() > 0.5) {
-      this.w0 = 100;
-      this.h0 = 50 + Math.floor(Math.random() * 51);
-    } else {
-      this.w0 = 50 + Math.floor(Math.random() * 51);
-      this.h0 = 100;
-    }
+    this.w0 = 50 + Math.floor(Math.random() * 51);
+    this.h0 = 50 + Math.floor(Math.random() * 51);
 
     setTimeout(() => {
       this.img.src = `${CanvasArtWork.IMG_URL}/${id}.jpg`;
@@ -41,9 +36,22 @@ class Canvas {
     }, {});
 
     this.allArtWorks = Object.values(metaData).map(x => new CanvasArtWork(x.id));
+
+    // TODO: instantiate Drawers
+
+    this.allDrawers = {
+      // date: this.dateDrawer,
+      // color: this.colorDrawer,
+      // cluster: this.clusterDrawer,
+      // latent: this.latentDrawer,
+      // dateXcolor: this.dateXcolorDrawer
+    };
   }
 
-  draw() {
-    console.log("called draw()");
+  draw(checked) {
+    if (checked in this.allDrawers) {
+      this.allDrawers[checked].draw(this.allArtWorks);
+    }
+    console.log("call", checked, "drawer");
   }
 }

@@ -46,8 +46,6 @@ class FilterMenu {
   }
 
   filter(inIdsSet) {
-    const validIdsSet = this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
-
-    return validIdsSet;
+    return this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
   }
 }

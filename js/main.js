@@ -28,16 +28,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   filterMenuEl.addEventListener("filter-data", () => {
     mSorters.validIdsSet = mFilters.filter(allIdsSet);
     mSorters.sort(mCanvas.allArtWorks);
-    mCanvas.draw();
+    mCanvas.draw(mSorters.checked);
   });
 
   sorterMenuEl.addEventListener("sort-data", () => {
     mSorters.sort(mCanvas.allArtWorks);
-    mCanvas.draw();
+    mCanvas.draw(mSorters.checked);
   });
 
   // start
   mSorters.validIdsSet = mFilters.filter(allIdsSet);
-  mSorters.sort(mCanvas.allArtWorks);
-  mCanvas.draw();
 });

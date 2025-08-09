@@ -7,6 +7,5 @@ class Sorter {
     this.data = data;
 
     this.sortDataEvent = new CustomEvent("sort-data");
-    this.enableEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.sortDataEvent));
   }
 }
