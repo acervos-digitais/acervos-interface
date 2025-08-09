@@ -12,13 +12,17 @@
     <script src="{{ 'js/filters/DateFilter.js' | relative_url }}"></script>
     <script src="{{ 'js/filters/ObjectFilter.js' | relative_url }}"></script>
 
+    <script src="{{ 'js/sorters/Sorter.js' | relative_url }}"></script>
+    <script src="{{ 'js/sorters/DateSorter.js' | relative_url }}"></script>
+
     <script src="{{ 'js/menu.js' | relative_url }}"></script>
+    <script src="{{ 'js/Canvas.js' | relative_url }}"></script>
+
     <script src="{{ 'js/load_utils.js' | relative_url }}"></script>
     <script src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
 
   <body>
-    <div class="image-nav"></div>
     {% include menu.html %}
     {% include menu/filter-menu.html %}
     {% include menu/sorter-menu.html %}

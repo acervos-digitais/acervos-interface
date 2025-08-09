@@ -45,9 +45,9 @@ class FilterMenu {
     });
   }
 
-  filter(inIdsSet, updateDateRange) {
+  filter(inIdsSet) {
     const validIdsSet = this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
 
-    return Array.from(validIdsSet);
+    return validIdsSet;
   }
 }

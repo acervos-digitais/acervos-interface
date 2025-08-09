@@ -17,15 +17,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   menuData = createMenuData(metaData, clusterData);
 
   const filterMenuEl = document.getElementById("filter-menu");
-  const sorterMenuEl = document.getElementById("sorter--menu");
+  const sorterMenuEl = document.getElementById("sorter-menu");
 
   const mFilters = new FilterMenu(menuData);
   const mSorters = new SorterMenu(metaData);
+  const mCanvas = new Canvas(metaData);
 
   const allIdsSet = new Set(Object.keys(metaData));
 
-  filterMenuEl.addEventListener("filter-data", (evt) => {
-    const validIds = mFilters.filter(allIdsSet, !evt.detail.fromDate);
-    console.log(validIds.length);
+  filterMenuEl.addEventListener("filter-data", () => {
+    mSorters.validIdsSet = mFilters.filter(allIdsSet);
+    mSorters.sort(mCanvas.allArtWorks);
+    mCanvas.draw();
   });
+
+  sorterMenuEl.addEventListener("sort-data", () => {
+    mSorters.sort(mCanvas.allArtWorks);
+    mCanvas.draw();
+  });
+
+  // start
+  mSorters.validIdsSet = mFilters.filter(allIdsSet);
+  mSorters.sort(mCanvas.allArtWorks);
+  mCanvas.draw();
 });
