@@ -1,5 +1,5 @@
 class SorterMenu {
-  constructor(metaData) {
+  constructor(metaData, clusterData) {
     this.checked = null;
     this.validIdsSet = new Set();
     this.sortDataEvent = new CustomEvent("sort-data");
@@ -11,10 +11,24 @@ class SorterMenu {
       "date--sorter--items"
     );
 
+    this.colorSorter = new ColorSorter(
+      metaData,
+      "color--sorter--enable",
+      "sorter-menu",
+      "color--sorter--items"
+    );
+
+    this.clusterSorter = new ClusterSorter(
+      clusterData,
+      "cluster--sorter--enable",
+      "sorter-menu",
+      "cluster--sorter--items"
+    );
+
     this.allSorters = {
       date: this.dateSorter,
-      // color: this.colorSorter,
-      // cluster: this.clusterSorter,
+      color: this.colorSorter,
+      cluster: this.clusterSorter,
       // latent: this.latentSorter,
       // dateXcolor: this.dateXcolorSorter
     };
@@ -33,7 +47,7 @@ class SorterMenu {
       this.checked = evt.target.value;
       document.getElementById(`${this.checked}--sorter--items`).classList.remove("disabled");
 
-      menuEl.dispatchEvent(this.sortDataEvent)
+      menuEl.dispatchEvent(this.sortDataEvent);
     }));
   }
 

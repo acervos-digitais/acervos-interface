@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sorterMenuEl = document.getElementById("sorter-menu");
 
   const mFilters = new FilterMenu(menuData);
-  const mSorters = new SorterMenu(metaData);
+  const mSorters = new SorterMenu(metaData, clusterData);
   const mCanvas = new Canvas(metaData);
 
   const allIdsSet = new Set(Object.keys(metaData));

@@ -80,9 +80,9 @@
       margin: 8px 0;
     }
   
-    .checkbox--item,
     .radio--item {
       display: flex;
+      margin: 8px 0;
 
       input {
         width: 0;
@@ -111,6 +111,16 @@
       &.disabled {
         opacity: 50%;
         pointer-events: none;
+      }
+
+      .sorter--color-picker {
+        width: 100%;
+        height: 40px;
+        margin: -3px;
+        padding: 0;
+        border: 1px var(--bg-color) solid;
+        border-radius: 0.5rem;
+        cursor: pointer;
       }
     }
   }
