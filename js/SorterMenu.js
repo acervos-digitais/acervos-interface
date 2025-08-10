@@ -25,12 +25,19 @@ class SorterMenu {
       "cluster--sorter--items"
     );
 
+    this.dateXcolorSorter = new DateColorSorter(
+      metaData,
+      "dateXcolor--sorter--enable",
+      "sorter-menu",
+      "dateXcolor--sorter--items"
+    );
+
     this.allSorters = {
       date: this.dateSorter,
       color: this.colorSorter,
       cluster: this.clusterSorter,
       // latent: this.latentSorter,
-      // dateXcolor: this.dateXcolorSorter
+      dateXcolor: this.dateXcolorSorter
     };
 
     const menuEl = document.getElementById("sorter-menu");
@@ -51,9 +58,10 @@ class SorterMenu {
     }));
   }
 
-  sort(canvasArtWorks) {
+  sort() {
     if (this.checked in this.allSorters) {
-      this.allSorters[this.checked].sort(canvasArtWorks, this.validIdsSet);
+      return this.allSorters[this.checked].sort(this.validIdsSet);
     }
+    return [];
   }
 }

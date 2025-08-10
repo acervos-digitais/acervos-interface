@@ -31,6 +31,8 @@ class CanvasArtWork {
 
 class Canvas {
   constructor(metaData) {
+    this.sorted = [];
+
     this.metaData = Object.values(metaData).map(x => {
       const { id, creator, museum, objects, title, url, year } = x;
       return { id, creator, museum, objects, title, url, year };

@@ -38,35 +38,17 @@ class ClusterSorter extends Sorter {
     return compareDist;
   }
 
-  sort(canvasArtWorks, validIdsSet) {
+  sort(validIdsSet) {
     if (!this.enableEl.checked) return;
 
-    const numColumns = parseInt(Math.sqrt(validIdsSet.size));
-
-    const id2distances = Array.from(validIdsSet).map(id => ({
+    const idDistances = Array.from(validIdsSet).map(id => ({
       id: id,
       distances: this.data[8].images[id].distances,
     }));
 
-    const id2Order = id2distances.toSorted(this.byClusterDist(this.cluster)).reduce((acc, id, idx) => {
-      acc[`${id}`] = idx;
-      return acc;
-    }, {});
-
-    const W = 50;
-    for (const artWork of canvasArtWorks) {
-      if (!validIdsSet.has(`${artWork.id}`)) {
-        artWork.a = 0;
-        artWork.x = 0;
-        artWork.y = 0;
-      } else {
-        artWork.a = 1;
-        artWork.w = W;
-        artWork.h = W;
-
-        artWork.x = (id2Order[`${artWork.id}`] % numColumns) * W;
-        artWork.y = (id2Order[`${artWork.id}`] / numColumns) * W;
-      }
-    }
+    return idDistances.toSorted(this.byClusterDist(this.cluster)).map(({ id, distances }) => ({
+      id: id,
+      distance: distances[this.cluster]
+    }));
   }
 }

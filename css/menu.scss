@@ -80,6 +80,7 @@
       margin: 8px 0;
     }
   
+    .checkbox--item,
     .radio--item {
       display: flex;
       margin: 8px 0;
@@ -107,6 +108,10 @@
       flex-direction: row;
       flex-wrap: wrap;
       gap: 8px 6px;
+
+      .checkbox--item {
+        margin: 0;
+      }
 
       &.disabled {
         opacity: 50%;
