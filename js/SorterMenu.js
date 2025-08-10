@@ -8,7 +8,7 @@ class SorterMenu {
       date: new DateSorter(metaData),
       color: new ColorSorter(metaData),
       cluster: new ClusterSorter(clusterData),
-      // latent: new LatentSorter(metaData),
+      latent: new LatentSorter(metaData),
       dateXcolor: new DateColorSorter(metaData),
     };
 
