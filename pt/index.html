@@ -20,15 +20,16 @@
     <script src="{{ 'js/sorters/DateColorSorter.js' | relative_url }}"></script>
 
     <script src="{{ 'js/menu.js' | relative_url }}"></script>
-    <script src="{{ 'js/Canvas.js' | relative_url }}"></script>
 
     <script src="{{ 'js/load_utils.js' | relative_url }}"></script>
     <script src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
 
   <body>
+    {% include canvas.html %}
     {% include menus/nav-menu.html %}
     {% include menus/filter-menu.html %}
     {% include menus/sorter-menu.html %}
+    {% include detail-overlay.html %}
   </body>
 </html>
