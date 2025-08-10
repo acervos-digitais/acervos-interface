@@ -4,40 +4,12 @@ class SorterMenu {
     this.validIdsSet = new Set();
     this.sortDataEvent = new CustomEvent("sort-data");
 
-    this.dateSorter = new DateSorter(
-      metaData,
-      "date--sorter--enable",
-      "sorter-menu",
-      "date--sorter--items"
-    );
-
-    this.colorSorter = new ColorSorter(
-      metaData,
-      "color--sorter--enable",
-      "sorter-menu",
-      "color--sorter--items"
-    );
-
-    this.clusterSorter = new ClusterSorter(
-      clusterData,
-      "cluster--sorter--enable",
-      "sorter-menu",
-      "cluster--sorter--items"
-    );
-
-    this.dateXcolorSorter = new DateColorSorter(
-      metaData,
-      "dateXcolor--sorter--enable",
-      "sorter-menu",
-      "dateXcolor--sorter--items"
-    );
-
     this.allSorters = {
-      date: this.dateSorter,
-      color: this.colorSorter,
-      cluster: this.clusterSorter,
-      // latent: this.latentSorter,
-      dateXcolor: this.dateXcolorSorter
+      date: new DateSorter(metaData),
+      color: new ColorSorter(metaData),
+      cluster: new ClusterSorter(clusterData),
+      // latent: new LatentSorter(metaData),
+      dateXcolor: new DateColorSorter(metaData),
     };
 
     const menuEl = document.getElementById("sorter-menu");
@@ -49,10 +21,10 @@ class SorterMenu {
     const allRadio = menuEl.querySelectorAll("input[type='radio'][name='sorter-type']");
     allRadio.forEach(el => el.addEventListener("change", (evt) => {
       if (this.checked) {
-        document.getElementById(`${this.checked}--sorter--items`).classList.add("disabled");
+        document.getElementById(`sorter--${this.checked}--items`).classList.add("disabled");
       }
       this.checked = evt.target.value;
-      document.getElementById(`${this.checked}--sorter--items`).classList.remove("disabled");
+      document.getElementById(`sorter--${this.checked}--items`).classList.remove("disabled");
 
       menuEl.dispatchEvent(this.sortDataEvent);
     }));

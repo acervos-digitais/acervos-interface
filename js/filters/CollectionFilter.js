@@ -1,6 +1,6 @@
 class CollectionFilter extends Filter {
-  constructor(data, menuId, itemsId) {
-    super(data, menuId, itemsId);
+  constructor(data) {
+    super(data, "collection");
 
     for (const col of Object.keys(data)) {
       const labelSlug = col.replaceAll(" ", "-").toLowerCase();

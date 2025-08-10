@@ -1,25 +1,13 @@
-class DateColorSorter extends DateSorter {
-  constructor(data, enableId, menuId, itemsId) {
-    super(data, enableId, menuId, itemsId);
+class DateColorSorter extends Sorter {
+  constructor(data) {
+    super(data, "dateXcolor");
 
-    const wrapper = document.createElement("div");
-    wrapper.style.width = "100%";
-    const title = document.createElement("div");
-    title.innerHTML = "Selecione uma cor";
-
-    this.picker = document.createElement("input");
-    this.picker.type = "color";
-    this.picker.value = "#000";
-    this.picker.classList.add("sorter--color-picker");
+    this.picker = document.getElementById("dateXcolor--sorter--color-picker");
 
     this.picker.addEventListener("change", () => {
       this.color = ColorSorter.hexToRgb(this.picker.value);
       this.menuEl.dispatchEvent(this.sortDataEvent);
     });
-
-    wrapper.appendChild(title);
-    wrapper.appendChild(this.picker);
-    this.itemsEl.appendChild(wrapper);
 
     this.color = ColorSorter.hexToRgb(this.picker.value);
   }
@@ -27,7 +15,7 @@ class DateColorSorter extends DateSorter {
   sort(validIdsSet) {
     if (!this.enableEl.checked) return;
 
-    const byYear = super.sort(validIdsSet);
+    const byYear = DateSorter.sortByYear(validIdsSet, this.data);
 
     return byYear.map(({ year, ids }) => ({
       year,

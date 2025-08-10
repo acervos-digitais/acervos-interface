@@ -1,41 +1,11 @@
 class FilterMenu {
   constructor(menuData) {
-    this.collectionFilter = new CollectionFilter(
-      menuData.collections,
-      "filter-menu",
-      "collection--filter--items"
-    );
-
-    this.categoryFilter = new CategoryFilter(
-      menuData.categories,
-      "filter-menu",
-      "category--filter--items"
-    );
-
-    this.dateFilter = new DateFilter(
-      menuData.dates,
-      "filter-menu",
-      "date--filter--items"
-    );
-
-    this.clusterFilter = new ClusterFilter(
-      menuData.clusters,
-      "filter-menu",
-      "cluster--filter--items"
-    );
-
-    this.objectFilter = new ObjectFilter(
-      menuData.objects,
-      "filter-menu",
-      "object--filter--items"
-    );
-
     this.allFilters = [
-      this.collectionFilter,
-      this.categoryFilter,
-      this.dateFilter,
-      this.clusterFilter,
-      this.objectFilter
+      new CollectionFilter(menuData.collections),
+      new CategoryFilter(menuData.categories),
+      new DateFilter(menuData.dates),
+      new ClusterFilter(menuData.clusters),
+      new ObjectFilter(menuData.objects),
     ];
 
     const menuEl = document.getElementById("filter-menu");

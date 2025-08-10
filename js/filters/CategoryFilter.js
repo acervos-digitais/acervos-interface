@@ -1,6 +1,6 @@
 class CategoryFilter extends Filter {
-  constructor(data, menuId, itemsId) {
-    super(data, menuId, itemsId);
+  constructor(data) {
+    super(data, "category");
 
     for (const cat of Object.keys(data)) {
       const labelSlug = cat.replaceAll(" ", "-").toLowerCase();

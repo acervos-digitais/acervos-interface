@@ -1,14 +1,9 @@
 class ClusterSorter extends Sorter {
-  constructor(data, enableId, menuId, itemsId) {
-    super(data, enableId, menuId, itemsId);
+  constructor(data) {
+    super(data, "cluster");
 
-    const wrapper = document.createElement("div");
-    wrapper.style.width = "100%";
-    const title = document.createElement("div");
-    title.innerHTML = "Selecione uma curadoria";
+    this.picker = document.getElementById("cluster--sorter--cluster-picker");
 
-    this.picker = document.createElement("select");
-    this.picker.classList.add("sorter--cluster-picker");
     for (let idx = 0; idx < 8; idx++) {
       const opt = document.createElement("option");
       opt.value = idx;
@@ -21,10 +16,6 @@ class ClusterSorter extends Sorter {
       this.cluster = this.picker.selectedIndex;
       this.menuEl.dispatchEvent(this.sortDataEvent);
     });
-
-    wrapper.appendChild(title);
-    wrapper.appendChild(this.picker);
-    this.itemsEl.appendChild(wrapper);
 
     this.cluster = this.picker.selectedIndex;
   }

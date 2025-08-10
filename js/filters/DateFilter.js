@@ -1,6 +1,6 @@
 class DateFilter extends Filter {
-  constructor(data, menuId, itemsId) {
-    super(data, menuId, itemsId);
+  constructor(data) {
+    super(data, "date");
 
     const minEl = document.createElement("input");
     const maxEl = document.createElement("input");

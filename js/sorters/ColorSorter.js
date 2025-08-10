@@ -1,25 +1,13 @@
 class ColorSorter extends Sorter {
-  constructor(data, enableId, menuId, itemsId) {
-    super(data, enableId, menuId, itemsId);
+  constructor(data) {
+    super(data, "color");
 
-    const wrapper = document.createElement("div");
-    wrapper.style.width = "100%";
-    const title = document.createElement("div");
-    title.innerHTML = "Selecione uma cor";
-
-    this.picker = document.createElement("input");
-    this.picker.type = "color";
-    this.picker.value = "#000";
-    this.picker.classList.add("sorter--color-picker");
+    this.picker = document.getElementById("color--sorter--color-picker");
 
     this.picker.addEventListener("change", () => {
       this.color = ColorSorter.hexToRgb(this.picker.value);
       this.menuEl.dispatchEvent(this.sortDataEvent);
     });
-
-    wrapper.appendChild(title);
-    wrapper.appendChild(this.picker);
-    this.itemsEl.appendChild(wrapper);
 
     this.color = ColorSorter.hexToRgb(this.picker.value);
   }

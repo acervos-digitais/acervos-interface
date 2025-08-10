@@ -9,36 +9,51 @@
   <section class="menu--section">
     <div class="menu--section--title">Datas</div>
     <div class="menu--section--description">Organização por ano de criação</div>
-    {% include radio-item.html id="date--sorter--enable" name="sorter-type" value="date" label="selecionar" %}
-    <div class="menu--section--items disabled" id="date--sorter--items"></div>
+    {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="selecionar" %}
+    <div class="menu--section--items disabled" id="sorter--date--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Cores</div>
     <div class="menu--section--description">Organização por cores dominantes</div>
-    {% include radio-item.html id="color--sorter--enable" name="sorter-type" value="color" label="selecionar" %}
-    <div class="menu--section--items disabled" id="color--sorter--items"></div>
+    {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="selecionar" %}
+    <div class="menu--section--items disabled" id="sorter--color--items">
+      <div class="menu--section--item">
+        <div class="menu--section--item--title">Selecione uma cor</div>
+        <input type="color" value="#000000" class="sorter--color-picker" id="color--sorter--color-picker">
+      </div>
+    </div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Grupos</div>
     <div class="menu--section--description">Organização por sub-categorias sugeridas por IA</div>
-    {% include radio-item.html id="cluster--sorter--enable" name="sorter-type" value="cluster" label="selecionar" %}
-    <div class="menu--section--items disabled" id="cluster--sorter--items"></div>
+    {% include radio-item.html id="sorter--cluster--enable" name="sorter-type" value="cluster" label="selecionar" %}
+    <div class="menu--section--items disabled" id="sorter--cluster--items">
+      <div class="menu--section--item">
+        <div class="menu--section--item--title">Selecione uma curadoria</div>
+        <select class="sorter--dropdown" id="cluster--sorter--cluster-picker"></select>
+      </div>
+    </div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Espaço Latente</div>
     <div class="menu--section--description">Visualização do Espaço Latente</div>
-    {% include radio-item.html id="latent--sorter--enable" name="sorter-type" value="latent" label="selecionar" %}
-    <div class="menu--section--items disabled" id="latent--sorter--items"></div>
+    {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="selecionar" %}
+    <div class="menu--section--items disabled" id="sorter--latent--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Datas x Cores</div>
     <div class="menu--section--description">Organização por cores e ano</div>
-    {% include radio-item.html id="dateXcolor--sorter--enable" name="sorter-type" value="dateXcolor" label="selecionar" %}
-    <div class="menu--section--items disabled" id="dateXcolor--sorter--items"></div>
+    {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="selecionar" %}
+    <div class="menu--section--items disabled" id="sorter--dateXcolor--items">
+      <div class="menu--section--item">
+        <div class="menu--section--item--title">Selecione uma cor</div>
+        <input type="color" value="#000000" class="sorter--color-picker" id="dateXcolor--sorter--color-picker">
+      </div>
+    </div>
   </section>
 </nav>
 

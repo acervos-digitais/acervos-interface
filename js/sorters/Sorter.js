@@ -1,8 +1,8 @@
 class Sorter {
-  constructor(data, enableId, menuId, itemsId) {
-    this.enableEl = document.getElementById(enableId);
-    this.menuEl = document.getElementById(menuId);
-    this.itemsEl = document.getElementById(itemsId);
+  constructor(data, slug) {
+    this.enableEl = document.getElementById(`sorter--${slug}--enable`);
+    this.itemsEl = document.getElementById(`sorter--${slug}--items`);
+    this.menuEl = document.getElementById("sorter-menu");
 
     this.data = data;
 

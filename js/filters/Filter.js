@@ -1,7 +1,7 @@
 class Filter {
-  constructor(data, menuId, itemsId) {
-    this.menuEl = document.getElementById(menuId);
-    this.itemsEl = document.getElementById(itemsId);
+  constructor(data, slug) {
+    this.itemsEl = document.getElementById(`filter--${slug}--items`);
+    this.menuEl = document.getElementById("filter-menu");
 
     this.data = data;
     this.inputs = [];

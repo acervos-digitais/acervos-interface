@@ -1,13 +1,11 @@
 class DateSorter extends Sorter {
-  constructor(data, enableId, menuId, itemsId) {
-    super(data, enableId, menuId, itemsId);
+  constructor(data) {
+    super(data, "date");
   }
 
-  sort(validIdsSet) {
-    if (!this.enableEl.checked) return;
-
-    const year2Ids = Array.from(validIdsSet).reduce((acc, id) => {
-      const year = this.data[id].year;
+  static sortByYear(ids, data) {
+    const year2Ids = Array.from(ids).reduce((acc, id) => {
+      const year = data[id].year;
       if (!(year in acc)) {
         acc[year] = [];
       }
@@ -18,5 +16,11 @@ class DateSorter extends Sorter {
     const byYear = (a, b) => parseInt(a.year) - parseInt(b.year)
 
     return Object.entries(year2Ids).map(([year, ids]) => ({year, ids})).sort(byYear);
+  }
+
+  sort(validIdsSet) {
+    if (!this.enableEl.checked) return;
+
+    return DateSorter.sortByYear(validIdsSet, this.data);
   }
 }
