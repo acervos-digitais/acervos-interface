@@ -1,5 +1,5 @@
 class SorterMenu {
-  constructor(metaData, clusterData) {
+  constructor(metaData) {
     this.checked = null;
     this.validIdsSet = new Set();
     this.sortDataEvent = new CustomEvent("sort-data");
@@ -7,7 +7,7 @@ class SorterMenu {
     this.allSorters = {
       date: new DateSorter(metaData),
       color: new ColorSorter(metaData),
-      cluster: new ClusterSorter(clusterData),
+      cluster: new ClusterSorter(metaData),
       latent: new LatentSorter(metaData),
       dateXcolor: new DateColorSorter(metaData),
     };

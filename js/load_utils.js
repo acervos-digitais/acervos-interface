@@ -84,3 +84,13 @@ function createMenuData(metaData, clusterData) {
 
   return menuData;
 }
+
+function combineClusterData(metaData, clusterData) {
+  for (const id of Object.keys(metaData)) {
+    metaData[id].cluster = {
+      idx: clusterData[8].images[id].cluster,
+      distances: clusterData[8].images[id].distances,
+    }
+  }
+  return metaData;
+}

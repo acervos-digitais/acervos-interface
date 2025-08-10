@@ -15,12 +15,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   metaData = await metaDataP;
   clusterData = await clusterDataP;
   menuData = createMenuData(metaData, clusterData);
+  metaData = combineClusterData(metaData, clusterData);
 
   const filterMenuEl = document.getElementById("filter-menu");
   const sorterMenuEl = document.getElementById("sorter-menu");
 
   const mFilters = new FilterMenu(menuData);
-  const mSorters = new SorterMenu(metaData, clusterData);
+  const mSorters = new SorterMenu(metaData);
   const mCanvas = new Canvas(metaData);
 
   const allIdsSet = new Set(Object.keys(metaData));

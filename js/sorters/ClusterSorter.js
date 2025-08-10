@@ -34,7 +34,7 @@ class ClusterSorter extends Sorter {
 
     const idDistances = Array.from(validIdsSet).map(id => ({
       id: id,
-      distances: this.data[8].images[id].distances,
+      distances: this.data[id].cluster.distances,
     }));
 
     return idDistances.toSorted(this.byClusterDist(this.cluster)).map(({ id, distances }) => ({
