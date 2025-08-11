@@ -4,17 +4,32 @@ class DateDrawer extends Drawer {
   }
 
   draw(artWorks, sorted) {
-    console.log("called dateDrawer.draw()");
+    this.drawingEl.innerHTML = "";
 
-    // TODO: For Drawing
-    //       for each year in sorted
-    //       create a div and fill with respective artWorks
+    this.drawingEl.classList = ["canvas--drawing"];
+    this.drawingEl.classList.add("date");
 
-    // TODO: For Info
-    //       for each year, create div
-    //       fill in special ones
+    let prevYear = 0;
 
-    // TEST: put artWorks in div and clear div
-    //       then check if elements still exist in js variable
+    for (const yearId of sorted) {
+      const yearInfoEl = document.createElement("div");
+      yearInfoEl.classList.add("year-info");
+      yearInfoEl.innerHTML = yearId.year;
+
+      if (yearId.year % 5 == 0 || yearId.year - prevYear > 1) {
+        yearInfoEl.style.opacity = "1";
+      }
+      prevYear = yearId.year;
+
+      const yearContainerEl = document.createElement("div");
+      yearContainerEl.classList.add("year-container");
+      yearContainerEl.appendChild(yearInfoEl);
+
+      for (const id of yearId.ids) {
+        yearContainerEl.appendChild(artWorks[id]);
+      }
+
+      this.drawingEl.appendChild(yearContainerEl);
+    }
   }
 }

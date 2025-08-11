@@ -3,16 +3,17 @@
 
 .canvas--container {
   position: absolute;
-  top: 0;
+  top: 1.75rem;
   left: 0;
   z-index: 0;
-  width: 100%;
-  height: 100vh;
+
+  .canvas--info {
+    height: 1.75rem;
+    display: flex;
+    flex-direction: row;
+  }
 
   .canvas--drawing {
-    width: 100%;
-    height: 100%;
-
     .art--work {
       cursor: pointer;
 
@@ -26,9 +27,26 @@
         object-fit: cover;
       }
     }
-  }
 
-  .canvas--info {
-    width: 100%;
+    &.date {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 2px;
+
+      .year-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 2px;
+
+        .year-info {
+          margin-bottom: 4px;
+          border-bottom: 2px var(--txt-color) solid;
+          text-align: center;
+          opacity: 0;
+        }
+      }
+    }
   }
 }

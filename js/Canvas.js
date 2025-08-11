@@ -42,7 +42,7 @@ class Canvas {
       imageObserver.observe(mEl);
       return mEl;
     }).reduce((acc, v) => {
-      acc[v.id] = v;
+      acc[v.dataset.id] = v;
       return acc;
     }, {});
 
