@@ -25,8 +25,8 @@
       cursor: pointer;
 
       &:hover {
-        background-color: var(--bg-color-hl);
-        color: var(--txt-color-hl);
+        background-color: var(--bg-color-l);
+        color: var(--txt-color-l);
       }
     }
   }
@@ -95,6 +95,10 @@
         border-radius: 10px;
         user-select: none;
         cursor: pointer;
+
+        &:hover {
+          background-color: var(--bg-color-l);
+        }
       }
 
       input:checked + label {
@@ -171,7 +175,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--bg-color-hl);
+      background-color: var(--bg-color-l);
     }
   }
 }
