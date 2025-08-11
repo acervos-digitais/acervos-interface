@@ -49,10 +49,10 @@ class Canvas {
     // TODO: instantiate Drawers
     this.allDrawers = {
       date: new DateDrawer(),
-      // color: this.colorDrawer,
-      // cluster: this.clusterDrawer,
+      color: new ColorDrawer(),
+      cluster: new ClusterDrawer(),
       // latent: this.latentDrawer,
-      // dateXcolor: this.dateXcolorDrawer
+      dateXcolor: new DateColorDrawer(),
     };
   }
 

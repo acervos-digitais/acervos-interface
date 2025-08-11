@@ -1,4 +1,4 @@
-class DateDrawer extends Drawer {
+class DateColorDrawer extends Drawer {
   constructor() {
     super();
   }

@@ -48,5 +48,13 @@
         }
       }
     }
+
+    &.cluster,
+    &.color {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
   }
 }
