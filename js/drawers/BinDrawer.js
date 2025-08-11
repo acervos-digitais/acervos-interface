@@ -1,4 +1,4 @@
-class DateDrawer extends Drawer {
+class BinDrawer extends Drawer {
   constructor() {
     super();
   }
@@ -7,7 +7,7 @@ class DateDrawer extends Drawer {
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
-    this.drawingEl.classList.add("date");
+    this.drawingEl.classList.add("bin");
 
     let prevYear = 0;
 

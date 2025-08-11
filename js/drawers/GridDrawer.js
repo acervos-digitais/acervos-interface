@@ -1,4 +1,4 @@
-class ColorDrawer extends Drawer {
+class GridDrawer extends Drawer {
   constructor() {
     super();
   }
@@ -7,7 +7,7 @@ class ColorDrawer extends Drawer {
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
-    this.drawingEl.classList.add("color");
+    this.drawingEl.classList.add("grid");
 
     for (const { id, distance } of sorted) {
       artWorks[id].style.height = artWorks[id].style.width;

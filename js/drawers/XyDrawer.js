@@ -1,4 +1,4 @@
-class ClusterDrawer extends Drawer {
+class XyDrawer extends Drawer {
   constructor() {
     super();
   }
@@ -7,7 +7,7 @@ class ClusterDrawer extends Drawer {
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
-    this.drawingEl.classList.add("cluster");
+    this.drawingEl.classList.add("xy");
 
     for (const { id, distance } of sorted) {
       artWorks[id].style.height = artWorks[id].style.width;

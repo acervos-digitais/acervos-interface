@@ -28,7 +28,7 @@
       }
     }
 
-    &.date {
+    &.bin {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -49,12 +49,15 @@
       }
     }
 
-    &.cluster,
-    &.color {
+    &.grid {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 2px;
+    }
+
+    &.xy {
+      display: block;
     }
   }
 }

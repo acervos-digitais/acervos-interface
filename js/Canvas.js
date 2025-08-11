@@ -46,13 +46,16 @@ class Canvas {
       return acc;
     }, {});
 
-    // TODO: instantiate Drawers
+    const binDrawer = new BinDrawer();
+    const gridDrawer = new GridDrawer();
+    const xyDrawer = new XyDrawer();
+
     this.allDrawers = {
-      date: new DateDrawer(),
-      color: new ColorDrawer(),
-      cluster: new ClusterDrawer(),
-      // latent: this.latentDrawer,
-      dateXcolor: new DateColorDrawer(),
+      date: binDrawer,
+      color: gridDrawer,
+      cluster: gridDrawer,
+      latent: xyDrawer,
+      dateXcolor: binDrawer,
     };
   }
 
