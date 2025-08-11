@@ -6,16 +6,18 @@ class ObjectFilter extends Filter {
       const labelSlug = obj.replaceAll(" ", "-").toLowerCase();
       this.createInput("checkbox", `${labelSlug}--checkbox`, obj, obj);
     }
+
+    this.selectedVals = [];
   }
 
   filter(inIdsSet) {
-    const selectedVals = this.inputs.filter(el => el.checked).map(el => el.value);
+    this.selectedVals = this.inputs.filter(el => el.checked).map(el => el.value);
 
-    if (selectedVals.length < 1) {
+    if (this.selectedVals.length < 1) {
       return inIdsSet;
     }
 
-    const selectedIdsSet = selectedVals.reduce((acc, val) => acc.union(new Set(this.data[val])), new Set());
+    const selectedIdsSet = this.selectedVals.reduce((acc, val) => acc.union(new Set(this.data[val])), new Set());
     return inIdsSet.intersection(selectedIdsSet);
   }
 }

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const mSorters = new SorterMenu(metaData);
   const mCanvas = new Canvas(metaData);
   const mDetailOverlay = new DetailOverlay(metaData);
+  const mExportMenu = new ExportMenu(mDetailOverlay.data);
 
   const allIdsSet = new Set(Object.keys(metaData));
 
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     mCanvas.sorted = mSorters.sort();
     console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);
+    mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
   });
 
   // start

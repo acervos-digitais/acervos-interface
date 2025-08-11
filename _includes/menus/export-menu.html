@@ -1,0 +1,35 @@
+<nav class="export-menu common--menu" id="export-menu">
+  <button class="menu--close--button" id="export--close--button">
+    <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
+  </button>
+
+  <div class="menu--title">Salvar</div>
+  <div class="menu--description">Salve imagens....</div>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Grid</div>
+    <div class="menu--section--description">Grid de imagens</div>
+    <div class="menu--section--items disabled" id="export--grid--items">
+      <div class="checkbox--item" id="export--grid--button"><label>Exportar</label></div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Grid de Objetos</div>
+    <div class="menu--section--description">Grid de objetos</div>
+    <div class="menu--section--items disabled" id="export--objects--items">
+      <div class="checkbox--item" id="export--objects--button"><label>Exportar</label></div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Posição de Objetos</div>
+    <div class="menu--section--description">Posição de Objetos</div>
+    <div class="menu--section--items disabled" id="export--xy--items">
+      <div class="checkbox--item" id="export--xy--button"><label>Exportar</label></div>
+    </div>
+  </section>
+</nav>
+
+<link rel="stylesheet" href="{{ 'css/export-menu.css' | relative_url }}" type="text/css" />
+<script src="{{ 'js/ExportMenu.js' | relative_url }}"></script>

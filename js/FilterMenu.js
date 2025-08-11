@@ -1,11 +1,13 @@
 class FilterMenu {
   constructor(menuData) {
+    this.objectFilter = new ObjectFilter(menuData.objects);
+
     this.allFilters = [
       new CollectionFilter(menuData.collections),
       new CategoryFilter(menuData.categories),
       new DateFilter(menuData.dates),
       new ClusterFilter(menuData.clusters),
-      new ObjectFilter(menuData.objects),
+      this.objectFilter,
     ];
 
     const menuEl = document.getElementById("filter-menu");
