@@ -1,31 +1,25 @@
-class CanvasArtWork {
+class ArtWork {
   static IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/100";
   // static IMG_URL = "https://acervos-digitais.github.io/herbario-media/imgs/arts/100";
-  static loadedCnt = 0;
 
   constructor(id, ratio) {
-    this.id = id;
-    this.x = 0;
-    this.y = 0;
-    this.a = 0;
-    this.imgUrl = `${CanvasArtWork.IMG_URL}/${id}.jpg`;
+    const mEl = document.createElement("div");
+    mEl.classList.add("art--work");
+    mEl.style.width = "50px";
+    mEl.style.aspectRatio = 1 / ratio;
+    mEl.dataset.id = id;
+    mEl.dataset.src = `${ArtWork.IMG_URL}/${id}.jpg`;
 
-    this.w0 = 50;
-    this.h0 = parseInt(this.w0 * ratio);
-    this.w = this.w0;
-    this.h = this.h0;
+    const imgEl = document.createElement("img");
 
-    this.img = new Image();
-    this.img.onload = () => {
-      this.w0 = this.img.width;
-      this.h0 = this.img.height;
-      CanvasArtWork.loadedCnt += 1;
-      if (CanvasArtWork.loadedCnt % 50 == 0) console.log(CanvasArtWork.loadedCnt);
-    };
+    mEl.addEventListener("click", () => {
+      const detailOverlayEl = document.getElementById("overlay--window--detail");
+      const evtOpt = { detail: { id: `${id}` } };
+      detailOverlayEl.dispatchEvent(new CustomEvent("show-art", evtOpt));
+    });
 
-    setTimeout(() => {
-      this.img.src = `${CanvasArtWork.IMG_URL}/${id}.jpg`;
-    }, Math.floor(Math.random() * 1250));
+    mEl.appendChild(imgEl);
+    return mEl;
   }
 }
 
@@ -33,20 +27,28 @@ class Canvas {
   constructor(metaData) {
     this.sorted = [];
 
-    this.metaData = Object.values(metaData).map(x => {
-      const { id, creator, museum, objects, title, url, year } = x;
-      return { id, creator, museum, objects, title, url, year };
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let mEl = entry.target;
+          mEl.querySelector("img").setAttribute("src", mEl.dataset.src);
+          imageObserver.unobserve(mEl);
+        }
+      });
+    });
+
+    this.allArtWorks = Object.values(metaData).map(x => {
+      const mEl = new ArtWork(x.id, x.image.ratio);
+      imageObserver.observe(mEl);
+      return mEl;
     }).reduce((acc, v) => {
       acc[v.id] = v;
       return acc;
     }, {});
 
-    this.allArtWorks = Object.values(metaData).map(x => new CanvasArtWork(x.id, x.image.ratio));
-
     // TODO: instantiate Drawers
-
     this.allDrawers = {
-      // date: this.dateDrawer,
+      date: new DateDrawer(),
       // color: this.colorDrawer,
       // cluster: this.clusterDrawer,
       // latent: this.latentDrawer,
@@ -56,8 +58,7 @@ class Canvas {
 
   draw(checked) {
     if (checked in this.allDrawers) {
-      this.allDrawers[checked].draw(this.allArtWorks);
+      this.allDrawers[checked].draw(this.allArtWorks, this.sorted);
     }
-    console.log("call", checked, "drawer");
   }
 }

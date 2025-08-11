@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const mFilters = new FilterMenu(menuData);
   const mSorters = new SorterMenu(metaData);
   const mCanvas = new Canvas(metaData);
+  const mDetailOverlay = new DetailOverlay(metaData);
 
   const allIdsSet = new Set(Object.keys(metaData));
 
