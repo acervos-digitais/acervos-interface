@@ -14,7 +14,7 @@ class LatentSorter extends Sorter {
       id: id,
       x: this.data[id].embeddings.tsne2d[0],
       y: this.data[id].embeddings.tsne2d[1],
-    }));
+    })).toSorted((a,b) => (a.x + a.y) - (b.x + b.y));
 
     if (!normalize) return idXY;
 

@@ -4,6 +4,9 @@ class ExportMenu {
     this.sorted = [];
     this.objects = [];
 
+    this.gradio = null;
+    getGradioClient("acervos-digitais/herbario-mosaic-gradio").then(res => this.gradio = res);
+
     const menuEl = document.getElementById("export-menu");
     const closeButton = document.getElementById("export--close--button");
 
@@ -15,9 +18,9 @@ class ExportMenu {
     const objectsButton = document.getElementById("export--objects--button");
     const xyButton = document.getElementById("export--xy--button");
 
-    gridButton.addEventListener("click", () => this.createImage("grid"));
-    objectsButton.addEventListener("click", () => this.createImage("objects"));
-    xyButton.addEventListener("click", () => this.createImage("xy"));
+    gridButton.addEventListener("click", () => this.createImage("/grid"));
+    objectsButton.addEventListener("click", () => this.createImage("/objects"));
+    xyButton.addEventListener("click", () => this.createImage("/xy"));
   }
 
   update(sorted, objects) {
@@ -44,20 +47,26 @@ class ExportMenu {
   }
 
   prepData() {
-    console.log(this.data, this.sorted, this.objects);
-    // TODO: turn sorted into linear
-    //       map [id,id,id,...] -> [{id, boxes:[]}, {id, boxes:[]}, {id, boxes:[]},...]
+    const idKey = ("ids" in this.sorted[0]) ? "ids" : "id";
+    const orderedIds = this.sorted.map(x => x[idKey]).flat();
+
+    return orderedIds.map(id => {
+      const boxes = this.data[id].objects.filter(o => this.objects.includes(o.label)).map(o => o.box);
+      return { id, boxes }
+    });
   }
 
-  createImage(endpoint) {
+  async createImage(endpoint) {
     const data = this.prepData();
 
-    // TODO: make correct api call
-    const url = endpoint;
+    const result = await this.gradio.predict(endpoint, {
+      idObjIdxs_all: data,
+    });
+
+    const evtOpt = { detail: { url: result.data[0].url } };
 
     // TODO: trigger visualization
-    const mosaicOverlayEl = document.getElementById("mosaic-overlay--window");
-    const evtOpt = { detail: { url } };
+    // const mosaicOverlayEl = document.getElementById("mosaic-overlay--window");
     // mosaicOverlayEl.dispatchEvent(new CustomEvent("show-image", evtOpt));
   }
 }
