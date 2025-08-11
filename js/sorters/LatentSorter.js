@@ -7,7 +7,7 @@ class LatentSorter extends Sorter {
     return (v - minV) / (maxV - minV);
   }
 
-  sort(validIdsSet) {
+  sort(validIdsSet, normalize=false) {
     if (!this.enableEl.checked) return;
 
     const idXY = Array.from(validIdsSet).map(id => ({
@@ -15,6 +15,8 @@ class LatentSorter extends Sorter {
       x: this.data[id].embeddings.tsne2d[0],
       y: this.data[id].embeddings.tsne2d[1],
     }));
+
+    if (!normalize) return idXY;
 
     const allXs = idXY.map(v => v.x);
     const allYs = idXY.map(v => v.y);

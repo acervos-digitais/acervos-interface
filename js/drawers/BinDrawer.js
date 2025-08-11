@@ -26,7 +26,11 @@ class BinDrawer extends Drawer {
       yearContainerEl.appendChild(yearInfoEl);
 
       for (const id of yearId.ids) {
+        this.resetEl(artWorks[id]);
+
+        artWorks[id].style.width = "50px";
         artWorks[id].style.height = "auto";
+
         yearContainerEl.appendChild(artWorks[id]);
       }
 
