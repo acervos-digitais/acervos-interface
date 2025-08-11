@@ -1,4 +1,5 @@
+{% assign checked = include.checked | default: "" %}
 <div class="radio--item">
-  <input type="radio" id="{{ include.id }}" name="{{ include.name }}" value="{{ include.value }}">
+  <input type="radio" id="{{ include.id }}" name="{{ include.name }}" value="{{ include.value }}" {{ checked }}>
   <label for="{{ include.id }}">{{ include.label }}</label>
 </div>

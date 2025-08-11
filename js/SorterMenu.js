@@ -18,11 +18,14 @@ class SorterMenu {
       menuEl.style.left = `${-menuEl.offsetWidth - 1}px`;
     });
 
-    const allRadio = menuEl.querySelectorAll("input[type='radio'][name='sorter-type']");
+    this.checked = menuEl.querySelector("input[name='sorter-type']:checked").value;
+
+    const allRadio = menuEl.querySelectorAll("input[name='sorter-type']");
     allRadio.forEach(el => el.addEventListener("change", (evt) => {
       if (this.checked) {
         document.getElementById(`sorter--${this.checked}--items`).classList.add("disabled");
       }
+
       this.checked = evt.target.value;
       document.getElementById(`sorter--${this.checked}--items`).classList.remove("disabled");
 
