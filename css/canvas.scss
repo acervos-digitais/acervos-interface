@@ -2,16 +2,9 @@
 ---
 
 .canvas--container {
-  position: absolute;
-  top: 1.75rem;
-  left: 0;
+  position: relative;
+  margin-top: 2rem;
   z-index: 0;
-
-  .canvas--info {
-    height: 1.75rem;
-    display: flex;
-    flex-direction: row;
-  }
 
   .canvas--drawing {
     .art--work {
