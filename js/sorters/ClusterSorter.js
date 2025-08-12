@@ -1,13 +1,13 @@
 class ClusterSorter extends Sorter {
-  constructor(data) {
+  constructor(data, labels) {
     super(data, "cluster");
 
     this.picker = document.getElementById("cluster--sorter--cluster-picker");
 
-    for (let idx = 0; idx < 8; idx++) {
+    for (let idx = 0; idx < labels.length; idx++) {
       const opt = document.createElement("option");
       opt.value = idx;
-      opt.innerHTML = `Cluster ${idx}`;
+      opt.innerHTML = `${labels[idx].split(",")[0]}`;
       this.picker.appendChild(opt);
     }
     this.picker.selectedIndex = 0

@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const mMenu = new NavMenu();
   const mFilters = new FilterMenu(menuData);
-  const mSorters = new SorterMenu(metaData);
+  const mSorters = new SorterMenu(metaData, menuData);
   const mCanvas = new Canvas(metaData);
   const mDetailOverlay = new DetailOverlay(metaData);
   const mExportMenu = new ExportMenu(mDetailOverlay.data);
