@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filterMenuEl = document.getElementById("filter-menu");
   const sorterMenuEl = document.getElementById("sorter-menu");
 
+  const detailOverlayEl = document.getElementById("detail-overlay--background");
+
   const mMenu = new NavMenu();
   const mFilters = new FilterMenu(menuData);
   const mSorters = new SorterMenu(metaData);
@@ -39,6 +41,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);
     mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
+  });
+
+  detailOverlayEl.addEventListener("show-detail", (evt) => {
+    mDetailOverlay.populateOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
+    detailOverlayEl.classList.remove("hide");
   });
 
   // start

@@ -1,10 +1,25 @@
-<div class="overlay--background" id="overlay--background--detail">
-  <div class="overlay--window" id="overlay--window--detail">
-    <button class="overlay--close--button" id="overlay--close--button--detail">
+<div class="overlay--background hide" id="detail-overlay--background">
+  <div class="overlay--window" id="detail-overlay--window">
+    <button class="overlay--close--button" id="detail-overlay--close--button">
       <img src="{{ 'assets/icon_close.svg' | relative_url }}"/>
     </button>
 
-    <div class="a">??</div>
+    <div class="overlay--image--wrapper">
+      <img src="" class="overlay--image" id="detail-overlay--image">
+      <div class="overlay--boxes" id="detail-overlay--boxes"></div>
+    </div>
+
+    <div class="overlay--colors" id="detail-overlay--colors"></div>
+
+    <div class="overlay--info" id="detail-overlay--info">
+      <div class="overlay--info--section">
+        <span class="overlay--info--text" id="detail-overlay--title--text"></span>
+      </div>
+      <div class="overlay--info--section">
+        Coleção: <span class="overlay--info--text" id="detail-overlay--collection--text"></span>
+      </div>
+      <a class="overlay--info--link" id="detail-overlay--info--link" target="_blank">Mais informações</a>
+    </div>
   </div>
 </div>
 
