@@ -10,9 +10,24 @@ class DetailOverlay {
       return acc;
     }, {});
 
+    const backgroundEl = document.getElementById("detail-overlay--background");
+    const windowEl = document.getElementById("detail-overlay--window");
     const closeButton = document.getElementById("detail-overlay--close--button");
+
     closeButton.addEventListener("click", () => {
-      document.getElementById("detail-overlay--background").classList.add("hide");
+      backgroundEl.classList.add("hide");
+    });
+
+    backgroundEl.addEventListener("click", (evt) => {
+      if (!windowEl.contains(evt.target)) {
+        backgroundEl.classList.add("hide");
+      }
+    });
+
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        backgroundEl.classList.add("hide");
+      }
     });
   }
 
