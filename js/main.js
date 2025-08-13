@@ -41,24 +41,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const allIdsSet = new Set(Object.keys(metaData));
 
-  filterMenuEl.addEventListener("filter-data", () => {
+  filterMenuEl.addEventListener("xfilter-data", () => {
     mSorters.validIdsSet = mFilters.filter(allIdsSet);
     sorterMenuEl.dispatchEvent(mSorters.sortDataEvent);
   });
 
-  sorterMenuEl.addEventListener("sort-data", () => {
+  sorterMenuEl.addEventListener("xsort-data", () => {
     mCanvas.sorted = mSorters.sort();
     console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);
     mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
   });
 
-  detailOverlayEl.addEventListener("show-detail", (evt) => {
+  detailOverlayEl.addEventListener("xshow-detail", (evt) => {
     mDetailOverlay.populateDetailOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
     detailOverlayEl.classList.remove("hide");
   });
 
-  detailOverlayEl.addEventListener("show-image", (evt) => {
+  detailOverlayEl.addEventListener("xshow-image", (evt) => {
     mDetailOverlay.populateMosaicOverlay(evt.detail.url);
     detailOverlayEl.classList.remove("hide");
   });
