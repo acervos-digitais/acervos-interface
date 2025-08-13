@@ -12,8 +12,8 @@ class GridDrawer extends Drawer {
     for (const { id, distance } of sorted) {
       this.resetEl(artWorks[id]);
 
-      artWorks[id].style.width = "50px";
-      artWorks[id].style.height = artWorks[id].style.width;
+      artWorks[id].style.aspectRatio = `1 / 1`;
+      artWorks[id].style.width = `calc((100% - 48px) / 25)`;
 
       this.drawingEl.appendChild(artWorks[id]);
     }

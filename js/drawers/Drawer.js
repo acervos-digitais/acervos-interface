@@ -5,6 +5,6 @@ class Drawer {
   }
 
   resetEl(el) {
-    ["width", "height", "top", "left", "position"].forEach(s => el.style[s] = "unset");
+    ["aspectRatio", "width", "top", "left", "position"].forEach(s => el.style[s] = "unset");
   }
 }

@@ -28,8 +28,8 @@ class BinDrawer extends Drawer {
       for (const id of yearId.ids) {
         this.resetEl(artWorks[id]);
 
+        artWorks[id].style.aspectRatio = `${artWorks[id].dataset.ratio}`;
         artWorks[id].style.width = "50px";
-        artWorks[id].style.height = "auto";
 
         yearContainerEl.appendChild(artWorks[id]);
       }

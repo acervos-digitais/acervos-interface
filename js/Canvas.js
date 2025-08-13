@@ -7,6 +7,7 @@ class ArtWork {
     mEl.classList.add("art--work");
     mEl.style.width = "50px";
     mEl.style.aspectRatio = 1 / ratio;
+    mEl.dataset.ratio = 1 / ratio;
     mEl.dataset.id = id;
     mEl.dataset.src = `${ArtWork.IMG_URL}/${id}.jpg`;
 
