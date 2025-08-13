@@ -42,8 +42,9 @@ class DetailOverlay {
     const collectionEl = document.getElementById("detail-overlay--collection--text");
     const linkEl = document.getElementById("detail-overlay--info--link");
 
+    const titleText = data.title == "" ? "Sem Título" : data.title;
     const yearText = (data.year == 9999) ? "Sem Data" : `${data.year}`;
-    const creatorText = data.creator.includes("http") || data.creator.includes("known") ? "Autoria Desconhecida" : `${data.creator}`;
+    const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator == "" ? "Autoria Desconhecida" : `${data.creator}`;
 
     boxesEl.innerHTML = "";
     colorsEl.innerHTML = "";
@@ -78,7 +79,7 @@ class DetailOverlay {
       colorsEl.appendChild(colorEl);
     });
 
-    titleEl.innerHTML = `${data.title} (${yearText})<br>${creatorText}`;
+    titleEl.innerHTML = `${titleText} (${yearText})<br>${creatorText}`;
     collectionEl.innerHTML = `${data.museum}`;
     linkEl.setAttribute("href", data.url);
   }

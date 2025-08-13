@@ -22,7 +22,6 @@
     }
 
     &.bin {
-      margin-top: 2rem;
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -30,7 +29,7 @@
 
       .year-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         flex-wrap: nowrap;
         gap: 2px;
 

@@ -17,5 +17,6 @@ class GridDrawer extends Drawer {
 
       this.drawingEl.appendChild(artWorks[id]);
     }
+    window.scrollTo(0, 0);
   }
 }

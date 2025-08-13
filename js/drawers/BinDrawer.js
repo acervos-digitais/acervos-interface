@@ -36,5 +36,6 @@ class BinDrawer extends Drawer {
 
       this.drawingEl.appendChild(yearContainerEl);
     }
+    window.scrollTo(0, document.body.scrollHeight);
   }
 }
