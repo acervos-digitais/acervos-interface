@@ -1,0 +1,91 @@
+<nav class="sorter-menu common--menu" id="other-menu">
+  <button class="menu--close--button" id="other--close--button">
+    <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
+  </button>
+
+  <div class="menu--title">Visualizações</div>
+  <div class="menu--description">Escolha abaixo como visualizar o conteúdo selecionado</div>
+
+  <section class="menu--section">
+    {% include radio-item.html id="other--date--enable" name="other-type" value="date" label="Datas" checked="checked" %}
+    <div class="menu--section--description">Organização por ano de criação</div>
+    <div class="menu--section--items disabled" id="other--date--items"></div>
+  </section>
+
+  <section class="menu--section">
+    {% include radio-item.html id="other--color--enable" name="other-type" value="color" label="Cores" %}
+    <div class="menu--section--description">Organização por cores dominantes</div>
+    <div class="menu--section--items disabled" id="other--color--items">
+      <div class="menu--section--item">
+        <div class="menu--section--item--title">Selecione uma cor</div>
+        <input type="color" value="#000000" class="sorter--color-picker" id="other--color--sorter--color-picker">
+      </div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    {% include radio-item.html id="other--cluster--enable" name="other-type" value="cluster" label="Grupos" %}
+    <div class="menu--section--description">Organização por sub-categorias sugeridas por IA</div>
+    <div class="menu--section--items disabled" id="other--cluster--items">
+      <div class="menu--section--item">
+        <div class="menu--section--item--title">Selecione uma curadoria</div>
+        <select class="sorter--dropdown" id="other--cluster--sorter--cluster-picker"></select>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    {% include radio-item.html id="other--latent--enable" name="other-type" value="latent" label="Espaço Latente" %}
+    <div class="menu--section--description">Visualização do Espaço Latente</div>
+    <div class="menu--section--items disabled" id="other--latent--items"></div>
+  </section>
+
+  <section class="menu--section">
+    {% include radio-item.html id="other--dateXcolor--enable" name="other-type" value="dateXcolor" label="Datas e Cores" %}
+    <div class="menu--section--description">Organização por cores e ano</div>
+    <div class="menu--section--items disabled" id="other--dateXcolor--items">
+      <div class="menu--section--item">
+        <div class="menu--section--item--title">Selecione uma cor</div>
+        <input type="color" value="#000000" class="sorter--color-picker" id="other--dateXcolor--sorter--color-picker">
+      </div>
+    </div>
+  </section>
+
+  <div class="menu--title">Mosaicos</div>
+  <div class="menu--description">Gere imagens a partir dos filtros selecionados.</div>
+
+  <section class="menu--section">
+    <div class="menu--section--description">Grid de imagens na ordem da visualização.</div>
+    <div class="menu--section--items disabled" id="export--grid--items">
+      <div class="checkbox--item" id="export--grid--button"><label>Grid</label></div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--description">Grid de recorte de objetos selecionados.</div>
+    <div class="menu--section--items disabled" id="export--objects--items">
+      <div class="checkbox--item" id="export--objects--button"><label>Grid de Objetos</label></div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--description">Composição com recorte de objetos em suas posições.</div>
+    <div class="menu--section--items disabled" id="export--xy--items">
+      <div class="checkbox--item" id="export--xy--button"><label>Composição de Objetos</label></div>
+    </div>
+  </section>
+</nav>
+
+<style>
+  #other-menu {
+    left: unset;
+    right: 0;
+  }
+
+  #other-menu .menu--close--button {
+    right: unset;
+    left: 0;
+    transform-origin: center center;
+    transform: rotate(180deg);
+  }
+</style>

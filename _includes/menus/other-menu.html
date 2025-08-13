@@ -1,0 +1,68 @@
+<nav class="other-menu" id="other-menu">
+  <div class="section" id="sorter--section">
+    <button class="item">
+      <span class="tooltip">Explicação, etc</span>
+      Datas
+    </button>
+    <button class="item">Cores</button>
+    <button class="item">Espaço Latente</button>
+  </div>
+  <div class="section" id="export--section">
+    <button class="item">Grid</button>
+    <button class="item">Grid de Objetos</button>
+    <button class="item">Composição de Objetos</button>
+  </div>
+</nav>
+
+<style>
+  .other-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+    padding-right: 16px;
+  }
+
+  .other-menu .section {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 18px;
+  }
+
+  .other-menu .section .item {
+    position: relative;
+    display: block;
+    display: flex;
+    font-size: .9rem;
+    color: var(--txt-color);
+    background-color: var(--bg-color-l);
+    padding: 6px 8px;
+    border: 1px var(--txt-color) solid;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .other-menu .section .item .tooltip {
+    display: block;
+    visibility: hidden;
+    width: 200px;
+    padding: 6px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: calc(100% + 4px);
+  }
+
+  .other-menu .section .item:hover .tooltip {
+    visibility: visible;
+  }
+</style>
