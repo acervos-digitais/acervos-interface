@@ -1,3 +1,5 @@
+import { getLabel } from "../label_strings.js";
+
 class Filter {
   constructor(data, slug) {
     this.itemsEl = document.getElementById(`filter--${slug}--items`);
@@ -23,7 +25,7 @@ class Filter {
 
     const labelEl = document.createElement("label");
     labelEl.setAttribute("for", inputEl.id);
-    labelEl.innerHTML = label;
+    labelEl.innerHTML = getLabel(label);
 
     wrapperEl.appendChild(inputEl);
     wrapperEl.appendChild(labelEl);

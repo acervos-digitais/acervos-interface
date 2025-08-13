@@ -2,9 +2,9 @@ const OBJ_THOLDS = {
   bird: 0,
   dog: 0,
   horse: 0,
-  ox: 0,
+  ox: 1,
   bush: 0,
-  crops: 0,
+  crops: 1,
   flower: 0,
   fruit: 0,
   grass: 0,
@@ -19,6 +19,17 @@ const OBJ_THOLDS = {
 async function fetchData(mUrl) {
   const response = await fetch(mUrl);
   return await response.json();
+}
+
+function pruneCollections(menuData, thold=10) {
+  menuData.collections = Object.entries(menuData.collections).reduce((acc, [k, v]) => {
+    if (v.length >= thold && !k.includes("Religiosa e Tradicional")) {
+      acc[k] = v;
+    }
+
+    return acc;
+  }, {});
+  return menuData;
 }
 
 function createMenuData(metaData, clusterData) {
@@ -56,7 +67,8 @@ function createMenuData(metaData, clusterData) {
     }
   }
 
-  menuData.clusters.labels = clusterData[8].clusters.descriptions.gemma3.pt.map(x => x.join(", "));
+  const lang = window.location.href.includes("en") ? "en" : "pt";
+  menuData.clusters.labels = clusterData[8].clusters.descriptions.gemma3[lang].map(x => x.join(", "));
   menuData.clusters.ids = new Array(8).fill(null).map(() => []);
 
   for (const [id, { cluster, distances }] of Object.entries(clusterData[8].images)) {
@@ -82,7 +94,7 @@ function createMenuData(metaData, clusterData) {
 
   menuData.dates.yearsIds = Object.entries(yearsIds).map(([year, ids]) => ({ year: parseInt(year), ids })).toSorted((a,b) => a.year - b.year);
 
-  return menuData;
+  return pruneCollections(menuData);
 }
 
 function combineClusterData(metaData, clusterData) {

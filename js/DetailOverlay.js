@@ -1,3 +1,5 @@
+import { getLabel } from "./label_strings.js";
+
 class DetailOverlay {
   static IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/500";
 
@@ -42,9 +44,9 @@ class DetailOverlay {
     const collectionEl = document.getElementById("detail-overlay--collection--text");
     const linkEl = document.getElementById("detail-overlay--info--link");
 
-    const titleText = data.title == "" ? "Sem Título" : data.title;
-    const yearText = (data.year == 9999) ? "Sem Data" : `${data.year}`;
-    const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator == "" ? "Autoria Desconhecida" : `${data.creator}`;
+    const titleText = data.title == "" ? "untitled" : data.title;
+    const yearText = (data.year == 9999) ? "undated" : `${data.year}`;
+    const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator == "" ? "unauthored" : `${data.creator}`;
 
     boxesEl.innerHTML = "";
     colorsEl.innerHTML = "";
@@ -79,8 +81,8 @@ class DetailOverlay {
       colorsEl.appendChild(colorEl);
     });
 
-    titleEl.innerHTML = `${titleText} (${yearText})<br>${creatorText}`;
-    collectionEl.innerHTML = `Coleção: ${data.museum}`;
+    titleEl.innerHTML = `${getLabel(titleText)} (${getLabel(yearText)})<br>${getLabel(creatorText)}`;
+    collectionEl.innerHTML = `${getLabel("collection")}: ${data.museum}`;
     linkEl.setAttribute("href", data.url);
   }
 
