@@ -1,5 +1,6 @@
 import { Sorter } from "./Sorter.js";
 import { ColorSorter } from "./ColorSorter.js";
+import { DateSorter } from "./DateSorter.js";
 
 class DateColorSorter extends Sorter {
   constructor(data) {
