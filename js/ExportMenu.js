@@ -62,12 +62,9 @@ class ExportMenu {
     const result = await this.gradio.predict(endpoint, {
       idBoxes_in: data,
     });
-    console.log(result.data[0].url);
 
+    const detailOverlayEl = document.getElementById("detail-overlay--background");
     const evtOpt = { detail: { url: result.data[0].url } };
-
-    // TODO: trigger visualization
-    // const mosaicOverlayEl = document.getElementById("mosaic-overlay--window");
-    // mosaicOverlayEl.dispatchEvent(new CustomEvent("show-image", evtOpt));
+    detailOverlayEl.dispatchEvent(new CustomEvent("show-image", evtOpt));
   }
 }

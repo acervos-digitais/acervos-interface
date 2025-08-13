@@ -31,7 +31,7 @@ class DetailOverlay {
     });
   }
 
-  populateOverlay(id, objects) {
+  populateDetailOverlay(id, objects) {
     const data = this.data[id];
 
     const imgEl = document.getElementById("detail-overlay--image");
@@ -80,7 +80,21 @@ class DetailOverlay {
     });
 
     titleEl.innerHTML = `${titleText} (${yearText})<br>${creatorText}`;
-    collectionEl.innerHTML = `${data.museum}`;
+    collectionEl.innerHTML = `Coleção: ${data.museum}`;
     linkEl.setAttribute("href", data.url);
+  }
+
+  populateMosaicOverlay(imgUrl) {
+    const imgEl = document.getElementById("detail-overlay--image");
+    const boxesEl = document.getElementById("detail-overlay--boxes");
+    const colorsEl = document.getElementById("detail-overlay--colors");
+
+    const titleEl = document.getElementById("detail-overlay--title--text");
+    const collectionEl = document.getElementById("detail-overlay--collection--text");
+    const linkEl = document.getElementById("detail-overlay--info--link");
+
+    [boxesEl, colorsEl, titleEl, collectionEl, linkEl].forEach(el => el.innerHTML = "");
+
+    imgEl.src = imgUrl;
   }
 }

@@ -54,6 +54,8 @@
 
       img {
         display: block;
+        object-fit: contain;
+        max-width: 80%;
       }
 
       .overlay--boxes {

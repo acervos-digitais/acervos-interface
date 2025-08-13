@@ -44,7 +44,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   detailOverlayEl.addEventListener("show-detail", (evt) => {
-    mDetailOverlay.populateOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
+    mDetailOverlay.populateDetailOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
+    detailOverlayEl.classList.remove("hide");
+  });
+
+  detailOverlayEl.addEventListener("show-image", (evt) => {
+    mDetailOverlay.populateMosaicOverlay(evt.detail.url);
     detailOverlayEl.classList.remove("hide");
   });
 
