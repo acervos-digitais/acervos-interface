@@ -1,3 +1,5 @@
+import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+
 class ExportMenu {
   constructor(metaData) {
     this.data = metaData;
@@ -5,7 +7,7 @@ class ExportMenu {
     this.objects = [];
 
     this.gradio = null;
-    getGradioClient("acervos-digitais/acervos-gradio").then(res => this.gradio = res);
+    Client.connect("acervos-digitais/acervos-gradio").then(res => this.gradio = res);
 
     const menuEl = document.getElementById("export-menu");
     const closeButton = document.getElementById("export--close--button");
@@ -68,3 +70,5 @@ class ExportMenu {
     detailOverlayEl.dispatchEvent(new CustomEvent("show-image", evtOpt));
   }
 }
+
+export { ExportMenu };

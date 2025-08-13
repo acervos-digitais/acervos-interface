@@ -32,3 +32,5 @@ class Filter {
     this.inputs.push(inputEl);
   }
 }
+
+export { Filter };

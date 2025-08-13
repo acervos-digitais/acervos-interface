@@ -1,3 +1,5 @@
+import { Drawer } from "./Drawer.js";
+
 class BinDrawer extends Drawer {
   constructor() {
     super();
@@ -39,3 +41,5 @@ class BinDrawer extends Drawer {
     window.scrollTo(0, document.body.scrollHeight);
   }
 }
+
+export { BinDrawer };

@@ -1,3 +1,5 @@
+import { Sorter } from "./Sorter.js";
+
 class ColorSorter extends Sorter {
   constructor(data) {
     super(data, "color");
@@ -59,3 +61,5 @@ class ColorSorter extends Sorter {
     }));
   }
 }
+
+export { ColorSorter };

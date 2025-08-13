@@ -1,3 +1,5 @@
+import { Sorter } from "./Sorter.js";
+
 class LatentSorter extends Sorter {
   constructor(data) {
     super(data, "latent");
@@ -33,3 +35,5 @@ class LatentSorter extends Sorter {
     }));
   }
 }
+
+export { LatentSorter };

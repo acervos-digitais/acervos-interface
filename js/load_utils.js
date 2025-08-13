@@ -94,3 +94,5 @@ function combineClusterData(metaData, clusterData) {
   }
   return metaData;
 }
+
+export { fetchData, createMenuData, combineClusterData };

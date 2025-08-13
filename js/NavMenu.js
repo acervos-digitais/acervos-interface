@@ -27,3 +27,5 @@ class NavMenu {
     });
   }
 }
+
+export { NavMenu };

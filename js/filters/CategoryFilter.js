@@ -1,3 +1,5 @@
+import { Filter } from "./Filter.js";
+
 class CategoryFilter extends Filter {
   constructor(data) {
     super(data, "category");
@@ -19,3 +21,5 @@ class CategoryFilter extends Filter {
     return inIdsSet.intersection(selectedIdsSet);
   }
 }
+
+export { CategoryFilter };

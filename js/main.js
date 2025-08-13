@@ -1,3 +1,13 @@
+import { combineClusterData, createMenuData, fetchData } from "./load_utils.js";
+
+import { ExportMenu } from "./ExportMenu.js";
+import { FilterMenu } from "./FilterMenu.js";
+import { NavMenu } from "./NavMenu.js";
+import { SorterMenu } from "./SorterMenu.js";
+
+import { Canvas } from "./Canvas.js";
+import { DetailOverlay } from "./DetailOverlay.js";
+
 // const META_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_processed.json";
 // const CLUSTER_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_clusters.json";
 

@@ -1,3 +1,5 @@
+import { Drawer } from "./Drawer.js";
+
 class GridDrawer extends Drawer {
   constructor() {
     super();
@@ -20,3 +22,5 @@ class GridDrawer extends Drawer {
     window.scrollTo(0, 0);
   }
 }
+
+export { GridDrawer };

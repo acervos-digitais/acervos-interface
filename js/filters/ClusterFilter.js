@@ -1,3 +1,5 @@
+import { Filter } from "./Filter.js";
+
 class ClusterFilter extends Filter {
   constructor(data) {
     super(data, "cluster");
@@ -18,3 +20,5 @@ class ClusterFilter extends Filter {
     return inIdsSet.intersection(selectedIdsSet);
   }
 }
+
+export { ClusterFilter };

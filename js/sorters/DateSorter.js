@@ -1,3 +1,5 @@
+import { Sorter } from "./Sorter.js";
+
 class DateSorter extends Sorter {
   constructor(data) {
     super(data, "date");
@@ -24,3 +26,5 @@ class DateSorter extends Sorter {
     return DateSorter.sortByYear(validIdsSet, this.data);
   }
 }
+
+export { DateSorter };

@@ -1,3 +1,9 @@
+import { ClusterSorter } from "./sorters/ClusterSorter.js";
+import { ColorSorter } from "./sorters/ColorSorter.js";
+import { DateSorter } from "./sorters/DateSorter.js";
+import { DateColorSorter } from "./sorters/DateColorSorter.js";
+import { LatentSorter } from "./sorters/LatentSorter.js";
+
 class SorterMenu {
   constructor(metaData, menuData) {
     this.checked = null;
@@ -40,3 +46,5 @@ class SorterMenu {
     return [];
   }
 }
+
+export { SorterMenu };

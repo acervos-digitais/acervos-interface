@@ -1,3 +1,5 @@
+import { Sorter } from "./Sorter.js";
+
 class ClusterSorter extends Sorter {
   constructor(data, labels) {
     super(data, "cluster");
@@ -43,3 +45,5 @@ class ClusterSorter extends Sorter {
     }));
   }
 }
+
+export { ClusterSorter };

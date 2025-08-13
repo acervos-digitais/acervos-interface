@@ -1,3 +1,5 @@
+import { Filter } from "./Filter.js";
+
 class DateFilter extends Filter {
   constructor(data) {
     super(data, "date");
@@ -39,3 +41,5 @@ class DateFilter extends Filter {
     return inIdsSet.intersection(selectedIdsSet);
   }
 }
+
+export { DateFilter };

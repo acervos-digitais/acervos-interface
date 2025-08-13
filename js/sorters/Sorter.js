@@ -9,3 +9,5 @@ class Sorter {
     this.sortDataEvent = new CustomEvent("sort-data");
   }
 }
+
+export { Sorter };

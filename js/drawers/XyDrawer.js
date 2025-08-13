@@ -1,3 +1,5 @@
+import { Drawer } from "./Drawer.js";
+
 class XyDrawer extends Drawer {
   constructor() {
     super();
@@ -24,3 +26,5 @@ class XyDrawer extends Drawer {
     }
   }
 }
+
+export { XyDrawer };

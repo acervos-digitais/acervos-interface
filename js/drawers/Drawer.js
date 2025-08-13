@@ -8,3 +8,5 @@ class Drawer {
     ["aspectRatio", "width", "top", "left", "position"].forEach(s => el.style[s] = "unset");
   }
 }
+
+export { Drawer };

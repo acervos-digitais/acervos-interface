@@ -1,3 +1,6 @@
+import { Sorter } from "./Sorter.js";
+import { ColorSorter } from "./ColorSorter.js";
+
 class DateColorSorter extends Sorter {
   constructor(data) {
     super(data, "dateXcolor");
@@ -23,3 +26,5 @@ class DateColorSorter extends Sorter {
     }));
   }
 }
+
+export { DateColorSorter };

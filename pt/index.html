@@ -5,28 +5,15 @@
 <html lang="en">
   <head>
     {% include head.html %}
-    <script src="{{ 'js/filters/Filter.js' | relative_url }}"></script>
-    <script src="{{ 'js/filters/CategoryFilter.js' | relative_url }}"></script>
-    <script src="{{ 'js/filters/CollectionFilter.js' | relative_url }}"></script>
-    <script src="{{ 'js/filters/ClusterFilter.js' | relative_url }}"></script>
-    <script src="{{ 'js/filters/DateFilter.js' | relative_url }}"></script>
-    <script src="{{ 'js/filters/ObjectFilter.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/export-menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/sorter-menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/overlay.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/canvas.css' | relative_url }}" type="text/css" />
 
-    <script src="{{ 'js/sorters/Sorter.js' | relative_url }}"></script>
-    <script src="{{ 'js/sorters/ClusterSorter.js' | relative_url }}"></script>
-    <script src="{{ 'js/sorters/ColorSorter.js' | relative_url }}"></script>
-    <script src="{{ 'js/sorters/DateSorter.js' | relative_url }}"></script>
-    <script src="{{ 'js/sorters/LatentSorter.js' | relative_url }}"></script>
-    <script src="{{ 'js/sorters/DateColorSorter.js' | relative_url }}"></script>
-
-    <script src="{{ 'js/drawers/Drawer.js' | relative_url }}"></script>
-    <script src="{{ 'js/drawers/BinDrawer.js' | relative_url }}"></script>
-    <script src="{{ 'js/drawers/GridDrawer.js' | relative_url }}"></script>
-    <script src="{{ 'js/drawers/XyDrawer.js' | relative_url }}"></script>
-
-    <script src="{{ 'js/gradio.js' | relative_url }}"></script>
-    <script src="{{ 'js/load_utils.js' | relative_url }}"></script>
-    <script src="{{ 'js/main.js' | relative_url }}"></script>
+    <script type="module" src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
 
   <body>

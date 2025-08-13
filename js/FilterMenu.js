@@ -1,3 +1,9 @@
+import { CategoryFilter } from "./filters/CategoryFilter.js";
+import { ClusterFilter } from "./filters/ClusterFilter.js";
+import { CollectionFilter } from "./filters/CollectionFilter.js";
+import { DateFilter } from "./filters/DateFilter.js";
+import { ObjectFilter } from "./filters/ObjectFilter.js";
+
 class FilterMenu {
   constructor(menuData) {
     this.objectFilter = new ObjectFilter(menuData.objects);
@@ -21,3 +27,5 @@ class FilterMenu {
     return this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
   }
 }
+
+export { FilterMenu };

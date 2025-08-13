@@ -98,3 +98,5 @@ class DetailOverlay {
     imgEl.src = imgUrl;
   }
 }
+
+export { DetailOverlay };
