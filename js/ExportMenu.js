@@ -5,7 +5,7 @@ class ExportMenu {
     this.objects = [];
 
     this.gradio = null;
-    getGradioClient("acervos-digitais/herbario-mosaic-gradio").then(res => this.gradio = res);
+    getGradioClient("acervos-digitais/acervos-gradio").then(res => this.gradio = res);
 
     const menuEl = document.getElementById("export-menu");
     const closeButton = document.getElementById("export--close--button");
@@ -60,8 +60,9 @@ class ExportMenu {
     const data = this.prepData();
 
     const result = await this.gradio.predict(endpoint, {
-      idObjIdxs_all: data,
+      idBoxes_in: data,
     });
+    console.log(result.data[0].url);
 
     const evtOpt = { detail: { url: result.data[0].url } };
 
