@@ -5,7 +5,8 @@ class BinDrawer extends Drawer {
     super();
   }
 
-  draw(artWorks, sorted) {
+  draw(artWorks, sorted, scale) {
+    this.art = [];
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
@@ -31,14 +32,20 @@ class BinDrawer extends Drawer {
         this.resetEl(artWorks[id]);
 
         artWorks[id].style.aspectRatio = `${artWorks[id].dataset.ratio}`;
-        artWorks[id].style.width = "50px";
+        artWorks[id].style.width = `${50 * scale}px`;
 
         yearContainerEl.appendChild(artWorks[id]);
+        this.art.push(artWorks[id]);
       }
 
       this.drawingEl.appendChild(yearContainerEl);
     }
     window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  zoom(scale) {
+    this.art.forEach(el => el.style.width = `${50 * scale}px`);
+    // TODO: year font
   }
 }
 

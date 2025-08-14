@@ -31,6 +31,8 @@ class ArtWork {
 class Canvas {
   constructor(metaData) {
     this.sorted = [];
+    this.scale = 1;
+    this.checked = null;
 
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -62,11 +64,27 @@ class Canvas {
       latent: xyDrawer,
       dateXcolor: binDrawer,
     };
+
+    const containerEl = document.getElementById("canvas--container");
+    containerEl.addEventListener("wheel", (evt) => {
+      if (!evt.shiftKey) return;
+
+      evt.preventDefault();
+      this.scale += evt.deltaY > 0 ? -0.02 : 0.02;
+
+      if (this.scale < 0.1) this.scale = 0.1;
+      if (this.scale > 24) this.scale = 24;
+
+      if (this.checked in this.allDrawers) {
+        this.allDrawers[this.checked].zoom(this.scale);
+      }
+    });
   }
 
   draw(checked) {
+    this.checked = checked;
     if (checked in this.allDrawers) {
-      this.allDrawers[checked].draw(this.allArtWorks, this.sorted);
+      this.allDrawers[checked].draw(this.allArtWorks, this.sorted, this.scale);
     }
   }
 }
