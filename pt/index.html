@@ -6,24 +6,19 @@
   <head>
     {% include head.html %}
     <link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/canvas.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/overlay.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/export-menu.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/sorter-menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/overlay.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/canvas.css' | relative_url }}" type="text/css" />
 
     <script type="module" src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
 
   <body>
     {% include canvas.html %}
-    {% include menus/nav-menu.html %}
+    {% include detail-overlay.html %}
     {% include menus/filter-menu.html %}
     {% include menus/sorter-menu.html %}
-    {% include menus/export-menu.html %}
-    {% include menus/other-menu.html %}
-    <!-- {% include menus/other-other-menu.html %} -->
-    {% include detail-overlay.html %}
   </body>
 </html>

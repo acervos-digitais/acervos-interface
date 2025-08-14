@@ -13,7 +13,7 @@ class SorterMenu {
     this.allSorters = {
       date: new DateSorter(metaData),
       color: new ColorSorter(metaData),
-      cluster: new ClusterSorter(metaData, menuData.clusters.labels),
+      // cluster: new ClusterSorter(metaData, menuData.clusters.labels),
       latent: new LatentSorter(metaData),
       dateXcolor: new DateColorSorter(metaData),
     };
@@ -21,7 +21,7 @@ class SorterMenu {
     const menuEl = document.getElementById("sorter-menu");
     const closeButton = document.getElementById("sorter--close--button");
     closeButton.addEventListener("click", () => {
-      menuEl.style.left = `${-menuEl.offsetWidth - 1}px`;
+      menuEl.classList.toggle("hidden");
     });
 
     this.checked = menuEl.querySelector("input[name='sorter-type']:checked").value;

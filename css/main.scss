@@ -14,10 +14,11 @@
   --txt-color: #444;
   --txt-color-l: #333;
   --txt-color-hl: #222;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 html, body {
   background-color: var(--bg-color);
   color: var(--txt-color);
+  font-family: "Raleway";
 }

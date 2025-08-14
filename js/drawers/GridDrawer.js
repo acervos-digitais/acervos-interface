@@ -12,7 +12,7 @@ class GridDrawer extends Drawer {
     this.drawingEl.classList = ["canvas--drawing"];
     this.drawingEl.classList.add("grid");
 
-    const numCols = parseInt(25 / scale);
+    const numCols = parseInt(16 / scale);
     const gapSum = (numCols - 1) * 2;
 
     for (const { id, distance } of sorted) {
@@ -28,7 +28,7 @@ class GridDrawer extends Drawer {
   }
 
   zoom(scale) {
-    const numCols = parseInt(25 / scale);
+    const numCols = parseInt(16 / scale);
     const gapSum = (numCols - 1) * 2;
 
     this.art.forEach(el => el.style.width = `calc((100% - ${gapSum}px) / ${numCols})`);

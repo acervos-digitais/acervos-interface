@@ -19,7 +19,7 @@ class FilterMenu {
     const menuEl = document.getElementById("filter-menu");
     const closeButton = document.getElementById("filter--close--button");
     closeButton.addEventListener("click", () => {
-      menuEl.style.left = `${-menuEl.offsetWidth - 1}px`;
+      menuEl.classList.toggle("hidden");
     });
   }
 

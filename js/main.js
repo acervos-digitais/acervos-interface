@@ -2,17 +2,16 @@ import { combineClusterData, createMenuData, fetchData } from "./load_utils.js";
 
 import { ExportMenu } from "./ExportMenu.js";
 import { FilterMenu } from "./FilterMenu.js";
-import { NavMenu } from "./NavMenu.js";
 import { SorterMenu } from "./SorterMenu.js";
 
 import { Canvas } from "./Canvas.js";
 import { DetailOverlay } from "./DetailOverlay.js";
 
-// const META_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_processed.json";
-// const CLUSTER_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_clusters.json";
+const META_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_processed.json";
+const CLUSTER_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_clusters.json";
 
-const META_DATA_URL = "../json/20250705_processed.json";
-const CLUSTER_DATA_URL = "../json/20250705_clusters.json";
+// const META_DATA_URL = "../json/20250705_processed.json";
+// const CLUSTER_DATA_URL = "../json/20250705_clusters.json";
 
 const metaDataP = fetchData(META_DATA_URL);
 const clusterDataP = fetchData(CLUSTER_DATA_URL);
@@ -32,11 +31,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const detailOverlayEl = document.getElementById("detail-overlay--background");
 
-  const mMenu = new NavMenu();
-  const mFilters = new FilterMenu(menuData);
-  const mSorters = new SorterMenu(metaData, menuData);
   const mCanvas = new Canvas(metaData);
   const mDetailOverlay = new DetailOverlay(metaData);
+  const mFilters = new FilterMenu(menuData);
+  const mSorters = new SorterMenu(metaData, menuData);
   const mExportMenu = new ExportMenu(mDetailOverlay.data);
 
   const allIdsSet = new Set(Object.keys(metaData));

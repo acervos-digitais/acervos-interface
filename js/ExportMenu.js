@@ -9,13 +9,6 @@ class ExportMenu {
     this.gradio = null;
     Client.connect("acervos-digitais/acervos-gradio").then(res => this.gradio = res);
 
-    const menuEl = document.getElementById("export-menu");
-    const closeButton = document.getElementById("export--close--button");
-
-    closeButton.addEventListener("click", () => {
-      menuEl.style.left = `${-menuEl.offsetWidth - 1}px`;
-    });
-
     const gridButton = document.getElementById("export--grid--button");
     const objectsButton = document.getElementById("export--objects--button");
     const xyButton = document.getElementById("export--xy--button");

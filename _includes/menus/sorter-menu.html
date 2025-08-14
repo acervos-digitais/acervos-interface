@@ -7,16 +7,14 @@
   <div class="menu--description">Escolha abaixo como visualizar o conteúdo selecionado</div>
 
   <section class="menu--section">
-    <div class="menu--section--title">Datas</div>
+    {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Linha do Tempo" checked="checked" %}
     <div class="menu--section--description">Organização por ano de criação</div>
-    {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="selecionar" checked="checked" %}
     <div class="menu--section--items disabled" id="sorter--date--items"></div>
   </section>
 
   <section class="menu--section">
-    <div class="menu--section--title">Cores</div>
+    {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="Organização Cromática" %}
     <div class="menu--section--description">Organização por cores dominantes</div>
-    {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="selecionar" %}
     <div class="menu--section--items disabled" id="sorter--color--items">
       <div class="menu--section--item">
         <div class="menu--section--item--title">Selecione uma cor</div>
@@ -25,34 +23,55 @@
     </div>
   </section>
 
-  <section class="menu--section">
-    <div class="menu--section--title">Grupos</div>
+  <!-- <section class="menu--section">
+    {% include radio-item.html id="sorter--cluster--enable" name="sorter-type" value="cluster" label="Curadoria" %}
     <div class="menu--section--description">Organização por sub-categorias sugeridas por IA</div>
-    {% include radio-item.html id="sorter--cluster--enable" name="sorter-type" value="cluster" label="selecionar" %}
     <div class="menu--section--items disabled" id="sorter--cluster--items">
       <div class="menu--section--item">
         <div class="menu--section--item--title">Selecione uma curadoria</div>
         <select class="sorter--dropdown" id="cluster--sorter--cluster-picker"></select>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="menu--section">
-    <div class="menu--section--title">Espaço Latente</div>
+    {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Espaço Latente" %}
     <div class="menu--section--description">Visualização do Espaço Latente</div>
-    {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="selecionar" %}
     <div class="menu--section--items disabled" id="sorter--latent--items"></div>
   </section>
 
   <section class="menu--section">
-    <div class="menu--section--title">Datas x Cores</div>
+    {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo e Organização Cromática" %}
     <div class="menu--section--description">Organização por cores e ano</div>
-    {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="selecionar" %}
     <div class="menu--section--items disabled" id="sorter--dateXcolor--items">
       <div class="menu--section--item">
         <div class="menu--section--item--title">Selecione uma cor</div>
         <input type="color" value="#000000" class="sorter--color-picker" id="dateXcolor--sorter--color-picker">
       </div>
+    </div>
+  </section>
+
+  <div class="menu--title">Mosaicos</div>
+  <div class="menu--description">Gere imagens a partir das obras selecionadas.</div>
+
+  <section class="menu--section">
+    <div class="menu--section--description">Grid de imagens na ordem da visualização.</div>
+    <div class="menu--section--items disabled" id="export--grid--items">
+      <div class="checkbox--item" id="export--grid--button"><label>Grid</label></div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--description">Grid de recorte de objetos selecionados.</div>
+    <div class="menu--section--items disabled" id="export--objects--items">
+      <div class="checkbox--item" id="export--objects--button"><label>Grid de Objetos</label></div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--description">Composição com recorte de objetos em posições relativas.</div>
+    <div class="menu--section--items disabled" id="export--xy--items">
+      <div class="checkbox--item" id="export--xy--button"><label>Composição de Objetos</label></div>
     </div>
   </section>
 </nav>
