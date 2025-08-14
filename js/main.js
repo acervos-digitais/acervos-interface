@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     sorterMenuEl.dispatchEvent(mSorters.sortDataEvent);
   });
 
-  sorterMenuEl.addEventListener("xsort-data", () => {
+  sorterMenuEl.addEventListener("sort-data", () => {
     mCanvas.sorted = mSorters.sort();
     console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);

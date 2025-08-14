@@ -58,11 +58,11 @@ class Canvas {
     const xyDrawer = new XyDrawer();
 
     this.allDrawers = {
-      date: binDrawer,
+      // date: binDrawer,
       color: gridDrawer,
-      cluster: gridDrawer,
-      latent: xyDrawer,
-      dateXcolor: binDrawer,
+      // cluster: gridDrawer,
+      // latent: xyDrawer,
+      // dateXcolor: binDrawer,
     };
 
     const containerEl = document.getElementById("canvas--container");
