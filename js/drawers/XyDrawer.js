@@ -6,7 +6,7 @@ class XyDrawer extends Drawer {
   }
 
   draw(artWorks, sorted, scale) {
-    this.art = [];
+    this.arts = [];
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
@@ -25,7 +25,7 @@ class XyDrawer extends Drawer {
       artWorks[id].style.width = `${w}px`;
 
       this.drawingEl.appendChild(artWorks[id]);
-      this.art.push(artWorks[id]);
+      this.arts.push(artWorks[id]);
     }
   }
 

@@ -6,6 +6,9 @@
   z-index: 0;
 
   .canvas--drawing {
+    width: 100%;
+    min-height: 100vh;
+
     .art--work {
       cursor: pointer;
 

@@ -6,7 +6,8 @@ class BinDrawer extends Drawer {
   }
 
   draw(artWorks, sorted, scale) {
-    this.art = [];
+    this.arts = [];
+    this.years = [];
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
@@ -18,6 +19,7 @@ class BinDrawer extends Drawer {
       const yearInfoEl = document.createElement("div");
       yearInfoEl.classList.add("year-info");
       yearInfoEl.innerHTML = yearId.year;
+      yearInfoEl.style.fontSize = `${1 * scale}rem`;
 
       if (yearId.year % 5 == 0 || yearId.year - prevYear > 1) {
         yearInfoEl.style.opacity = "1";
@@ -27,6 +29,7 @@ class BinDrawer extends Drawer {
       const yearContainerEl = document.createElement("div");
       yearContainerEl.classList.add("year-container");
       yearContainerEl.appendChild(yearInfoEl);
+      this.years.push(yearInfoEl);
 
       for (const id of yearId.ids) {
         this.resetEl(artWorks[id]);
@@ -35,7 +38,7 @@ class BinDrawer extends Drawer {
         artWorks[id].style.width = `${50 * scale}px`;
 
         yearContainerEl.appendChild(artWorks[id]);
-        this.art.push(artWorks[id]);
+        this.arts.push(artWorks[id]);
       }
 
       this.drawingEl.appendChild(yearContainerEl);
@@ -44,8 +47,8 @@ class BinDrawer extends Drawer {
   }
 
   zoom(scale) {
-    this.art.forEach(el => el.style.width = `${50 * scale}px`);
-    // TODO: year font
+    this.arts.forEach(el => el.style.width = `${50 * scale}px`);
+    this.years.forEach(el => el.style.fontSize = `${1 * scale}rem`);
   }
 }
 

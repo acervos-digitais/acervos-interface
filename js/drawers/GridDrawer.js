@@ -6,7 +6,7 @@ class GridDrawer extends Drawer {
   }
 
   draw(artWorks, sorted, scale) {
-    this.art = [];
+    this.arts = [];
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
@@ -22,7 +22,7 @@ class GridDrawer extends Drawer {
       artWorks[id].style.width = `calc((100% - ${gapSum}px) / ${numCols})`;
 
       this.drawingEl.appendChild(artWorks[id]);
-      this.art.push(artWorks[id]);
+      this.arts.push(artWorks[id]);
     }
     window.scrollTo(0, 0);
   }
@@ -31,7 +31,7 @@ class GridDrawer extends Drawer {
     const numCols = parseInt(16 / scale);
     const gapSum = (numCols - 1) * 2;
 
-    this.art.forEach(el => el.style.width = `calc((100% - ${gapSum}px) / ${numCols})`);
+    this.arts.forEach(el => el.style.width = `calc((100% - ${gapSum}px) / ${numCols})`);
   }
 }
 
