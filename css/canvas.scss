@@ -58,5 +58,14 @@
       display: block;
       position: relative;
     }
+
+    .canvas--intro {
+      max-width: 500px;
+      padding: 50px 20px;
+    }
+  }
+
+  &.menu {
+    padding-left: var(--menu-width);
   }
 }

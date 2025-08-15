@@ -3,15 +3,15 @@ class NavMenu {
     const closeButton = document.getElementById("nav--close--button");
     const filterButton = document.getElementById("menu--filter--section");
     const sorterButton = document.getElementById("menu--sorter--section");
-    const exportButton = document.getElementById("menu--export--section");
 
     const navMenu = document.getElementById("nav-menu");
     const filterMenu = document.getElementById("filter-menu");
     const sorterMenu = document.getElementById("sorter-menu");
-    const exportMenu = document.getElementById("export-menu");
+    const canvasEl = document.getElementById("canvas--container");
 
     closeButton.addEventListener("click", () => {
       navMenu.classList.toggle("hidden");
+      canvasEl.classList.toggle("menu");
     });
 
     filterButton.addEventListener("click", () => {
@@ -21,10 +21,6 @@ class NavMenu {
     sorterButton.addEventListener("click", () => {
       sorterMenu.classList.remove("hidden");
     });
-
-    // exportButton.addEventListener("click", () => {
-    //   exportMenu.style.left = "0";
-    // });
   }
 }
 

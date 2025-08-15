@@ -11,7 +11,12 @@ class Filter {
     this.filterDataEvent = new CustomEvent("filter-data", this.evtOpt);
   }
 
-  createInput(type, id, value, label, name=null) {
+  createInput(type, id, value, label, name = null) {
+    const inputEl = this.createInputNoListener(type, id, value, label, name);
+    inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
+  }
+
+  createInputNoListener(type, id, value, label, name = null) {
     const wrapperEl = document.createElement("div");
     wrapperEl.classList.add(`${type}--item`);
 
@@ -20,8 +25,6 @@ class Filter {
     inputEl.id = id;
     inputEl.value = value;
     if (name) inputEl.name = name;
-
-    inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
 
     const labelEl = document.createElement("label");
     labelEl.setAttribute("for", inputEl.id);
@@ -32,6 +35,29 @@ class Filter {
 
     this.itemsEl.appendChild(wrapperEl);
     this.inputs.push(inputEl);
+    return inputEl;
+  }
+
+  addAllNone() {
+    this.createInputNoListener("checkbox", "all--checkbox", "all", "Todos");
+    this.createInputNoListener("checkbox", "none--checkbox", "none", "Nenhum");
+
+    const noneInput = this.inputs.pop();
+    const allInput = this.inputs.pop();
+
+    allInput.addEventListener("change", () => {
+      this.inputs.forEach(el => el.checked = true);
+      allInput.checked = false;
+      noneInput.checked = false;
+      this.menuEl.dispatchEvent(this.filterDataEvent);
+    });
+
+    noneInput.addEventListener("change", () => {
+      this.inputs.forEach(el => el.checked = false);
+      allInput.checked = false;
+      noneInput.checked = false;
+      this.menuEl.dispatchEvent(this.filterDataEvent);
+    });
   }
 }
 
