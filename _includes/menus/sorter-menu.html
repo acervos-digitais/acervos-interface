@@ -1,4 +1,4 @@
-<nav class="sorter-menu common--menu" id="sorter-menu">
+<nav class="sorter-menu common--menu hidden" id="sorter-menu">
   <button class="menu--close--button" id="sorter--close--button">
     <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
   </button>
@@ -41,7 +41,7 @@
   </section>
 
   <section class="menu--section">
-    {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo e Organização Cromática" %}
+    {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo Cromática" %}
     <div class="menu--section--description">Organização por cores e ano</div>
     <div class="menu--section--items disabled" id="sorter--dateXcolor--items">
       <div class="menu--section--item">

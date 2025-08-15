@@ -3,18 +3,8 @@
 
 .sorter-menu {
   z-index: 30;
-  right: 0;
 
   .menu--close--button {
-    left: 0;
     z-index: 35;
-    transform-origin: center center;
-    transform: rotate(180deg);
-  }
-
-  &.hidden {
-    .menu--close--button {
-      transform: rotate(0deg);
-    }
   }
 }

@@ -107,4 +107,9 @@
       }
     }
   }
+
+  .overlay--window.text--window {
+    width: 50%;
+    min-width: 640px;
+  }
 }

@@ -1,11 +1,57 @@
 ---
 ---
 
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 360px;
+
+  .menu--close--button {
+    z-index: 15;
+    transition: transform 0.15s linear;
+  }
+
+  .menu--section {
+    border: 1px #000 solid;
+    padding: 10px 6px;
+    background-color: var(--bg-color);
+
+    .menu--section--title {
+      font-size: 1.25rem;
+    }
+
+    &.button {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--bg-color-l);
+        color: var(--txt-color-l);
+      }
+    }
+  }
+
+  &.hidden {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    padding-top: 1.75rem;
+    overflow: hidden;
+    border: 1px var(--txt-color) solid;
+
+    .menu--close--button {
+      transform: rotate(180deg);
+    }
+  }
+}
+
 .common--menu {
   display: flex;
   flex-direction: column;
   position: fixed;
   top: 0;
+  left: 0;
   width: 360px;
   max-height: 100vh;
   padding: 20px;
@@ -16,26 +62,6 @@
   background-color: var(--bg-color);
   transition: left 0.33s linear, right 0.33s linear;
   box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.25);
-
-  .menu--close--button {
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: rgba(0,0,0,0);
-    cursor: pointer;
-    transition: transform 0.15s linear;
-
-    &:hover {
-      background-color: var(--bg-color-l);
-    }
-  }
 
   .menu--title {
     font-size: 1.9rem;
@@ -132,20 +158,36 @@
   }
 
   &.hidden {
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: 0;
-    padding-top: 1.75rem;
-    overflow: hidden;
-
-    .menu--close--button {
-      transform: rotate(180deg);
-    }
+    left: -400px;
   }
 
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+.nav-menu,
+.common--menu {
+  .menu--close--button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+    transition: transform 0.15s linear;
+
+    &:hover {
+      background-color: var(--bg-color-l);
+    }
   }
 }

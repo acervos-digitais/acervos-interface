@@ -31,6 +31,7 @@
         display: flex;
         flex-direction: column-reverse;
         flex-wrap: nowrap;
+        min-height: 100vh;
         gap: 2px;
 
         .year-info {

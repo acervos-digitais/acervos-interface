@@ -1,9 +1,12 @@
-import { getLabel } from "./label_strings.js";
+import { getLabel } from "../label_strings.js";
+import { Overlay } from "./Overlay.js";
 
-class DetailOverlay {
+class DetailOverlay extends Overlay {
   static IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/500";
 
   constructor(metaData) {
+    super("detail");
+
     this.data = Object.values(metaData).map(x => {
       const { id, color_palette, creator, museum, objects, title, url, year } = x;
       return { id, color_palette, creator, museum, objects, title, url, year };
@@ -11,26 +14,6 @@ class DetailOverlay {
       acc[v.id] = v;
       return acc;
     }, {});
-
-    const backgroundEl = document.getElementById("detail-overlay--background");
-    const windowEl = document.getElementById("detail-overlay--window");
-    const closeButton = document.getElementById("detail-overlay--close--button");
-
-    closeButton.addEventListener("click", () => {
-      backgroundEl.classList.add("hide");
-    });
-
-    backgroundEl.addEventListener("click", (evt) => {
-      if (!windowEl.contains(evt.target)) {
-        backgroundEl.classList.add("hide");
-      }
-    });
-
-    document.addEventListener("keydown", (evt) => {
-      if (evt.key === "Escape") {
-        backgroundEl.classList.add("hide");
-      }
-    });
   }
 
   populateDetailOverlay(id, objects) {
