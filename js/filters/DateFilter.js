@@ -4,30 +4,27 @@ class DateFilter extends Filter {
   constructor(data) {
     super(data, "date");
 
-    const minEl = document.createElement("input");
-    const maxEl = document.createElement("input");
-
-    minEl.type = "number";
-    maxEl.type = "number";
-
-    this.inputs = { minEl, maxEl };
-    this.setLimits(data.min, data.max);
-
-    minEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
-    maxEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
-
-    this.itemsEl.appendChild(minEl);
-    this.itemsEl.appendChild(maxEl);
+    this.inputs = {
+      minEl: this.setupRangeInput("date--filter--min", data.min),
+      maxEl: this.setupRangeInput("date--filter--max", data.max),
+    };
   }
 
-  setLimits(minVal, maxVal) {
-    this.inputs.minEl.value = minVal;
-    this.inputs.minEl.min = minVal;
-    this.inputs.minEl.max = this.data.maxAll;
+  setupRangeInput(slug, value) {
+    const rangeEl = document.getElementById(`${slug}--input`);
+    const valueEl = document.getElementById(`${slug}--value`);
 
-    this.inputs.maxEl.value = maxVal;
-    this.inputs.maxEl.min = minVal;
-    this.inputs.maxEl.max = this.data.maxAll;
+    rangeEl.min = this.data.min;
+    rangeEl.max = this.data.maxAll;
+    rangeEl.value = value;
+
+    valueEl.innerHTML = `${rangeEl.value}`;
+
+    rangeEl.addEventListener("mousemove", () => valueEl.innerHTML = rangeEl.value);
+    rangeEl.addEventListener("change", () => valueEl.innerHTML = rangeEl.value);
+    rangeEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
+
+    return rangeEl;
   }
 
   filter(inIdsSet) {

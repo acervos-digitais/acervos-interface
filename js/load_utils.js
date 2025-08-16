@@ -76,6 +76,9 @@ function createMenuData(metaData, clusterData) {
   }
 
   const nowYear = new Date().getFullYear();
+
+  Object.entries(metaData).forEach(([id, v]) => metaData[id].year = Math.min(v.year, nowYear + 1));
+
   const idsYears = Object.values(metaData).map(x => [x.id, x.year]);
   const allYears = idsYears.map(x => x[1]);
   const validYears = allYears.filter(x => x <= nowYear);

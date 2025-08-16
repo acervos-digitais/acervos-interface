@@ -21,7 +21,10 @@
   <section class="menu--section">
     <div class="menu--section--title">Datas</div>
     <div class="menu--section--description">Selecione limite de data por ano de criação.</div>
-    <div class="menu--section--items" id="filter--date--items"></div>
+    <div class="menu--section--items" id="filter--date--items">
+      {% include range-item.html label="De" slug="date--filter--min" %}
+      {% include range-item.html label="Até" slug="date--filter--max" %}
+    </div>
   </section>
 
   <section class="menu--section">
