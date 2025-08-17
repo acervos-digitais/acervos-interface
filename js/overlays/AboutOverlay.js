@@ -1,9 +1,9 @@
 import { Overlay } from "./Overlay.js";
 
-class IntroOverlay extends Overlay {
+class AboutOverlay extends Overlay {
   constructor() {
-    super("intro");
+    super("about");
   }
 }
 
-export { IntroOverlay };
+export { AboutOverlay };

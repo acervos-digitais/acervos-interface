@@ -5,6 +5,7 @@ import { FilterMenu } from "./FilterMenu.js";
 import { SorterMenu } from "./SorterMenu.js";
 
 import { Canvas } from "./Canvas.js";
+import { AboutOverlay } from "./overlays/AboutOverlay.js";
 import { DetailOverlay } from "./overlays/DetailOverlay.js";
 
 const META_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_processed.json";
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const detailOverlayEl = document.getElementById("detail-overlay--background");
 
   const mCanvas = new Canvas(metaData);
+  const mAboutOverlay = new AboutOverlay();
   const mDetailOverlay = new DetailOverlay(metaData);
   const mFilters = new FilterMenu(menuData);
   const mSorters = new SorterMenu(metaData, menuData);

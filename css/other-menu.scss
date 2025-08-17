@@ -85,5 +85,16 @@
         }
       }
     }
+
+    .menu--about--button {
+      position: absolute;
+      right: 1rem;
+      width: 2rem;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 }
