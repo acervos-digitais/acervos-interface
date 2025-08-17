@@ -2,7 +2,6 @@ import { combineClusterData, createMenuData, fetchData } from "./load_utils.js";
 
 import { ExportMenu } from "./ExportMenu.js";
 import { FilterMenu } from "./FilterMenu.js";
-import { NavMenu } from "./NavMenu.js";
 import { SorterMenu } from "./SorterMenu.js";
 
 import { Canvas } from "./Canvas.js";
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const mCanvas = new Canvas(metaData);
   const mDetailOverlay = new DetailOverlay(metaData);
-  const mNavMenu = new NavMenu();
   const mFilters = new FilterMenu(menuData);
   const mSorters = new SorterMenu(metaData, menuData);
   const mExportMenu = new ExportMenu(mDetailOverlay.data);
@@ -55,12 +53,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   detailOverlayEl.addEventListener("xshow-detail", (evt) => {
     mDetailOverlay.populateDetailOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
-    detailOverlayEl.classList.remove("hide");
+    detailOverlayEl.classList.remove("hidden");
   });
 
   detailOverlayEl.addEventListener("xshow-image", (evt) => {
     mDetailOverlay.populateMosaicOverlay(evt.detail.url);
-    detailOverlayEl.classList.remove("hide");
+    detailOverlayEl.classList.remove("hidden");
   });
 
   // start

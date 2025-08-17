@@ -1,0 +1,34 @@
+<nav class="other-menu contract" id="sorter-menu">
+  <button class="menu--close--button" id="sorter--close--button"></button>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Visualizações</div>
+    <div class="menu--section--items">
+      {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Linha do Tempo" checked="checked" %}
+      <div class="menu--color-picker--items">
+        {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="Organização Cromática" %}
+        <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+      </div>
+      {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Espaço Latente" %}
+      <div class="menu--color-picker--items">
+        {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo Cromática" %}
+        <input type="color" value="#000000" class="sorter--color-picker hidden" id="dateXcolor--sorter--color-picker">
+      </div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Mosaicos</div>
+    <div class="menu--section--items">
+      <div class="checkbox--item" id="export--grid--button">
+        <label id="export--grid--items" class="disabled">Grid</label>
+      </div>
+      <div class="checkbox--item" id="export--objects--button">
+        <label id="export--objects--items" class="disabled">Grid de Objetos</label>
+      </div>
+      <div class="checkbox--item" id="export--xy--button">
+        <label id="export--xy--items" class="disabled">Composição de Objetos</label>
+      </div>
+    </div>
+  </section>
+</nav>

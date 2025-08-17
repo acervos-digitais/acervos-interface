@@ -2,9 +2,18 @@
 ---
 
 .sorter-menu {
-  z-index: 30;
+  z-index: 40;
+  right: 0;
 
   .menu--close--button {
-    z-index: 35;
+    z-index: 45;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  &.hidden {
+    .menu--close--button {
+      transform: rotate(0deg);
+    }
   }
 }

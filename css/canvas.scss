@@ -6,8 +6,9 @@
   z-index: 0;
 
   .canvas--drawing {
+    margin-top: 90px;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 90px);
 
     .art--work {
       cursor: pointer;
@@ -47,11 +48,13 @@
     }
 
     &.grid {
-      margin-top: 2rem;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 2px;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
     }
 
     &.xy {
@@ -61,11 +64,11 @@
 
     .canvas--intro {
       max-width: 500px;
-      padding: 50px 20px;
+      padding: 20px 20px 0;
     }
   }
 
-  &.menu {
+  &.contract {
     padding-left: var(--menu-width);
   }
 }

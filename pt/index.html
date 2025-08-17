@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ 'css/canvas.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/overlay.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/other-menu.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/sorter-menu.css' | relative_url }}" type="text/css" />
 
@@ -18,8 +19,10 @@
   <body>
     {% include canvas.html %}
     {% include overlays/detail-overlay.html %}
-    {% include menus/nav-menu.html %}
     {% include menus/filter-menu.html %}
+
+    {%comment%}
     {% include menus/sorter-menu.html %}
+    {%endcomment%}
   </body>
 </html>

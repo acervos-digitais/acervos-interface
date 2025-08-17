@@ -27,13 +27,21 @@ class SorterMenu {
     this.checked = menuEl.querySelector("input[name='sorter-type']:checked").value;
 
     const allRadio = menuEl.querySelectorAll("input[name='sorter-type']");
+    const allColor = menuEl.querySelectorAll("input[type='color']");
     allRadio.forEach(el => el.addEventListener("change", (evt) => {
       if (this.checked) {
-        document.getElementById(`sorter--${this.checked}--items`).classList.add("disabled");
+        // document.getElementById(`sorter--${this.checked}--items`).classList.add("disabled");
       }
 
       this.checked = evt.target.value;
-      document.getElementById(`sorter--${this.checked}--items`).classList.remove("disabled");
+      // document.getElementById(`sorter--${this.checked}--items`).classList.remove("disabled");
+
+      allColor.forEach(el => {
+        el.classList.add("hidden");
+        if (el.id.split("--")[0] == this.checked) {
+          el.classList.remove("hidden");
+        }
+      });
 
       menuEl.dispatchEvent(this.sortDataEvent);
     }));

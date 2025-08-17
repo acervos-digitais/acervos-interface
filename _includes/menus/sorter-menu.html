@@ -1,4 +1,4 @@
-<nav class="sorter-menu common--menu hidden" id="sorter-menu">
+<nav class="sorter-menu common--menu" id="sorter-menu">
   <button class="menu--close--button" id="sorter--close--button">
     <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
   </button>
@@ -8,13 +8,13 @@
 
   <section class="menu--section">
     {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Linha do Tempo" checked="checked" %}
-    <div class="menu--section--description">Organização por ano de criação</div>
+    <div class="menu--section--description">Organização por ano de criação.</div>
     <div class="menu--section--items disabled" id="sorter--date--items"></div>
   </section>
 
   <section class="menu--section">
     {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="Organização Cromática" %}
-    <div class="menu--section--description">Organização por cores dominantes</div>
+    <div class="menu--section--description">Organização por cores dominantes.</div>
     <div class="menu--section--items disabled" id="sorter--color--items">
       <div class="menu--section--item">
         <div class="menu--section--item--title">Selecione uma cor</div>
@@ -36,13 +36,13 @@
 
   <section class="menu--section">
     {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Espaço Latente" %}
-    <div class="menu--section--description">Visualização do Espaço Latente</div>
+    <div class="menu--section--description">Mapa de afinidade visual/semântica calculada por IA.</div>
     <div class="menu--section--items disabled" id="sorter--latent--items"></div>
   </section>
 
   <section class="menu--section">
     {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo Cromática" %}
-    <div class="menu--section--description">Organização por cores e ano</div>
+    <div class="menu--section--description">Organização por cores e ano.</div>
     <div class="menu--section--items disabled" id="sorter--dateXcolor--items">
       <div class="menu--section--item">
         <div class="menu--section--item--title">Selecione uma cor</div>

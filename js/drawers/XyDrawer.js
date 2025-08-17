@@ -12,15 +12,20 @@ class XyDrawer extends Drawer {
     this.drawingEl.classList = ["canvas--drawing"];
     this.drawingEl.classList.add("xy");
 
+    const canvasH = this.drawingEl.offsetHeight;
+
     for (const { id, x, y } of sorted) {
       this.resetEl(artWorks[id]);
 
       const w = scale * 20;
       const h = (w / parseFloat(artWorks[id].dataset.ratio));
 
+      const ypx = Math.min(y * canvasH, canvasH - h);
+
       artWorks[id].style.position = "absolute";
       artWorks[id].style.left = `min(calc(${x} * 100vw), calc(100vw - ${w}px))`;
-      artWorks[id].style.top = `min(calc(${y} * 100vh), calc(100vh - ${h}px))`;
+      // artWorks[id].style.top = `min(calc(${y} * 100vh), calc(100vh - ${h}px))`;
+      artWorks[id].style.top = `${ypx}px`;
       artWorks[id].style.aspectRatio = `${artWorks[id].dataset.ratio}`;
       artWorks[id].style.width = `${w}px`;
 

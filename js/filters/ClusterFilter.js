@@ -5,7 +5,7 @@ class ClusterFilter extends Filter {
     super(data, "cluster");
 
     for (let clusterIdx = 0; clusterIdx < data.labels.length; clusterIdx++) {
-      this.createInput("checkbox", `cluster--${clusterIdx}--radio`, clusterIdx, data.labels[clusterIdx]);
+      this.createInput("checkbox", `cluster--${clusterIdx}--radio`, clusterIdx, data.labels[clusterIdx].split(",")[0]);
     }
   }
 

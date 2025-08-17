@@ -70,7 +70,7 @@ class Canvas {
       if (!evt.shiftKey) return;
 
       evt.preventDefault();
-      this.scale += evt.deltaY > 0 ? -0.02 : 0.02;
+      this.scale += evt.deltaY > 0 ? -0.01 : 0.01;
 
       if (this.scale < 0.1) this.scale = 0.1;
       if (this.scale > 24) this.scale = 24;
