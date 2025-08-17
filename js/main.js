@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const allIdsSet = new Set(Object.keys(metaData));
 
-  filterMenuEl.addEventListener("xfilter-data", () => {
+  filterMenuEl.addEventListener("filter-data", () => {
     mSorters.validIdsSet = mFilters.filter(allIdsSet);
     sorterMenuEl.dispatchEvent(mSorters.sortDataEvent);
   });

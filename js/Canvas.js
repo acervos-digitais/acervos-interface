@@ -58,11 +58,11 @@ class Canvas {
     const xyDrawer = new XyDrawer();
 
     this.allDrawers = {
-      // date: binDrawer,
+      date: binDrawer,
       color: gridDrawer,
-      // cluster: gridDrawer,
-      // latent: xyDrawer,
-      // dateXcolor: binDrawer,
+      cluster: gridDrawer,
+      latent: xyDrawer,
+      dateXcolor: binDrawer,
     };
 
     const containerEl = document.getElementById("canvas--container");
@@ -83,7 +83,7 @@ class Canvas {
 
   draw(checked) {
     this.checked = checked;
-    if (checked in this.allDrawers) {
+    if (checked in this.allDrawers && checked == "color") {
       this.allDrawers[checked].draw(this.allArtWorks, this.sorted, this.scale);
     }
   }
