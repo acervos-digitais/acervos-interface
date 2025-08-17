@@ -38,7 +38,7 @@ class Canvas {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           let mEl = entry.target;
-          mEl.querySelector("img").setAttribute("src", mEl.dataset.src);
+          setTimeout(() => mEl.querySelector("img").setAttribute("src", mEl.dataset.src), 100+Math.random()*1500);
           imageObserver.unobserve(mEl);
         }
       });
@@ -63,6 +63,7 @@ class Canvas {
       cluster: gridDrawer,
       latent: xyDrawer,
       dateXcolor: binDrawer,
+      clusterXcluster: xyDrawer,
     };
 
     const containerEl = document.getElementById("canvas--container");

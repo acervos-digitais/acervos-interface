@@ -2,6 +2,7 @@
   <button class="menu--close--button" id="sorter--close--button">
     <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
   </button>
+  <button class="menu--about--button" id="menu--about--button"></button>
 
   <div class="menu--title">Visualizações</div>
   <div class="menu--description">Escolha abaixo como visualizar o conteúdo selecionado</div>
@@ -23,7 +24,7 @@
     </div>
   </section>
 
-  <!-- <section class="menu--section">
+  <section class="menu--section">
     {% include radio-item.html id="sorter--cluster--enable" name="sorter-type" value="cluster" label="Curadoria" %}
     <div class="menu--section--description">Organização por sub-categorias sugeridas por IA</div>
     <div class="menu--section--items disabled" id="sorter--cluster--items">
@@ -32,7 +33,7 @@
         <select class="sorter--dropdown" id="cluster--sorter--cluster-picker"></select>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <section class="menu--section">
     {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Espaço Latente" %}
@@ -47,6 +48,21 @@
       <div class="menu--section--item">
         <div class="menu--section--item--title">Selecione uma cor</div>
         <input type="color" value="#000000" class="sorter--color-picker" id="dateXcolor--sorter--color-picker">
+      </div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    {% include radio-item.html id="sorter--clusterXcluster--enable" name="sorter-type" value="clusterXcluster" label="Cluster / Cluster" %}
+    <div class="menu--section--description">Visualização 2D de características variadas.</div>
+    <div class="menu--section--items disabled" id="sorter--clusterXcluster--items">
+      <div class="menu--section--item">
+        <label for="x-dim">Escolha um vetor:</label>
+        <select name="x-dim" id="clusterXcluster--sorter--x-picker"></select>
+      </div>
+      <div class="menu--section--item">
+        <label for="y-dim">Escolha outro vetor:</label>
+        <select name="y-dim" id="clusterXcluster--sorter--y-picker"></select>
       </div>
     </div>
   </section>
