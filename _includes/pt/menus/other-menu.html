@@ -10,10 +10,10 @@
         <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
       </div>
       {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Espaço Latente" %}
-      <div class="menu--color-picker--items">
+      <!-- <div class="menu--color-picker--items">
         {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo Cromática" %}
         <input type="color" value="#000000" class="sorter--color-picker hidden" id="dateXcolor--sorter--color-picker">
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -32,13 +32,18 @@
     </div>
   </section>
 
+  <section class="menu--section">
+    <div class="menu--section--title">Curadorias da IA</div>
+    <div class="menu--section--items">
+      <select class="other--dropdown" id="other--cluster-picker">
+        <option value="" selected disabled>Escolha uma curadoria</option>
+      </select>
+    </div>
+  </section>
+
   <section class="menu--section about--section">
     <div class="about--section--column">
       <div><a href="#" id="menu--about--button">SOBRE</a></div>
-      <!-- <div><a href="#" id="menu--help--button">AJUDA</a></div> -->
-      <!-- <button class="menu--about--button" id="menu--about--button">
-        <img src="{{ 'assets/logo_acervos-digitais.svg' | relative_url }}"/>
-      </button> -->
       <div><a href="../en">EN</a> / PT</div>
     </div>
   </section>

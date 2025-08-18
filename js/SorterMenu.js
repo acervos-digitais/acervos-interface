@@ -16,7 +16,7 @@ class SorterMenu {
       color: new ColorSorter(metaData),
       // cluster: new ClusterSorter(metaData, menuData.clusters.labels),
       latent: new LatentSorter(metaData),
-      dateXcolor: new DateColorSorter(metaData),
+      // dateXcolor: new DateColorSorter(metaData),
       // clusterXcluster: new ClusterClusterSorter(metaData, menuData.clusters.labels),
     };
 
