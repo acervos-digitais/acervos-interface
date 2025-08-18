@@ -41,6 +41,18 @@
     font-size: 1.3rem;
   }
 
+  .menu--title--required {
+    font-size: 0.8rem;
+    color: var(--text-color-err);
+    vertical-align: super;
+
+    &::before {
+      vertical-align: bottom;
+      font-size: 1.3rem;
+      content: "*";
+    }
+  }
+
   .menu--description {
     margin: 8px 0;
   }
@@ -135,6 +147,15 @@
           width: 100%;
           margin-top: 4px;
         }
+      }
+    }
+
+    .menu--section--subtext {
+      padding-top: 8px;
+      font-size: 0.8rem;
+
+      &.hidden {
+        display: none;
       }
     }
 

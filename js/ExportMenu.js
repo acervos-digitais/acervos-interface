@@ -58,8 +58,10 @@ class ExportMenu {
       idBoxes_in: data,
     });
 
+    const isAi = endpoint != "/grid";
+
     const detailOverlayEl = document.getElementById("detail-overlay--background");
-    const evtOpt = { detail: { url: result.data[0].url } };
+    const evtOpt = { detail: { url: result.data[0].url, isAi } };
     detailOverlayEl.dispatchEvent(new CustomEvent("show-image", evtOpt));
   }
 }

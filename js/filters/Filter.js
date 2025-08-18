@@ -38,7 +38,16 @@ class Filter {
     return inputEl;
   }
 
+  addSpacer() {
+    const spacerEl = document.createElement("div");
+    spacerEl.style.width = "100%";
+    spacerEl.style.height = "0";
+    this.itemsEl.appendChild(spacerEl);
+  }
+
   addAllNone() {
+    this.addSpacer();
+
     this.createInputNoListener("checkbox", "all--checkbox", "all", "Todos");
     this.createInputNoListener("checkbox", "none--checkbox", "none", "Nenhum");
 

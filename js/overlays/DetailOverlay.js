@@ -27,6 +27,7 @@ class DetailOverlay extends Overlay {
     const titleEl = document.getElementById("detail-overlay--title--text");
     const collectionEl = document.getElementById("detail-overlay--collection--text");
     const linkEl = document.getElementById("detail-overlay--info--link");
+    const aiTextEl = document.getElementById("detail-overlay--info--subtext");
 
     const titleText = data.title == "" ? "untitled" : data.title;
     const yearText = (data.year == 9999) ? "undated" : `${data.year}`;
@@ -38,6 +39,7 @@ class DetailOverlay extends Overlay {
     function drawBoxes() {
       boxesEl.style.width = `${imgEl.width}px`;
       boxesEl.style.height = `${imgEl.height}px`;
+      aiTextEl.classList.add("hidden");
 
       data.objects.filter(o => objects.includes(o.label)).forEach(({ box, label, score }) => {
         const boxEl = document.createElement("div");
@@ -51,6 +53,7 @@ class DetailOverlay extends Overlay {
         // boxEl.innerHTML = `${label}: ${score}`;
 
         boxesEl.appendChild(boxEl);
+        aiTextEl.classList.remove("hidden");
       });
       imgEl.removeEventListener("load", drawBoxes);
     }
@@ -70,7 +73,7 @@ class DetailOverlay extends Overlay {
     linkEl.setAttribute("href", data.url);
   }
 
-  populateMosaicOverlay(imgUrl) {
+  populateMosaicOverlay(imgUrl, isAi=false) {
     const imgEl = document.getElementById("detail-overlay--image");
     const boxesEl = document.getElementById("detail-overlay--boxes");
     const colorsEl = document.getElementById("detail-overlay--colors");
@@ -78,8 +81,15 @@ class DetailOverlay extends Overlay {
     const titleEl = document.getElementById("detail-overlay--title--text");
     const collectionEl = document.getElementById("detail-overlay--collection--text");
     const linkEl = document.getElementById("detail-overlay--info--link");
+    const aiTextEl = document.getElementById("detail-overlay--info--subtext");
 
     [boxesEl, colorsEl, titleEl, collectionEl, linkEl].forEach(el => el.innerHTML = "");
+
+    if (isAi) {
+      aiTextEl.classList.remove("hidden");
+    } else {
+      aiTextEl.classList.add("hidden");
+    }
 
     imgEl.src = imgUrl;
   }

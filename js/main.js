@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   detailOverlayEl.addEventListener("xshow-image", (evt) => {
-    mDetailOverlay.populateMosaicOverlay(evt.detail.url);
+    mDetailOverlay.populateMosaicOverlay(evt.detail.url, evt.detail.isAi);
     detailOverlayEl.classList.remove("hidden");
   });
 

@@ -3,8 +3,10 @@
     <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
   </button>
 
-  <div class="menu--title">Filters</div>
-  <div class="menu--description">Use filters to refine the selection of works.</div>
+  <div class="menu--title">Collections
+    <span class="menu--title--required">This field is required</span>
+  </div>
+  <div class="menu--description">Choose which collections to include in the search</div>
 
   <section class="menu--section">
     <span class="filter--counter--item hidden" id="filter--counter--available">Available Works:</span>
@@ -13,20 +15,23 @@
   </section>
 
   <section class="menu--section">
-    <div class="menu--section--title">Collections</div>
-    <div class="menu--section--description">Choose which collections to include in the search. This field is required.</div>
+    <div class="menu--section--title"></div>
+    <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--collection--items"></div>
   </section>
 
+  <div class="menu--title">Filters</div>
+  <div class="menu--description">Use filters to refine the selection of works</div>
+
   <section class="menu--section">
     <div class="menu--section--title">Techniques</div>
-    <div class="menu--section--description">Select type of work or technique.</div>
+    <div class="menu--section--description">Select type of work or technique</div>
     <div class="menu--section--items" id="filter--category--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Date</div>
-    <div class="menu--section--description">Select date range by year of creation.</div>
+    <div class="menu--section--description">Select date range by year of creation</div>
     <div class="menu--section--items" id="filter--date--items">
       {% include range-item.html label="From" slug="date--filter--min" %}
       {% include range-item.html label="To" slug="date--filter--max" %}
@@ -34,14 +39,18 @@
   </section>
 
   <section class="menu--section">
-    <div class="menu--section--title">AI Curations</div>
-    <div class="menu--section--description">Select groups determined by AI.</div>
-    <div class="menu--section--items" id="filter--cluster--items"></div>
+    <div class="menu--section--title">Fauna and Flora</div>
+    <div class="menu--section--description">Select objects of interest</div>
+    <div class="menu--section--items" id="filter--object--items"></div>
   </section>
 
   <section class="menu--section">
-    <div class="menu--section--title">Fauna and Flora</div>
-    <div class="menu--section--description">Select objects of interest.</div>
-    <div class="menu--section--items" id="filter--object--items"></div>
+    <div class="menu--section--title">AI Curations</div>
+    <div class="menu--section--description">Select by groups determined by AI</div>
+    <div class="menu--section--items" id="filter--cluster--items"></div>
+    <div class="menu--section--subtext hidden" id="filter--cluster--subtext">
+      Interpretations generated automatically by Computer Vision.
+      In case of errors, please contact acervosdigitais@usp.br.
+    </div>
   </section>
 </nav>

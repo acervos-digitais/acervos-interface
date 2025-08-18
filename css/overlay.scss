@@ -22,8 +22,9 @@
   .overlay--window {
     position: relative;
     background-color: var(--bg-color);
-    max-width: 90%;
-    max-height: 90vh;
+    width: fit-content;
+    height: fit-content;
+    min-width: 360px;
     padding: 30px;
 
     .overlay--close--button {
@@ -51,12 +52,15 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      max-width: 625px;
 
       img {
+        min-height: 0;
+        max-width: 500px;
+        max-height: 500px;
+        width: auto;
+        height: auto;
         display: block;
         object-fit: contain;
-        max-width: 80%;
       }
 
       .overlay--boxes {
@@ -103,7 +107,19 @@
       }
 
       .overlay--info--link {
+        display: block;
         font-size: 0.9rem;
+        margin: 12px 0;
+      }
+
+      .overlay--info--subtext {
+        width: 0;
+        min-width: 100%;
+        font-size: 0.8rem;
+
+        &.hidden {
+          display: none;
+        }
       }
     }
   }

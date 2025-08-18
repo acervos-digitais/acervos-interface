@@ -30,7 +30,7 @@ class SorterMenu {
     const aboutButtonEl = document.getElementById("menu--about--button");
     aboutButtonEl.addEventListener("click", () => aboutEl.classList.remove("hidden"));
 
-    this.checked = menuEl.querySelector("input[name='sorter-type']:checked").value;
+    this.checked = menuEl.querySelector("input[name='sorter-type']:checked")?.value ?? null;
 
     const allRadio = menuEl.querySelectorAll("input[name='sorter-type']");
     const allColor = menuEl.querySelectorAll("input[type='color']");
