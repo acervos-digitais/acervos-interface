@@ -28,7 +28,11 @@ class FilterMenu {
   }
 
   filter(inIdsSet) {
-    return this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
+    const filterResult = this.allFilters.reduce((acc, f) => f.filter(acc), inIdsSet);
+
+    document.getElementById("filter--counter--count").innerHTML = filterResult.size;
+
+    return filterResult;
   }
 }
 

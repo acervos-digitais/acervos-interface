@@ -57,7 +57,7 @@
     .menu--section--description {
       margin: 8px 0;
     }
-  
+
     .checkbox--item,
     .radio--item {
       display: flex;
@@ -135,6 +135,12 @@
           width: 100%;
           margin-top: 4px;
         }
+      }
+    }
+
+    .filter--counter--item {
+      &.hidden {
+        display: none;
       }
     }
   }
