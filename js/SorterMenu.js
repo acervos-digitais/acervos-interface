@@ -36,11 +36,11 @@ class SorterMenu {
     const allColor = menuEl.querySelectorAll("input[type='color']");
     allRadio.forEach(el => el.addEventListener("change", (evt) => {
       if (this.checked) {
-        // document.getElementById(`sorter--${this.checked}--items`).classList.add("disabled");
+        document.getElementById(`sorter--${this.checked}--items`)?.classList.add("disabled");
       }
 
       this.checked = evt.target.value;
-      // document.getElementById(`sorter--${this.checked}--items`).classList.remove("disabled");
+      document.getElementById(`sorter--${this.checked}--items`)?.classList.remove("disabled");
 
       allColor.forEach(el => {
         el.classList.add("hidden");

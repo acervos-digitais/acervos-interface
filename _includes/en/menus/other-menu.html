@@ -1,0 +1,44 @@
+<nav class="other-menu contract" id="sorter-menu">
+  <button class="menu--close--button" id="sorter--close--button"></button>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Visualizations</div>
+    <div class="menu--section--items">
+      {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Timeline" checked="checked" %}
+      <div class="menu--color-picker--items">
+        {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="Chromatic Ordering" %}
+        <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+      </div>
+      {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Latent Space" %}
+      <div class="menu--color-picker--items">
+        {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Chromatic Timeline" %}
+        <input type="color" value="#000000" class="sorter--color-picker hidden" id="dateXcolor--sorter--color-picker">
+      </div>
+    </div>
+  </section>
+
+  <section class="menu--section">
+    <div class="menu--section--title">Mosaics</div>
+    <div class="menu--section--items">
+      <div class="checkbox--item" id="export--grid--button">
+        <label id="export--grid--items" class="disabled">Grid</label>
+      </div>
+      <div class="checkbox--item" id="export--objects--button">
+        <label id="export--objects--items" class="disabled">Object Grid</label>
+      </div>
+      <div class="checkbox--item" id="export--xy--button">
+        <label id="export--xy--items" class="disabled">Object Compositions</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu--section about--section">
+    <div class="about--section--column">
+      <div><a href="#" id="menu--about--button">ABOUT</a></div>
+      <!-- <button class="menu--about--button" id="menu--about--button">
+        <img src="{{ 'assets/logo_acervos-digitais.svg' | relative_url }}"/>
+      </button> -->
+      <div>EN / <a href="../pt">PT</a></div>
+    </div>
+  </section>
+</nav>
