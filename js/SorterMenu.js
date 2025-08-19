@@ -49,7 +49,7 @@ class SorterMenu {
         }
       });
 
-      menuEl.dispatchEvent(this.sortDataEvent);
+      document.dispatchEvent(this.sortDataEvent);
     }));
   }
 

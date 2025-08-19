@@ -52,17 +52,18 @@ class ExportMenu {
   }
 
   async createImage(endpoint) {
-    const data = this.prepData();
+    const isAi = endpoint !== "/grid";
 
+    const evtOpt = { detail: { isAi } };
+    document.dispatchEvent(new CustomEvent("prep-mosaic", evtOpt));
+
+    const data = this.prepData();
     const result = await this.gradio.predict(endpoint, {
       idBoxes_in: data,
     });
 
-    const isAi = endpoint != "/grid";
-
-    const detailOverlayEl = document.getElementById("detail-overlay--background");
-    const evtOpt = { detail: { url: result.data[0].url, isAi } };
-    detailOverlayEl.dispatchEvent(new CustomEvent("show-image", evtOpt));
+    evtOpt.detail.url = result.data[0].url;
+    document.dispatchEvent(new CustomEvent("show-mosaic", evtOpt));
   }
 }
 

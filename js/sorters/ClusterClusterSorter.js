@@ -19,7 +19,7 @@ class ClusterClusterSorter extends Sorter {
       el.selectedIndex = 0;
       el.addEventListener("change", () => {
         this.clusters[k] = el.selectedIndex;
-        this.menuEl.dispatchEvent(this.sortDataEvent);
+        document.dispatchEvent(this.sortDataEvent);
       });
     });
 

@@ -16,7 +16,7 @@ class ClusterSorter extends Sorter {
 
     this.picker.addEventListener("change", () => {
       this.cluster = this.picker.selectedIndex;
-      this.menuEl.dispatchEvent(this.sortDataEvent);
+      document.dispatchEvent(this.sortDataEvent);
     });
 
     this.cluster = this.picker.selectedIndex;

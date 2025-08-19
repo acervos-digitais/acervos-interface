@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   menuData = createMenuData(metaData, clusterData);
   metaData = combineClusterData(metaData, clusterData);
 
-  const filterMenuEl = document.getElementById("filter-menu");
-  const sorterMenuEl = document.getElementById("sorter-menu");
-
   const detailOverlayEl = document.getElementById("detail-overlay--background");
 
   const mCanvas = new Canvas(metaData);
@@ -38,26 +35,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const allIdsSet = new Set(Object.keys(metaData));
 
-  filterMenuEl.addEventListener("filter-data", () => {
+  document.addEventListener("filter-data", () => {
     mSorters.validIdsSet = mFilters.filter(allIdsSet);
-    sorterMenuEl.dispatchEvent(mSorters.sortDataEvent);
+    document.dispatchEvent(mSorters.sortDataEvent);
   });
 
-  sorterMenuEl.addEventListener("sort-data", () => {
+  document.addEventListener("sort-data", () => {
     mCanvas.sorted = mSorters.sort();
     console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);
     mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
   });
 
-  detailOverlayEl.addEventListener("xshow-detail", (evt) => {
+  document.addEventListener("xshow-detail", (evt) => {
     mDetailOverlay.populateDetailOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
     detailOverlayEl.classList.remove("hidden");
   });
 
-  detailOverlayEl.addEventListener("xshow-image", (evt) => {
-    mDetailOverlay.populateMosaicOverlay(evt.detail.url, evt.detail.isAi);
+  document.addEventListener("xprep-mosaic", (evt) => {
+    mDetailOverlay.prepareMosaicOverlay(evt.detail.isAi);
     detailOverlayEl.classList.remove("hidden");
+  });
+
+  document.addEventListener("show-mosaic", (evt) => {
+    mDetailOverlay.populateMosaicOverlay(evt.detail.url);
   });
 
   // start

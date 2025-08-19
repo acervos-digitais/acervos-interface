@@ -8,7 +8,7 @@ class ColorSorter extends Sorter {
 
     this.picker.addEventListener("change", () => {
       this.color = ColorSorter.hexToRgb(this.picker.value);
-      this.menuEl.dispatchEvent(this.sortDataEvent);
+      document.dispatchEvent(this.sortDataEvent);
     });
 
     this.color = ColorSorter.hexToRgb(this.picker.value);

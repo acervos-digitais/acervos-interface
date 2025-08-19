@@ -3,7 +3,6 @@ import { getLabel } from "../label_strings.js";
 class Filter {
   constructor(data, slug) {
     this.itemsEl = document.getElementById(`filter--${slug}--items`);
-    this.menuEl = document.getElementById("filter-menu");
 
     this.data = data;
     this.inputs = [];
@@ -13,7 +12,7 @@ class Filter {
 
   createInput(type, id, value, label, name = null) {
     const inputEl = this.createInputNoListener(type, id, value, label, name);
-    inputEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
+    inputEl.addEventListener("change", () => document.dispatchEvent(this.filterDataEvent));
   }
 
   createInputNoListener(type, id, value, label, name = null) {
@@ -58,14 +57,14 @@ class Filter {
       this.inputs.forEach(el => el.checked = true);
       allInput.checked = false;
       noneInput.checked = false;
-      this.menuEl.dispatchEvent(this.filterDataEvent);
+      document.dispatchEvent(this.filterDataEvent);
     });
 
     noneInput.addEventListener("change", () => {
       this.inputs.forEach(el => el.checked = false);
       allInput.checked = false;
       noneInput.checked = false;
-      this.menuEl.dispatchEvent(this.filterDataEvent);
+      document.dispatchEvent(this.filterDataEvent);
     });
   }
 }

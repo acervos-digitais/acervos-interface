@@ -22,7 +22,7 @@ class DateFilter extends Filter {
 
     rangeEl.addEventListener("mousemove", () => valueEl.innerHTML = rangeEl.value);
     rangeEl.addEventListener("change", () => valueEl.innerHTML = rangeEl.value);
-    rangeEl.addEventListener("change", () => this.menuEl.dispatchEvent(this.filterDataEvent));
+    rangeEl.addEventListener("change", () => document.dispatchEvent(this.filterDataEvent));
 
     return rangeEl;
   }

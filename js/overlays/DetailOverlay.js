@@ -15,31 +15,32 @@ class DetailOverlay extends Overlay {
       acc[v.id] = v;
       return acc;
     }, {});
+
+    this.loaderEl = document.getElementById("detail-overlay--loader");
+    this.imgEl = document.getElementById("detail-overlay--image");
+    this.boxesEl = document.getElementById("detail-overlay--boxes");
+    this.colorsEl = document.getElementById("detail-overlay--colors");
+
+    this.titleEl = document.getElementById("detail-overlay--title--text");
+    this.collectionEl = document.getElementById("detail-overlay--collection--text");
+    this.linkEl = document.getElementById("detail-overlay--info--link");
+    this.aiTextEl = document.getElementById("detail-overlay--info--subtext");
   }
 
   populateDetailOverlay(id, objects) {
     const data = this.data[id];
 
-    const imgEl = document.getElementById("detail-overlay--image");
-    const boxesEl = document.getElementById("detail-overlay--boxes");
-    const colorsEl = document.getElementById("detail-overlay--colors");
-
-    const titleEl = document.getElementById("detail-overlay--title--text");
-    const collectionEl = document.getElementById("detail-overlay--collection--text");
-    const linkEl = document.getElementById("detail-overlay--info--link");
-    const aiTextEl = document.getElementById("detail-overlay--info--subtext");
-
     const titleText = data.title == "" ? "untitled" : data.title;
     const yearText = (data.year == 9999) ? "undated" : `${data.year}`;
     const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator == "" ? "unauthored" : `${data.creator}`;
 
-    boxesEl.innerHTML = "";
-    colorsEl.innerHTML = "";
+    this.boxesEl.innerHTML = "";
+    this.colorsEl.innerHTML = "";
 
-    function drawBoxes() {
-      boxesEl.style.width = `${imgEl.width}px`;
-      boxesEl.style.height = `${imgEl.height}px`;
-      aiTextEl.classList.add("hidden");
+    const drawBoxes = () => {
+      this.boxesEl.style.width = `${this.imgEl.width}px`;
+      this.boxesEl.style.height = `${this.imgEl.height}px`;
+      this.aiTextEl.classList.add("hidden");
 
       data.objects.filter(o => objects.includes(o.label)).forEach(({ box, label, score }) => {
         const boxEl = document.createElement("div");
@@ -52,46 +53,44 @@ class DetailOverlay extends Overlay {
 
         // boxEl.innerHTML = `${label}: ${score}`;
 
-        boxesEl.appendChild(boxEl);
-        aiTextEl.classList.remove("hidden");
+        this.boxesEl.appendChild(boxEl);
+        this.aiTextEl.classList.remove("hidden");
       });
-      imgEl.removeEventListener("load", drawBoxes);
+      this.loaderEl.classList.add("hidden");
+      this.imgEl.removeEventListener("load", drawBoxes);
     }
 
-    imgEl.addEventListener("load", drawBoxes);
-    imgEl.src = `${DetailOverlay.IMG_URL}/${data.id}.jpg`;
+    this.loaderEl.classList.remove("hidden");
+    this.imgEl.addEventListener("load", drawBoxes);
+    this.imgEl.src = `${DetailOverlay.IMG_URL}/${data.id}.jpg`;
 
     data.color_palette.forEach(([r, g, b]) => {
       const colorEl = document.createElement("div");
       colorEl.classList.add("overlay--colors--box");
       colorEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-      colorsEl.appendChild(colorEl);
+      this.colorsEl.appendChild(colorEl);
     });
 
-    titleEl.innerHTML = `${getLabel(titleText)} (${getLabel(yearText)})<br>${getLabel(creatorText)}`;
-    collectionEl.innerHTML = `${getLabel("collection")}: ${data.museum}`;
-    linkEl.setAttribute("href", data.url);
+    this.titleEl.innerHTML = `${getLabel(titleText)} (${getLabel(yearText)})<br>${getLabel(creatorText)}`;
+    this.collectionEl.innerHTML = `${getLabel("collection")}: ${data.museum}`;
+    this.linkEl.setAttribute("href", data.url);
   }
 
-  populateMosaicOverlay(imgUrl, isAi=false) {
-    const imgEl = document.getElementById("detail-overlay--image");
-    const boxesEl = document.getElementById("detail-overlay--boxes");
-    const colorsEl = document.getElementById("detail-overlay--colors");
-
-    const titleEl = document.getElementById("detail-overlay--title--text");
-    const collectionEl = document.getElementById("detail-overlay--collection--text");
-    const linkEl = document.getElementById("detail-overlay--info--link");
-    const aiTextEl = document.getElementById("detail-overlay--info--subtext");
-
-    [boxesEl, colorsEl, titleEl, collectionEl, linkEl].forEach(el => el.innerHTML = "");
+  prepareMosaicOverlay(isAi) {
+    this.loaderEl.classList.remove("hidden");
+    this.imgEl.src = "";
+    [this.boxesEl, this.colorsEl, this.titleEl, this.collectionEl, this.linkEl].forEach(el => el.innerHTML = "");
 
     if (isAi) {
-      aiTextEl.classList.remove("hidden");
+      this.aiTextEl.classList.remove("hidden");
     } else {
-      aiTextEl.classList.add("hidden");
+      this.aiTextEl.classList.add("hidden");
     }
+  }
 
-    imgEl.src = imgUrl;
+  populateMosaicOverlay(imgUrl) {
+    this.loaderEl.classList.add("hidden");
+    this.imgEl.src = imgUrl;
   }
 }
 

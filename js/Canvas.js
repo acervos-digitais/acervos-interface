@@ -18,9 +18,8 @@ class ArtWork {
     const imgEl = document.createElement("img");
 
     mEl.addEventListener("click", () => {
-      const detailOverlayEl = document.getElementById("detail-overlay--background");
       const evtOpt = { detail: { id: `${id}` } };
-      detailOverlayEl.dispatchEvent(new CustomEvent("show-detail", evtOpt));
+      document.dispatchEvent(new CustomEvent("show-detail", evtOpt));
     });
 
     mEl.appendChild(imgEl);

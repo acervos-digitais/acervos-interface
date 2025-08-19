@@ -14,7 +14,7 @@ class ClusterFilter extends Filter {
           this.otherPicker.selectedIndex = 0;
           this.otherCluster = -1;
         }
-        this.menuEl.dispatchEvent(this.filterDataEvent);
+        document.dispatchEvent(this.filterDataEvent);
       });
     }
 
@@ -34,7 +34,7 @@ class ClusterFilter extends Filter {
       this.otherPicker.addEventListener("change", () => {
         this.otherCluster = this.otherPicker.value;
         this.inputs.forEach(el => el.checked = false);
-        this.menuEl.dispatchEvent(this.filterDataEvent);
+        document.dispatchEvent(this.filterDataEvent);
       });
     }
   }
