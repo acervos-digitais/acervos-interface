@@ -29,7 +29,9 @@ const MENU_LABELS = {
   collection: { en: "Collection", pt: "Coleção" },
   untitled: { en: "Untitled", pt: "Sem Título" },
   undated: { en: "N/A", pt: "Sem Data" },
-  unauthored: {en: "Unknown", pt: "Autoria não identificada" },
+  unauthored: { en: "Unknown", pt: "Autoria não identificada" },
+  information: { en: "More Information", pt: "Mais Informação" },
+  download: { en: "Download Image", pt: "Baixe Imagem"},
 };
 
 function getLabel(l) {

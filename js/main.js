@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
   });
 
-  document.addEventListener("xshow-detail", (evt) => {
+  document.addEventListener("show-detail", (evt) => {
     mDetailOverlay.populateDetailOverlay(evt.detail.id, mFilters.objectFilter.selectedVals);
     detailOverlayEl.classList.remove("hidden");
   });

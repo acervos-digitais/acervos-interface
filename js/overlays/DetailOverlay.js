@@ -73,7 +73,9 @@ class DetailOverlay extends Overlay {
 
     this.titleEl.innerHTML = `${getLabel(titleText)} (${getLabel(yearText)})<br>${getLabel(creatorText)}`;
     this.collectionEl.innerHTML = `${getLabel("collection")}: ${data.museum}`;
+    this.linkEl.innerHTML = `${getLabel("information")}`;
     this.linkEl.setAttribute("href", data.url);
+    this.linkEl.removeAttribute("download");
   }
 
   prepareMosaicOverlay(isAi) {
@@ -91,6 +93,9 @@ class DetailOverlay extends Overlay {
   populateMosaicOverlay(imgUrl) {
     this.loaderEl.classList.add("hidden");
     this.imgEl.src = imgUrl;
+    this.linkEl.setAttribute("href", imgUrl);
+    this.linkEl.setAttribute("download", "acervos.jpg");
+    this.linkEl.innerHTML = `${getLabel("download")}`;
   }
 }
 
