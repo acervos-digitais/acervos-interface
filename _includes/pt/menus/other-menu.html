@@ -12,10 +12,6 @@
         <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
       </div>
       {% include radio-item.html id="sorter--latent--enable" name="sorter-type" value="latent" label="Espaço Latente" %}
-      <!-- <div class="menu--color-picker--items">
-        {% include radio-item.html id="sorter--dateXcolor--enable" name="sorter-type" value="dateXcolor" label="Linha do Tempo Cromática" %}
-        <input type="color" value="#000000" class="sorter--color-picker hidden" id="dateXcolor--sorter--color-picker">
-      </div> -->
     </div>
   </section>
 
@@ -49,4 +45,12 @@
       <div><a href="../en">EN</a> | PT</div>
     </div>
   </section>
+
+  <!-- Graveyard -->
+  <div style="display: none;">
+    <select class="sorter--dropdown" id="cluster--sorter--cluster-picker"></select>
+    <input type="color" value="#000000" class="sorter--color-picker" id="dateXcolor--sorter--color-picker">
+    <select name="x-dim" id="clusterXcluster--sorter--x-picker"></select>
+    <select name="y-dim" id="clusterXcluster--sorter--y-picker"></select>
+  </div>
 </nav>
