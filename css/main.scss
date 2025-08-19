@@ -24,3 +24,9 @@ html, body {
   color: var(--txt-color);
   font-family: "Raleway";
 }
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 13px;
+  }
+}

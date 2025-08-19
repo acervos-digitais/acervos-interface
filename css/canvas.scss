@@ -77,5 +77,24 @@
     &.hidden {
       display: none;
     }
+
+    &.mobile {
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .canvas--container.contract {
+    padding-left: 0;
+  }
+  .canvas--container .canvas--intro.mobile {
+    display: flex;
+  }
+  .canvas--container .canvas--intro.desktop {
+    display: none;
   }
 }
