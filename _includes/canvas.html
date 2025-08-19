@@ -1,0 +1,18 @@
+<div class="canvas--container contract" id="canvas--container">
+
+  {% if include.lang %}
+  {% include {{ include.lang | append: "/menus/other-menu.html" }} %}
+  {% endif %}
+
+  <div class="canvas--drawing" id="canvas--drawing"></div>
+
+  <div class="canvas--intro desktop" id="canvas--intro">
+    {% for item in page.canvas.intro %}
+    <p><h3><b>{{ item[0] }}</b></h3>{{ item[1] }}</p><br>
+    {% endfor %}
+  </div>
+
+  <div class="canvas--intro mobile">
+    <p><h3><b>{{ page.canvas.mobile }}</b></h3></p>
+  </div>
+</div>

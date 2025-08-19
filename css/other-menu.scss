@@ -52,37 +52,6 @@
         }
       }
 
-      .checkbox--item,
-      .radio--item {
-        display: flex;
-
-        input {
-          width: 0;
-          cursor: pointer;
-        }
-
-        label {
-          font-size: 0.95rem;
-          padding: 4px 6px;
-          background-color: #ddd;
-          user-select: none;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: var(--bg-color-l);
-          }
-
-          &.disabled {
-            opacity: 50%;
-            pointer-events: none;
-          }
-        }
-  
-        input:checked + label {
-          background-color: var(--bg-color-hl);
-        }
-      }
-
       .other--dropdown {
         width: 100%;
       }

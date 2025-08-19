@@ -41,18 +41,6 @@
     font-size: 1.3rem;
   }
 
-  .menu--title--required {
-    font-size: 0.8rem;
-    color: var(--text-color-err);
-    vertical-align: super;
-
-    &::before {
-      vertical-align: bottom;
-      font-size: 1.3rem;
-      content: "*";
-    }
-  }
-
   .menu--description {
     margin: 8px 0;
   }
@@ -72,29 +60,7 @@
 
     .checkbox--item,
     .radio--item {
-      display: flex;
       margin: 8px 0;
-
-      input {
-        width: 0;
-        cursor: pointer;
-      }
-
-      label {
-        font-size: 0.95rem;
-        padding: 4px 6px;
-        background-color: #ddd;
-        user-select: none;
-        cursor: pointer;
-
-        &:hover {
-          background-color: var(--bg-color-l);
-        }
-      }
-
-      input:checked + label {
-        background-color: var(--bg-color-hl);
-      }
     }
 
     .range--item {
@@ -195,6 +161,51 @@
 .sorter-menu {
   .menu--about--button {
     display: none;
+  }
+}
+
+.menu--title--required {
+  font-size: 0.8rem;
+  color: var(--text-color-err);
+  vertical-align: super;
+
+  &::before {
+    vertical-align: bottom;
+    font-size: 1.3rem;
+    content: "*";
+  }
+}
+
+.menu--section {
+  .checkbox--item,
+  .radio--item {
+    display: flex;
+
+    input {
+      width: 0;
+      cursor: pointer;
+    }
+
+    label {
+      font-size: 0.95rem;
+      padding: 4px 6px;
+      background-color: #ddd;
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--bg-color-l);
+      }
+
+      &.disabled {
+        opacity: 50%;
+        pointer-events: none;
+      }
+    }
+
+    input:checked + label {
+      background-color: var(--bg-color-hl);
+    }
   }
 }
 
