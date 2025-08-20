@@ -13,7 +13,7 @@ class ExportMenu {
     const objectsButton = document.getElementById("export--objects--button");
     const xyButton = document.getElementById("export--xy--button");
 
-    gridButton.addEventListener("click", () => this.createImage("/grid"));
+    gridButton?.addEventListener("click", () => this.createImage("/grid"));
     objectsButton.addEventListener("click", () => this.createImage("/objects"));
     xyButton.addEventListener("click", () => this.createImage("/xy"));
   }
@@ -27,9 +27,9 @@ class ExportMenu {
     const xyItemsEl = document.getElementById("export--xy--items");
 
     if (this.sorted.length > 0) {
-      gridItemsEl.classList.remove("disabled");
+      gridItemsEl?.classList.remove("disabled");
     } else {
-      gridItemsEl.classList.add("disabled");
+      gridItemsEl?.classList.add("disabled");
     }
 
     if (this.sorted.length > 0 && this.objects.length > 0) {
@@ -52,17 +52,20 @@ class ExportMenu {
   }
 
   async createImage(endpoint) {
-    const isAi = endpoint !== "/grid";
-
-    const evtOpt = { detail: { isAi } };
-    document.dispatchEvent(new CustomEvent("prep-mosaic", evtOpt));
+    document.dispatchEvent(new CustomEvent("prep-mosaic"));
 
     const data = this.prepData();
     const result = await this.gradio.predict(endpoint, {
       idBoxes_in: data,
     });
 
-    evtOpt.detail.url = result.data[0].url;
+    const evtOpt = {
+      detail: {
+        isAi: endpoint !== "/grid",
+        url: result.data[0].url,
+      }
+    };
+
     document.dispatchEvent(new CustomEvent("show-mosaic", evtOpt));
   }
 }

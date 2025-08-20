@@ -78,24 +78,25 @@ class DetailOverlay extends Overlay {
     this.linkEl.removeAttribute("download");
   }
 
-  prepareMosaicOverlay(isAi) {
+  prepareMosaicOverlay() {
     this.loaderEl.classList.remove("hidden");
+    this.aiTextEl.classList.add("hidden");
     this.imgEl.src = "";
     [this.boxesEl, this.colorsEl, this.titleEl, this.collectionEl, this.linkEl].forEach(el => el.innerHTML = "");
+  }
+
+  populateMosaicOverlay(imgUrl, isAi) {
+    this.loaderEl.classList.add("hidden");
+    this.imgEl.src = imgUrl;
+    this.linkEl.setAttribute("href", imgUrl);
+    this.linkEl.setAttribute("download", "acervos.jpg");
+    this.linkEl.innerHTML = `${getLabel("download")}`;
 
     if (isAi) {
       this.aiTextEl.classList.remove("hidden");
     } else {
       this.aiTextEl.classList.add("hidden");
     }
-  }
-
-  populateMosaicOverlay(imgUrl) {
-    this.loaderEl.classList.add("hidden");
-    this.imgEl.src = imgUrl;
-    this.linkEl.setAttribute("href", imgUrl);
-    this.linkEl.setAttribute("download", "acervos.jpg");
-    this.linkEl.innerHTML = `${getLabel("download")}`;
   }
 }
 

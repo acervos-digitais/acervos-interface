@@ -53,12 +53,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   document.addEventListener("prep-mosaic", (evt) => {
-    mDetailOverlay.prepareMosaicOverlay(evt.detail.isAi);
+    mDetailOverlay.prepareMosaicOverlay();
     detailOverlayEl.classList.remove("hidden");
   });
 
   document.addEventListener("show-mosaic", (evt) => {
-    mDetailOverlay.populateMosaicOverlay(evt.detail.url);
+    mDetailOverlay.populateMosaicOverlay(evt.detail.url, evt.detail.isAi);
   });
 
   // start
