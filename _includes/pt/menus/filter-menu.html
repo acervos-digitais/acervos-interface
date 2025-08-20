@@ -43,6 +43,7 @@
     <div class="menu--section--description">Selecione elementos das obras</div>
     <div class="menu--section--items" id="filter--object--items"></div>
 
+    {% unless include.full %}
     <div class="menu--section--description">Exporte diferentes imagens com os elementos selecionados</div>
 
     <div class="menu--section--items" id="export--section--items">
@@ -53,9 +54,11 @@
         <label class="disabled" id="export--xy--items">Composição</label>
       </div>
     </div>
+    {% endunless %}
   </section>
 
-  <section class="menu--section" style="display: none;">
+  {% if include.full %}
+  <section class="menu--section">
     <div class="menu--section--title">Curadorias da IA</div>
     <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--cluster--items"></div>
@@ -64,4 +67,5 @@
       Em caso de erros, por favor contate acervosdigitais@usp.br.
     </div>
   </section>
+  {% endif %}
 </nav>

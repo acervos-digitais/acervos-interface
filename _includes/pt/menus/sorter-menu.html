@@ -8,7 +8,7 @@
   <div class="menu--description">Escolha abaixo como visualizar o conteúdo selecionado</div>
 
   <section class="menu--section">
-    {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Linha do Tempo" checked="checked" %}
+    {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Linha do Tempo" %}
     <div class="menu--section--description">Organização por ano de criação.</div>
     <div class="menu--section--items disabled" id="sorter--date--items"></div>
   </section>
@@ -67,25 +67,16 @@
     </div>
   </section>
 
-  <div class="menu--title">Mosaicos</div>
-  <div class="menu--description">Gere imagens a partir das obras selecionadas.</div>
+  <div class="menu--title">Exportar</div>
 
   <section class="menu--section">
-    <div class="menu--section--description">Grid de imagens na ordem da visualização.</div>
+    <div class="menu--section--description">Gere imagens a partir das obras selecionadas</div>
     <div class="menu--section--items disabled" id="export--grid--items">
       <div class="checkbox--item" id="export--grid--button"><label>Grid</label></div>
     </div>
-  </section>
-
-  <section class="menu--section">
-    <div class="menu--section--description">Grid de recorte de objetos selecionados.</div>
     <div class="menu--section--items disabled" id="export--objects--items">
       <div class="checkbox--item" id="export--objects--button"><label>Grid de Objetos</label></div>
     </div>
-  </section>
-
-  <section class="menu--section">
-    <div class="menu--section--description">Composição com recorte de objetos em posições relativas.</div>
     <div class="menu--section--items disabled" id="export--xy--items">
       <div class="checkbox--item" id="export--xy--button"><label>Composição de Objetos</label></div>
     </div>
