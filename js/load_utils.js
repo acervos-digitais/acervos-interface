@@ -3,8 +3,8 @@ const OBJ_THOLDS = {
   dog: 0,
   horse: 0,
   ox: 1,
+  "painting of human": 0,
   bush: 0,
-  crops: 1,
   flower: 0,
   fruit: 0,
   grass: 0,
@@ -14,6 +14,12 @@ const OBJ_THOLDS = {
   vegetation: 0,
   conifer: 0,
   "palm tree": 0,
+  "human face": 0,
+  "human hand": 0,
+  "naked human back": 1,
+  "naked human breast": 1,
+  "naked human buttocks": 1,
+  "naked human torso": 0,
 };
 
 async function fetchData(mUrl) {

@@ -8,6 +8,7 @@ const MENU_LABELS = {
   dog: { en: "dog", pt: "cachorro" },
   horse: { en: "horse", pt: "cavalo" },
   ox: { en: "ox", pt: "boi" },
+  "painting of human": { en: "person", pt: "pessoa" },
 
   bush: { en: "bush", pt: "moita" },
   crops: { en: "crops", pt: "plantação" },
@@ -20,6 +21,13 @@ const MENU_LABELS = {
   vegetation: { en: "vegetation", pt: "vegetação" },
   conifer: { en: "conifer", pt: "conífera" },
   "palm tree": { en: "palm tree", pt: "palmeira" },
+
+  "human face": { en: "face", pt: "rosto" },
+  "human hand": { en: "hand", pt: "mão" },
+  "naked human back": { en: "back", pt: "costas" },
+  "naked human breast": { en: "breast", pt: "peito" },
+  "naked human buttocks": { en: "gluteous", pt: "nádega" },
+  "naked human torso": { en: "torso", pt: "torso" },
 
   // counter
   available: { en: "Available Works", pt: "Obras Disponíveis" },
