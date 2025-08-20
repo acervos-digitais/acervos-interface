@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     detailOverlayEl.classList.remove("hidden");
   });
 
-  document.addEventListener("xprep-mosaic", (evt) => {
+  document.addEventListener("prep-mosaic", (evt) => {
     mDetailOverlay.prepareMosaicOverlay(evt.detail.isAi);
     detailOverlayEl.classList.remove("hidden");
   });
