@@ -19,6 +19,8 @@ class Overlay {
         backgroundEl.classList.add("hidden");
       }
     });
+
+    this.nowYear = new Date().getFullYear();
   }
 }
 

@@ -18,12 +18,19 @@ class FilterMenu {
 
     const menuEl = document.getElementById("filter-menu");
     const closeButton = document.getElementById("filter--close--button");
+    const counterListEl = document.getElementById("filter--counter--list");
+
     const canvasEl = document.getElementById("canvas--container");
     const otherMenuEl = document.getElementById("sorter-menu");
+
     closeButton.addEventListener("click", () => {
       menuEl.classList.toggle("hidden");
       canvasEl.classList.toggle("contract");
       otherMenuEl.classList.toggle("contract");
+    });
+
+    counterListEl.addEventListener("click", () => {
+      document.dispatchEvent(new CustomEvent("show-results"));
     });
   }
 

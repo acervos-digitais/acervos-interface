@@ -1,5 +1,7 @@
 ---
 overlay:
+  results:
+    title: Obras Encontradas
   detail:
     subtext: >-
       Interpretações geradas automaticamente por Visão Computacional.
@@ -39,6 +41,7 @@ canvas:
 
   <body>
     {% include canvas.html lang="pt" %}
+    {% include overlays/results-overlay.html %}
     {% include overlays/detail-overlay.html %}
     {% include overlays/about-overlay.html %}
     {% include pt/menus/filter-menu.html %}

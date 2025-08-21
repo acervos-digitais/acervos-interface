@@ -1,5 +1,7 @@
 ---
 overlay:
+  results:
+    title: Found Works
   detail:
     subtext: >-
       Interpretations generated automatically by Computer Vision.
@@ -39,6 +41,7 @@ canvas:
 
   <body>
     {% include canvas.html lang="en" %}
+    {% include overlays/results-overlay.html %}
     {% include overlays/detail-overlay.html %}
     {% include overlays/about-overlay.html %}
     {% include en/menus/filter-menu.html %}

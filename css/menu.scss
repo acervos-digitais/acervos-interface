@@ -130,6 +130,11 @@
         display: none;
       }
     }
+
+    .filter--counter--button {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 
   .menu--section + .menu--title {

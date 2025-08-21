@@ -7,6 +7,7 @@ import { SorterMenu } from "./SorterMenu.js";
 import { Canvas } from "./Canvas.js";
 import { AboutOverlay } from "./overlays/AboutOverlay.js";
 import { DetailOverlay } from "./overlays/DetailOverlay.js";
+import { ResultsOverlay } from "./overlays/ResultsOverlay.js";
 
 const META_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_processed.json";
 const CLUSTER_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_clusters.json";
@@ -25,10 +26,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   metaData = combineClusterData(metaData, clusterData);
 
   const detailOverlayEl = document.getElementById("detail-overlay--background");
+  const resultsOverlayEl = document.getElementById("results-overlay--background");
 
   const mCanvas = new Canvas(metaData);
   const mAboutOverlay = new AboutOverlay();
   const mDetailOverlay = new DetailOverlay(metaData);
+  const mResultsOverlay = new ResultsOverlay(metaData);
   const mFilters = new FilterMenu(menuData);
   const mSorters = new SorterMenu(metaData, menuData);
   const mExportMenu = new ExportMenu(mDetailOverlay.data);
@@ -45,6 +48,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);
     mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
+    if (mSorters.checked) {
+      mResultsOverlay.populateResultsOverlay(mCanvas.sorted);
+    } else {
+      const ids = Array.from(mSorters.validIdsSet).map(id => ({ id }));
+      mResultsOverlay.populateResultsOverlay(ids);
+    }
+  });
+
+  document.addEventListener("show-results", () => {
+    resultsOverlayEl.classList.remove("hidden");
   });
 
   document.addEventListener("show-detail", (evt) => {
@@ -52,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     detailOverlayEl.classList.remove("hidden");
   });
 
-  document.addEventListener("prep-mosaic", (evt) => {
+  document.addEventListener("prep-mosaic", () => {
     mDetailOverlay.prepareMosaicOverlay();
     detailOverlayEl.classList.remove("hidden");
   });

@@ -30,9 +30,9 @@ class DetailOverlay extends Overlay {
   populateDetailOverlay(id, objects) {
     const data = this.data[id];
 
-    const titleText = data.title == "" ? "untitled" : data.title;
-    const yearText = (data.year == 9999) ? "undated" : `${data.year}`;
-    const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator == "" ? "unauthored" : `${data.creator}`;
+    const titleText = data.title == "" ? "untitled" : `${data.title}`;
+    const yearText = (data.year > this.nowYear) ? "undated" : `${data.year}`;
+    const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator.includes("ão identificado") || data.creator == "" ? "unauthored" : `${data.creator}`;
 
     this.boxesEl.innerHTML = "";
     this.colorsEl.innerHTML = "";

@@ -101,6 +101,32 @@
       }
     }
 
+    .overlay--list--wrapper {
+      max-width: 500px;
+      max-height: 500px;
+      overflow-y: scroll;
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .overlay--list--title {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+      }
+
+      .overlay--list--item {
+        margin-bottom: 4px;
+        padding-left: 50px;
+        text-indent: -50px;
+        &::before {
+          content: "• ";
+        }
+      }
+    }
+
     .overlay--colors {
       width: 100%;
       display: flex;
