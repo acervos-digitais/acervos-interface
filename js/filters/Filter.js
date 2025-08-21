@@ -32,7 +32,7 @@ class Filter {
     wrapperEl.appendChild(inputEl);
     wrapperEl.appendChild(labelEl);
 
-    this.itemsEl.appendChild(wrapperEl);
+    this.itemsEl?.appendChild(wrapperEl);
     this.inputs.push(inputEl);
     return inputEl;
   }
