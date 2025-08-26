@@ -85,6 +85,11 @@
 
       .checkbox--item {
         margin: 0;
+
+        &.disabled {
+          opacity: 50%;
+          pointer-events: none;
+        }
       }
 
       &.disabled {

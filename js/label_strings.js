@@ -39,7 +39,8 @@ const MENU_LABELS = {
   undated: { en: "N/A", pt: "Sem Data" },
   unauthored: { en: "Unknown", pt: "Autoria não identificada" },
   information: { en: "More Information", pt: "Mais Informações" },
-  download: { en: "Download Image", pt: "Baixe Imagem"},
+  download: { en: "Download Image", pt: "Baixe Imagem" },
+  composition: { en: "Works included in this composition", pt: "Obras utilizadas nessa composição" },
 };
 
 function getLabel(l) {

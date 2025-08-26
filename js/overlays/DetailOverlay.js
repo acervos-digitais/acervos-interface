@@ -24,7 +24,12 @@ class DetailOverlay extends Overlay {
     this.titleEl = document.getElementById("detail-overlay--title--text");
     this.collectionEl = document.getElementById("detail-overlay--collection--text");
     this.linkEl = document.getElementById("detail-overlay--info--link");
+    this.listEl = document.getElementById("detail-overlay--list--link");
     this.aiTextEl = document.getElementById("detail-overlay--info--subtext");
+
+    this.listEl.addEventListener("click", () => {
+      document.dispatchEvent(new CustomEvent("show-results"));
+    });
   }
 
   populateDetailOverlay(id, objects) {
@@ -34,6 +39,7 @@ class DetailOverlay extends Overlay {
     const yearText = (data.year > this.nowYear) ? "undated" : `${data.year}`;
     const creatorText = data.creator.includes("http") || data.creator.includes("known") || data.creator.includes("ão identificado") || data.creator == "" ? "unauthored" : `${data.creator}`;
 
+    this.listEl.innerHTML = "";
     this.boxesEl.innerHTML = "";
     this.colorsEl.innerHTML = "";
 
@@ -82,7 +88,7 @@ class DetailOverlay extends Overlay {
     this.loaderEl.classList.remove("hidden");
     this.aiTextEl.classList.add("hidden");
     this.imgEl.src = "";
-    [this.boxesEl, this.colorsEl, this.titleEl, this.collectionEl, this.linkEl].forEach(el => el.innerHTML = "");
+    [this.boxesEl, this.colorsEl, this.titleEl, this.collectionEl, this.linkEl, this.listEl].forEach(el => el.innerHTML = "");
   }
 
   populateMosaicOverlay(imgUrl, isAi) {
@@ -91,6 +97,7 @@ class DetailOverlay extends Overlay {
     this.linkEl.setAttribute("href", imgUrl);
     this.linkEl.setAttribute("download", "acervos.jpg");
     this.linkEl.innerHTML = `${getLabel("download")}`;
+    this.listEl.innerHTML = `${getLabel("composition")}`;
 
     if (isAi) {
       this.aiTextEl.classList.remove("hidden");

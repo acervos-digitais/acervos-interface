@@ -150,10 +150,20 @@
         font-size: 1rem;
       }
 
-      .overlay--info--link {
-        display: block;
-        font-size: 0.9rem;
+      .overlay--info--link-section {
         margin: 12px 0;
+
+        a,
+        .overlay--info--button {
+          font-size: 0.9rem;
+          color: var(--txt-color);
+          cursor: pointer;
+          text-decoration: underline;
+
+          &:hover {
+            color: var(--txt-color-hl);
+          }
+        }
       }
 
       .overlay--info--subtext {
@@ -172,4 +182,12 @@
     width: 50%;
     min-width: 640px;
   }
+}
+
+.datail-overlay--background {
+  z-index: 80;
+}
+
+.results-overlay--background {
+  z-index: 90;
 }

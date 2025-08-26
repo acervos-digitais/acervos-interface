@@ -3,7 +3,7 @@ const OBJ_THOLDS = {
   dog: 0,
   horse: 0,
   ox: 1,
-  "painting of human": 0,
+  "painting of human": 1,
   bush: 0,
   flower: 0,
   fruit: 0,
@@ -11,15 +11,15 @@ const OBJ_THOLDS = {
   greenery: 0,
   shrub: 0,
   tree: 0,
-  vegetation: 0,
+  vegetation: 1,
   conifer: 0,
   "palm tree": 0,
-  "human face": 0,
-  "human hand": 0,
+  "human face": 1,
+  "human hand": 1,
   "naked human back": 1,
   "naked human breast": 1,
   "naked human buttocks": 1,
-  "naked human torso": 0,
+  "naked human torso": 1,
 };
 
 async function fetchData(mUrl) {
@@ -46,12 +46,15 @@ function createMenuData(metaData, clusterData) {
     dates: {},
     objects: {},
   };
-  
+  const full = window.location.href.includes("full");
+
   for (const id of Object.keys(metaData)) {
     const item = metaData[id];
     const col = item.museum;
 
-    item.objects = item.objects.filter(o => o.score > OBJ_THOLDS[o.label]);
+    if (!full) {
+      item.objects = item.objects.filter(o => o.score > OBJ_THOLDS[o.label]);
+    }
 
     if (!(col in menuData.collections)) {
       menuData.collections[col] = [];

@@ -22,9 +22,9 @@ class ExportMenu {
     this.sorted = sorted;
     this.objects = objects;
 
-    const gridItemsEl = document.getElementById("export--grid--items");
-    const objectsItemsEl = document.getElementById("export--objects--items");
-    const xyItemsEl = document.getElementById("export--xy--items");
+    const gridItemsEl = document.getElementById("export--grid--button");
+    const objectsItemsEl = document.getElementById("export--objects--button");
+    const xyItemsEl = document.getElementById("export--xy--button");
 
     if (this.sorted.length > 0) {
       gridItemsEl?.classList.remove("disabled");

@@ -3,6 +3,7 @@ import { Drawer } from "./Drawer.js";
 class BinDrawer extends Drawer {
   constructor() {
     super();
+    this.defaultWidth = 80;
   }
 
   draw(artWorks, sorted, scale) {
@@ -35,7 +36,7 @@ class BinDrawer extends Drawer {
         this.resetEl(artWorks[id]);
 
         artWorks[id].style.aspectRatio = `${artWorks[id].dataset.ratio}`;
-        artWorks[id].style.width = `${50 * scale}px`;
+        artWorks[id].style.width = `${this.defaultWidth * scale}px`;
 
         yearContainerEl.appendChild(artWorks[id]);
         this.arts.push(artWorks[id]);
@@ -47,7 +48,7 @@ class BinDrawer extends Drawer {
   }
 
   zoom(scale) {
-    this.arts.forEach(el => el.style.width = `${50 * scale}px`);
+    this.arts.forEach(el => el.style.width = `${this.defaultWidth * scale}px`);
     this.years.forEach(el => el.style.fontSize = `${1 * scale}rem`);
   }
 }
