@@ -34,7 +34,6 @@ canvas:
     <link rel="stylesheet" href="{{ 'css/menu.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/other-menu.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/sorter-menu.css' | relative_url }}" type="text/css" />
 
     <script type="module" src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
@@ -45,9 +44,5 @@ canvas:
     {% include overlays/detail-overlay.html %}
     {% include overlays/about-overlay.html %}
     {% include en/menus/filter-menu.html %}
-
-    {%comment%}
-    {% include en/menus/sorter-menu.html %}
-    {%endcomment%}
   </body>
 </html>

@@ -46,15 +46,12 @@ function createMenuData(metaData, clusterData) {
     dates: {},
     objects: {},
   };
-  const full = window.location.href.includes("full");
 
   for (const id of Object.keys(metaData)) {
     const item = metaData[id];
     const col = item.museum;
 
-    if (!full) {
-      item.objects = item.objects.filter(o => o.score > OBJ_THOLDS[o.label]);
-    }
+    item.objects = item.objects.filter(o => o.score > OBJ_THOLDS[o.label]);
 
     if (!(col in menuData.collections)) {
       menuData.collections[col] = [];

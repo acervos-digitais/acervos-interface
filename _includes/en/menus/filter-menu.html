@@ -45,7 +45,6 @@
     <div class="menu--section--items" id="filter--object--items"></div>
   </section>
 
-  {% unless include.full %}
   <section class="menu--section">
     <div class="menu--section--title">Create your image</div>
     <div class="menu--section--description">Choose fauna and flora elements above and then export static images</div>
@@ -59,9 +58,8 @@
       </div>
     </div>
   </section>
-  {% endunless %}
 
-  {% if include.full %}
+  {% comment %}
   <section class="menu--section">
     <div class="menu--section--title">AI Curations</div>
     <div class="menu--section--description">Select by groups determined by AI</div>
@@ -71,5 +69,5 @@
       In case of errors, please contact acervosdigitais@usp.br.
     </div>
   </section>
-  {% endif %}
+  {% endcomment %}
 </nav>

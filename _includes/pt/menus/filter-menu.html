@@ -45,7 +45,6 @@
     <div class="menu--section--items" id="filter--object--items"></div>
   </section>
 
-  {% unless include.full %}
   <section class="menu--section">
     <div class="menu--section--title">Crie sua imagem</div>
     <div class="menu--section--description">Escolha um elemento da Flora ou Fauna (acima) e um modelo</div>
@@ -59,9 +58,8 @@
       </div>
     </div>
   </section>
-  {% endunless %}
 
-  {% if include.full %}
+  {% comment %}
   <section class="menu--section">
     <div class="menu--section--title">Curadorias da IA</div>
     <div class="menu--section--description"></div>
@@ -71,5 +69,5 @@
       Em caso de erros, por favor contate acervosdigitais@usp.br.
     </div>
   </section>
-  {% endif %}
+  {% endcomment %}
 </nav>

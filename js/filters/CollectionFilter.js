@@ -16,11 +16,8 @@ class CollectionFilter extends Filter {
     const selectedVals = this.inputs.filter(el => el.checked).map(el => el.value);
 
     if (selectedVals.length < 1) {
-      if (window.location.href.includes("full")) {
-        return inIdsSet;
-      } else {
-        return new Set();
-      }
+      return new Set();
+      return inIdsSet;
     }
 
     const selectedIdsSet = selectedVals.reduce((acc, val) => acc.union(new Set(this.data[val])), new Set());
