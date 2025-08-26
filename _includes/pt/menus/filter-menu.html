@@ -3,10 +3,10 @@
     <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
   </button>
 
-  <div class="menu--title">Acervos
+  <div class="menu--title">Museus
     <span class="menu--title--required">obrigatório</span>
   </div>
-  <div class="menu--description">Escolha quais acervos incluir</div>
+  <div class="menu--description">Escolha um ou mais acervos</div>
 
   <section class="menu--section">
     <span class="filter--counter--item hidden" id="filter--counter--available">Obras Disponíveis:</span>
@@ -17,12 +17,10 @@
 
   <section class="menu--section">
     <div class="menu--section--title"></div>
-    <div class="menu--section--description"></div>
-    <div class="menu--section--items" id="filter--collection--items"></div>
+    <div class="menu--section--items collection--items" id="filter--collection--items"></div>
   </section>
 
-  <div class="menu--title">Filtros</div>
-  <div class="menu--description">Escolha filtros para refinar a seleção de obras</div>
+  <div class="menu--title">Refine sua Busca</div>
 
   <section class="menu--section">
     <div class="menu--section--title">Técnicas</div>
@@ -32,7 +30,7 @@
 
   <section class="menu--section">
     <div class="menu--section--title">Datas</div>
-    <div class="menu--section--description">Selecione limite de data por ano de criação</div>
+    <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--date--items">
       {% include range-item.html label="De" slug="date--filter--min" %}
       {% include range-item.html label="Até" slug="date--filter--max" %}
@@ -41,10 +39,11 @@
 
   <section class="menu--section">
     <div class="menu--section--title">Fauna e Flora</div>
-    <div class="menu--section--description">Selecione elementos das obras</div>
+    <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--object--items"></div>
   </section>
 
+  {% comment %}
   <section class="menu--section">
     <div class="menu--section--title">Crie sua imagem</div>
     <div class="menu--section--description">Escolha um elemento da Flora ou Fauna (acima) e um modelo</div>
@@ -58,6 +57,7 @@
       </div>
     </div>
   </section>
+  {% endcomment %}
 
   {% comment %}
   <section class="menu--section">

@@ -6,9 +6,17 @@ class ColorSorter extends Sorter {
 
     this.picker = document.getElementById("color--sorter--color-picker");
 
-    this.picker.addEventListener("change", () => {
+    const dispatchColor = () => {
       this.color = ColorSorter.hexToRgb(this.picker.value);
       document.dispatchEvent(this.sortDataEvent);
+    };
+    this.dispatchTimeout = null;
+
+    this.picker.addEventListener("input", () => {
+      if (this.dispatchTimeout !== null) {
+        clearTimeout(this.dispatchTimeout);
+      }
+      this.dispatchTimeout = setTimeout(dispatchColor, 100);
     });
 
     this.color = ColorSorter.hexToRgb(this.picker.value);

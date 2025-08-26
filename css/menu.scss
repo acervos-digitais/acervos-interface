@@ -38,7 +38,7 @@
   }
 
   .menu--title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .menu--description {
@@ -46,12 +46,12 @@
   }
   
   .menu--section {
-    margin: 12px 0 0;
+    margin: 8px 0 0;
     padding-top: 12px;
-    border-top: 1px solid var(--bg-color-hl);
+    // border-top: 1px solid var(--bg-color-hl);
 
     .menu--section--title {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     .menu--section--description {
@@ -85,11 +85,6 @@
 
       .checkbox--item {
         margin: 0;
-
-        &.disabled {
-          opacity: 50%;
-          pointer-events: none;
-        }
       }
 
       &.disabled {
@@ -119,6 +114,14 @@
           margin-top: 4px;
         }
       }
+
+      &.collection--items {
+        .checkbox--item {
+          label {
+            font-size: 0.9rem;
+          }
+        }
+      }
     }
 
     .menu--section--subtext {
@@ -145,6 +148,7 @@
   .menu--section + .menu--title {
     margin-top: 20px;
     padding-top: 12px;
+    font-size: 1.1rem;
     border-top: 1px solid var(--bg-color-hl);
   }
 
@@ -177,12 +181,12 @@
 .menu--title--required {
   font-size: 0.8rem;
   color: var(--text-color-err);
-  vertical-align: super;
+  vertical-align: middle;
+  line-height: 100%;
 
   &::before {
-    vertical-align: bottom;
-    font-size: 1.3rem;
-    content: "*";
+    font-size: 0.7rem;
+    content: "✶ ";
   }
 }
 
@@ -196,8 +200,13 @@
       cursor: pointer;
     }
 
+    &.disabled {
+      opacity: 50%;
+      pointer-events: none;
+    }
+
     label {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       padding: 4px 6px;
       background-color: #ddd;
       user-select: none;
@@ -205,11 +214,6 @@
 
       &:hover {
         background-color: var(--bg-color-l);
-      }
-
-      &.disabled {
-        opacity: 50%;
-        pointer-events: none;
       }
     }
 

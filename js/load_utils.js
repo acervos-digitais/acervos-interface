@@ -22,6 +22,26 @@ const OBJ_THOLDS = {
   "naked human torso": 1,
 };
 
+const COLLECTION_LABELS = {
+  "Museu Victor Meirelles": "Victor Meirelles",
+  "Museu Regional Casa dos Ottoni": "Casa dos Ottoni",
+  "Museu Regional São João Del Rey": "São João Del Rey",
+  "Museu Regional do Caeté": "Regional do Caeté",
+  "Museu Casa da Hera": "Casa da Hera",
+  "Museu Casa de Benjamin Constant": "Benjamin Constant",
+  "Museu de Arqueologia de Itaipu": "Arqueologia de Itaipu",
+  "Museu do Diamante": "Museu do Diamante",
+  "Museu da Inconfidência": "Museu da Inconfidência",
+  "MAC USP": "MAC USP",
+  "Museu Nacional de Belas Artes": "Belas Artes",
+  "Pinacoteca de São Paulo": "Pinacoteca de São Paulo",
+  "Museu Paulista": "Museu Paulista",
+  "MASP": "MASP",
+  "Instituto Hércules Florence": "Hércules Florence",
+  "Museu Histórico Nacional": "Histórico Nacional",
+  "Coleção Brasiliana Itaú": "Brasiliana Itaú",
+};
+
 async function fetchData(mUrl) {
   const response = await fetch(mUrl);
   return await response.json();
@@ -30,7 +50,7 @@ async function fetchData(mUrl) {
 function pruneCollections(menuData, thold=10) {
   menuData.collections = Object.entries(menuData.collections).reduce((acc, [k, v]) => {
     if (v.length >= thold && !k.includes("Religiosa e Tradicional")) {
-      acc[k] = v;
+      acc[COLLECTION_LABELS[k]] = v;
     }
 
     return acc;

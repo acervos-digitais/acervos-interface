@@ -3,10 +3,10 @@
     <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
   </button>
 
-  <div class="menu--title">Collections
+  <div class="menu--title">Museums
     <span class="menu--title--required">required</span>
   </div>
-  <div class="menu--description">Choose which collections to include in the search</div>
+  <div class="menu--description">Choose one or more collections</div>
 
   <section class="menu--section">
     <span class="filter--counter--item hidden" id="filter--counter--available">Available Works:</span>
@@ -17,22 +17,20 @@
 
   <section class="menu--section">
     <div class="menu--section--title"></div>
-    <div class="menu--section--description"></div>
-    <div class="menu--section--items" id="filter--collection--items"></div>
+    <div class="menu--section--items collection--items" id="filter--collection--items"></div>
   </section>
 
-  <div class="menu--title">Filters</div>
-  <div class="menu--description">Use filters to refine the selection of works</div>
+  <div class="menu--title">Refine your Search</div>
 
   <section class="menu--section">
     <div class="menu--section--title">Techniques</div>
-    <div class="menu--section--description">Select type of work or technique</div>
+    <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--category--items"></div>
   </section>
 
   <section class="menu--section">
     <div class="menu--section--title">Date</div>
-    <div class="menu--section--description">Select date range by year of creation</div>
+    <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--date--items">
       {% include range-item.html label="From" slug="date--filter--min" %}
       {% include range-item.html label="To" slug="date--filter--max" %}
@@ -41,10 +39,11 @@
 
   <section class="menu--section">
     <div class="menu--section--title">Fauna and Flora</div>
-    <div class="menu--section--description">Select elements of interest</div>
+    <div class="menu--section--description"></div>
     <div class="menu--section--items" id="filter--object--items"></div>
   </section>
 
+  {% comment %}
   <section class="menu--section">
     <div class="menu--section--title">Create your image</div>
     <div class="menu--section--description">Choose fauna and flora elements above and then export static images</div>
@@ -58,6 +57,7 @@
       </div>
     </div>
   </section>
+  {% endcomment %}
 
   {% comment %}
   <section class="menu--section">

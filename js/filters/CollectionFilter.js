@@ -4,7 +4,28 @@ class CollectionFilter extends Filter {
   constructor(data) {
     super(data, "collection");
 
-    for (const col of Object.keys(data)) {
+    const labelOrder = {
+      "Victor Meirelles": 0,
+      "Casa dos Ottoni": 1,
+      "São João Del Rey": 2,
+      "Regional do Caeté": 3,
+      "Casa da Hera": 4,
+      "Benjamin Constant": 5,
+      "Arqueologia de Itaipu": 6,
+      "Museu do Diamante": 7,
+      "MASP": 8,
+      "Museu da Inconfidência": 9,
+      "MAC USP": 10,
+      "Belas Artes": 11,
+      "Pinacoteca de São Paulo": 12,
+      "Museu Paulista": 13,
+      "Histórico Nacional": 14,
+      "Hércules Florence": 15,
+      "Brasiliana Itaú": 16,
+    };
+    const orderedLabels = Object.keys(data).toSorted((a, b) => labelOrder[a] - labelOrder[b]);
+
+    for (const col of orderedLabels) {
       const labelSlug = col.replaceAll(" ", "-").toLowerCase();
       this.createInput("checkbox", `${labelSlug}--checkbox`, col, col);
     }
