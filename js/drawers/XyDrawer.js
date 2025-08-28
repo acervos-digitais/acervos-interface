@@ -3,6 +3,7 @@ import { Drawer } from "./Drawer.js";
 class XyDrawer extends Drawer {
   constructor() {
     super();
+    this.defaultWidth = 20;
   }
 
   draw(artWorks, sorted, scale) {
@@ -17,7 +18,7 @@ class XyDrawer extends Drawer {
     for (const { id, x, y } of sorted) {
       this.resetEl(artWorks[id]);
 
-      const w = scale * 20;
+      const w = scale * this.defaultWidth;
       const h = (w / parseFloat(artWorks[id].dataset.ratio));
 
       const ypx = Math.min(y * canvasH, canvasH - h);

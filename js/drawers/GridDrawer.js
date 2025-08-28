@@ -3,7 +3,7 @@ import { Drawer } from "./Drawer.js";
 class GridDrawer extends Drawer {
   constructor() {
     super();
-    this.defaultCols = 10;
+    this.defaultCols = 8;
   }
 
   draw(artWorks, sorted, scale) {
