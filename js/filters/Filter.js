@@ -5,6 +5,7 @@ class Filter {
     this.itemsEl = document.getElementById(`filter--${slug}--items`);
 
     this.data = data;
+    this.slug = slug;
     this.inputs = [];
     this.evtOpt = { detail: { fromDate: false } };
     this.filterDataEvent = new CustomEvent("filter-data", this.evtOpt);
@@ -12,7 +13,10 @@ class Filter {
 
   createInput(type, id, value, label, name = null) {
     const inputEl = this.createInputNoListener(type, id, value, label, name);
-    inputEl.addEventListener("change", () => document.dispatchEvent(this.filterDataEvent));
+    inputEl.addEventListener("change", () => {
+      this.checkCollections();
+      document.dispatchEvent(this.filterDataEvent);
+    });
   }
 
   createInputNoListener(type, id, value, label, name = null) {
@@ -47,8 +51,8 @@ class Filter {
   addAllNone() {
     this.addSpacer();
 
-    this.createInputNoListener("checkbox", "all--checkbox", "all", "Todos");
-    this.createInputNoListener("checkbox", "none--checkbox", "none", "Nenhum");
+    this.createInputNoListener("checkbox", `all--${this.slug}--checkbox`, "all", "Todos");
+    this.createInputNoListener("checkbox", `none--${this.slug}--checkbox`, "none", "Nenhum");
 
     const noneInput = this.inputs.pop();
     const allInput = this.inputs.pop();
@@ -66,6 +70,16 @@ class Filter {
       noneInput.checked = false;
       document.dispatchEvent(this.filterDataEvent);
     });
+  }
+
+  checkCollections() {
+    const allCollectionsInputEl = document.getElementById("all--collection--checkbox");
+    const collectionsInputEls = document.getElementById("filter--collection--items").querySelectorAll("input");
+    const totalCollections = collectionsInputEls.length;
+    const checkedCollections = Array.from(collectionsInputEls).filter(el => el.checked).length;
+    if (this.slug != "collection" && checkedCollections < 1 && totalCollections > 0) {
+      allCollectionsInputEl.click();
+    }
   }
 }
 
