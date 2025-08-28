@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const mSorters = new SorterMenu(metaData, menuData);
   const mExportMenu = new ExportMenu(mDetailOverlay.data);
 
-  const allIdsSet = new Set(Object.keys(metaData));
+  const allIdsSet = new Set(Object.values(menuData.collections).flat());
 
   document.addEventListener("filter-data", () => {
     mSorters.validIdsSet = mFilters.filter(allIdsSet);
