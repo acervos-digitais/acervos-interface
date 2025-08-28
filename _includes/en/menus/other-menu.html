@@ -3,10 +3,10 @@
 
   <section class="menu--section">
     <div class="menu--section--title">Visualizations
-      <span class="menu--title--required">required</span>
+      <!-- <span class="menu--title--required">required</span> -->
     </div>
     <div class="menu--section--items">
-      {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Timeline" %}
+      {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Timeline" checked="checked" %}
       <div class="menu--color-picker--items">
         {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="Colors" %}
         <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
