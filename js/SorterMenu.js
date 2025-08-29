@@ -49,6 +49,7 @@ class SorterMenu {
         }
       });
 
+      this.checkCollections();
       document.dispatchEvent(this.sortDataEvent);
     }));
   }
@@ -58,6 +59,16 @@ class SorterMenu {
       return this.allSorters[this.checked].sort(this.validIdsSet);
     }
     return [];
+  }
+
+  checkCollections() {
+    const allCollectionsInputEl = document.getElementById("all--collection--checkbox");
+    const collectionsInputEls = document.getElementById("filter--collection--items").querySelectorAll("input");
+    const totalCollections = collectionsInputEls.length;
+    const checkedCollections = Array.from(collectionsInputEls).filter(el => el.checked).length;
+    if (this.slug != "collection" && checkedCollections < 1 && totalCollections > 0) {
+      allCollectionsInputEl.click();
+    }
   }
 }
 
