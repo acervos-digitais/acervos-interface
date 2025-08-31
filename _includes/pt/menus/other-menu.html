@@ -2,9 +2,7 @@
   <button class="menu--close--button" id="sorter--close--button"></button>
 
   <section class="menu--section">
-    <div class="menu--section--title">Visualizações
-      <!-- <span class="menu--title--required">obrigatório</span> -->
-    </div>
+    <div class="menu--section--title">Visualizações</div>
     <div class="menu--section--items">
       {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Linha do Tempo" checked="checked" %}
       <div class="menu--color-picker--items">
@@ -44,12 +42,4 @@
       <div><a href="../en">EN</a> | PT</div>
     </div>
   </section>
-
-  <!-- Graveyard -->
-  <div style="display: none;">
-    <select class="sorter--dropdown" id="cluster--sorter--cluster-picker"></select>
-    <input type="color" value="#000000" class="sorter--color-picker" id="dateXcolor--sorter--color-picker">
-    <select name="x-dim" id="clusterXcluster--sorter--x-picker"></select>
-    <select name="y-dim" id="clusterXcluster--sorter--y-picker"></select>
-  </div>
 </nav>

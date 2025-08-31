@@ -1,5 +1,3 @@
-import { ClusterSorter } from "./sorters/ClusterSorter.js";
-import { ClusterClusterSorter } from "./sorters/ClusterClusterSorter.js";
 import { ColorSorter } from "./sorters/ColorSorter.js";
 import { DateSorter } from "./sorters/DateSorter.js";
 import { DateColorSorter } from "./sorters/DateColorSorter.js";
@@ -14,10 +12,8 @@ class SorterMenu {
     this.allSorters = {
       date: new DateSorter(metaData),
       color: new ColorSorter(metaData),
-      cluster: new ClusterSorter(metaData, menuData.clusters.labels),
       latent: new LatentSorter(metaData),
-      dateXcolor: new DateColorSorter(metaData),
-      clusterXcluster: new ClusterClusterSorter(metaData, menuData.clusters.labels),
+      // dateXcolor: new DateColorSorter(metaData),
     };
 
     const menuEl = document.getElementById("sorter-menu");
