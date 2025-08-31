@@ -191,3 +191,22 @@
 .results-overlay--background {
   z-index: 90;
 }
+
+@media (max-width: 768px) {
+  .overlay--background {
+    .overlay--window {
+      max-width: 100%;
+      &.text--window {
+        width: 100%;
+        min-width: unset;
+      }
+
+      .overlay--image--wrapper {
+        img {
+          max-width: 90vw;
+          max-height: 70vh;
+        }
+      }
+    }
+  }
+}

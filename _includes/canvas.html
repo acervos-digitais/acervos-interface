@@ -1,7 +1,9 @@
 <div class="canvas--container contract" id="canvas--container">
 
-  {% if include.lang %}
+  {% if include.desktop %}
   {% include {{ include.lang | append: "/menus/other-menu.html" }} %}
+  {% else %}
+  {% include {{ include.lang | append: "/menus/mobile-menu.html" }} %}
   {% endif %}
 
   <div class="canvas--drawing" id="canvas--drawing"></div>
@@ -12,7 +14,7 @@
     {% endfor %}
   </div>
 
-  {% if include.lang %}
+  {% if include.desktop %}
   <div class="canvas--intro mobile">
     <h3><b>{{ page.canvas.mobile }}</b></h3>
   </div>

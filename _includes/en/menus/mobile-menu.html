@@ -1,0 +1,65 @@
+<nav class="mobile-menu common--menu mobile" id="filter-menu">
+  <div class="menu--title">Museums
+    <span class="menu--title--required">required</span>
+  </div>
+
+  <section class="menu--section">
+    <div class="menu--section--title"></div>
+    <div class="menu--section--items collection--items" id="filter--collection--items"></div>
+  </section>
+
+  <div class="menu--mobile--group">
+    <section class="menu--section" id="sorter-menu">
+      <div class="menu--section--title">Sort by Color</div>
+
+      <div class="menu--section--items">
+        <div class="menu--color-picker--items">
+          {% include radio-item.html id="sorter--color--enable" name="sorter-type" value="color" label="Colors" checked="checked" %}
+          <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+        </div>
+      </div>
+    </section>
+
+    <section class="menu--section">
+      <div class="menu--section--title">Export Images</div>
+      <div class="menu--section--items">
+        <div class="checkbox--item disabled" id="export--grid--button">
+          <label id="export--grid--items">Mosaic</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu--section about--section">
+      <div class="about--section--column">
+        <div><a href="#" id="menu--about--button">ABOUT</a></div>
+        <div>EN | <a href="../../pt/mobile">PT</a></div>
+      </div>
+    </section>
+  </div>
+
+  <button class="menu--close--button" id="filter--close--button">
+    <img src="{{ 'assets/icon_left.svg' | relative_url }}"/>
+  </button>
+
+  <!-- Graveyard -->
+  <div style="display: none;">
+    <button class="menu--close--button" id="sorter--close--button"></button>
+    <span class="filter--counter--item hidden" id="filter--counter--available">Obras Disponíveis:</span>
+    <span class="filter--counter--item" id="filter--counter--found">Obras Encontradas:</span>
+    <span class="filter--counter--item" id="filter--counter--count">0</span>
+    <div class="filter--counter--button" id="filter--counter--list">Lista de Obras</div>
+    <div class="menu--section--items" id="filter--category--items"></div>
+    <div class="menu--section--items" id="filter--date--items">
+      {% include range-item.html label="De" slug="date--filter--min" %}
+      {% include range-item.html label="Até" slug="date--filter--max" %}
+    </div>
+    <div class="menu--section--items" id="filter--object--items"></div>
+    {% include radio-item.html id="sorter--date--enable" name="sorter-type" value="date" label="Timeline" %}
+    <select class="other--dropdown" id="other--cluster-picker">
+      <option value="" selected disabled>Choose a curation</option>
+    </select>
+    <div class="checkbox--item disabled" id="export--xy--button">
+      <label id="export--xy--items">Composition</label>
+    </div>
+  </div>
+</nav>

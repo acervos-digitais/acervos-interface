@@ -23,7 +23,7 @@ canvas:
     Crie sua Imagem: >-
       Os mosaicos são imagens geradas a partir dos filtros e visualizações escolhidos. Diferente das visualizações na tela, essas imagens não são interativas, e seu tamanho varia de acordo com o número de obras incluídas pelos filtros. Nas composições, recortes de objetos são dispostos de acordo com sua posição e localização na obra original.
   mobile: >-
-    A interface completa infelizmente não funciona em celulares.<br><br>Acesse uma versão simplificada <a href="./mobile/">aqui</a>.
+    A interface completa infelizmente não funciona em celulares.
 ---
 
 <!DOCTYPE html>
@@ -34,17 +34,15 @@ canvas:
     <link rel="stylesheet" href="{{ 'css/canvas.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/overlay.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/other-menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/mobile-menu.css' | relative_url }}" type="text/css" />
 
     <script type="module" src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
 
   <body>
-    {% include canvas.html lang="pt" desktop=true %}
+    {% include canvas.html lang="pt" desktop=false %}
     {% include overlays/results-overlay.html %}
     {% include overlays/detail-overlay.html %}
     {% include overlays/about-overlay.html %}
-    {% include pt/menus/filter-menu.html %}
   </body>
 </html>

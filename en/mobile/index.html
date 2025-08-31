@@ -23,7 +23,7 @@ canvas:
     Export Images: >-
       Mosaics are images generated from the chosen filters and visualizations. Unlike the visualizations on screen, these images are not interactive, and their size varies according to the number of works included in the search. In the compositions, cropped objects are arranged according to their relative position and location in the original work.
   mobile: >-
-    This website was developed for desktop viewing.<br><br>Access a simplified mobile version <a href="./mobile/">here</a>.
+    This website was developed for desktop viewing.
 ---
 
 <!DOCTYPE html>
@@ -34,17 +34,15 @@ canvas:
     <link rel="stylesheet" href="{{ 'css/canvas.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/overlay.css' | relative_url }}" type="text/css" />
     <link rel="stylesheet" href="{{ 'css/menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/other-menu.css' | relative_url }}" type="text/css" />
-    <link rel="stylesheet" href="{{ 'css/filter-menu.css' | relative_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ 'css/mobile-menu.css' | relative_url }}" type="text/css" />
 
     <script type="module" src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
 
   <body>
-    {% include canvas.html lang="en" desktop=true %}
+    {% include canvas.html lang="en" desktop=false %}
     {% include overlays/results-overlay.html %}
     {% include overlays/detail-overlay.html %}
     {% include overlays/about-overlay.html %}
-    {% include en/menus/filter-menu.html %}
   </body>
 </html>

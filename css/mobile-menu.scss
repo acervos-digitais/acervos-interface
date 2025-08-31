@@ -1,0 +1,51 @@
+---
+---
+
+.common--menu.mobile {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: unset;
+
+  .menu--close--button {
+    position: relative;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    transform: rotate(90deg);
+  }
+
+  &.hidden {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    .menu--close--button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+  }
+
+  .menu--mobile--group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .menu--color-picker--items {
+    display: flex;
+    .radio--item {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      label {
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}
