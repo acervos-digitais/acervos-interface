@@ -1,4 +1,8 @@
 const MENU_LABELS = {
+  // general
+  all: { en: "All", pt: "Todos" },
+  none: { en: "None", pt: "Nenhum" },
+
   // categories
   drawing: { en: "drawing", pt: "desenho" },
   painting: { en: "painting", pt: "pintura" },

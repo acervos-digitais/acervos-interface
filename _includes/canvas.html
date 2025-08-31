@@ -12,7 +12,9 @@
     {% endfor %}
   </div>
 
+  {% if include.lang %}
   <div class="canvas--intro mobile">
-    <p><h3><b>{{ page.canvas.mobile }}</b></h3></p>
+    <h3><b>{{ page.canvas.mobile }}</b></h3>
   </div>
+  {% endif %}
 </div>

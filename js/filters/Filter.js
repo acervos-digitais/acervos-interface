@@ -51,8 +51,8 @@ class Filter {
   addAllNone() {
     this.addSpacer();
 
-    this.createInputNoListener("checkbox", `all--${this.slug}--checkbox`, "all", "Todos");
-    this.createInputNoListener("checkbox", `none--${this.slug}--checkbox`, "none", "Nenhum");
+    this.createInputNoListener("checkbox", `all--${this.slug}--checkbox`, "all", getLabel("all"));
+    this.createInputNoListener("checkbox", `none--${this.slug}--checkbox`, "none", getLabel("none"));
 
     const noneInput = this.inputs.pop();
     const allInput = this.inputs.pop();
