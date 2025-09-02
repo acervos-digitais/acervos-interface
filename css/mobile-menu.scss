@@ -49,3 +49,9 @@
     }
   }
 }
+
+@media (min-width: 768px) {
+  .common--menu.mobile {
+    display: none;
+  }
+}

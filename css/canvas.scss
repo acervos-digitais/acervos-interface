@@ -78,7 +78,7 @@
       display: none;
     }
 
-    &.mobile {
+    &.small {
       height: 100%;
       flex-direction: column;
       justify-content: center;
@@ -97,10 +97,10 @@
   .canvas--container.contract {
     padding-left: 0;
   }
-  .canvas--container .canvas--intro.mobile {
+  .canvas--container .canvas--intro.small {
     display: flex;
   }
-  .canvas--container .canvas--intro.desktop {
+  .canvas--container .canvas--intro.large {
     display: none;
   }
 }
