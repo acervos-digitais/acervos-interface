@@ -25,7 +25,6 @@ class XyDrawer extends Drawer {
 
       artWorks[id].style.position = "absolute";
       artWorks[id].style.left = `min(calc(${x} * 100vw), calc(100vw - ${w}px))`;
-      // artWorks[id].style.top = `min(calc(${y} * 100vh), calc(100vh - ${h}px))`;
       artWorks[id].style.top = `${ypx}px`;
       artWorks[id].style.aspectRatio = `${artWorks[id].dataset.ratio}`;
       artWorks[id].style.width = `${w}px`;
