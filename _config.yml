@@ -1,5 +1,9 @@
 title: Navegador de Acervos
 
+# for local dev:
+#   jekyll s --baseurl=
+baseurl: /acervos-interface
+
 exclude: [
   .git,
   .gitignore,
