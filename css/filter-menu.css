@@ -1,0 +1,9 @@
+.filter-menu {
+  z-index: 30;
+  left: 0;
+}
+
+.filter-menu .menu--close--button {
+  z-index: 35;
+  right: 0;
+}

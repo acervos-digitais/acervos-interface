@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #eee;
+  --bg-color-l: #ccc;
+  --bg-color-hl: #aaa;
+  --txt-color: #444;
+  --txt-color-l: #333;
+  --txt-color-hl: #222;
+  --text-color-err: #e44;
+  --menu-width: 300px;
+  font-size: 15px;
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  font-family: "Raleway";
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 13px;
+  }
+}

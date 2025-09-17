@@ -1,0 +1,57 @@
+.common--menu.mobile {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: unset;
+}
+
+.common--menu.mobile .menu--close--button {
+  position: relative;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  transform: rotate(90deg);
+}
+
+.common--menu.mobile.hidden {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+}
+
+.common--menu.mobile.hidden .menu--close--button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+
+.common--menu.mobile .menu--mobile--group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.common--menu.mobile .menu--color-picker--items {
+  display: flex;
+}
+
+.common--menu.mobile .menu--color-picker--items .radio--item {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.common--menu.mobile .menu--color-picker--items .radio--item label {
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .common--menu.mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+.common--menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: var(--menu-width);
+  height: 100vh;
+  padding: 20px;
+  overflow: auto;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  background-color: var(--bg-color);
+  transition: left 0.33s linear, right 0.33s linear;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.common--menu .menu--close--button {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: transform 0.15s linear;
+}
+
+.common--menu .menu--close--button:hover {
+  background-color: var(--bg-color-l);
+}
+
+.common--menu .menu--title {
+  font-size: 1.2rem;
+}
+
+.common--menu .menu--description {
+  margin: 8px 0;
+}
+
+.common--menu .menu--section {
+  margin: 8px 0 0;
+  padding-top: 12px;
+}
+
+.common--menu .menu--section .menu--section--title {
+  font-size: 1rem;
+}
+
+.common--menu .menu--section .menu--section--description {
+  margin: 8px 0;
+}
+
+.common--menu .menu--section .checkbox--item,
+.common--menu .menu--section .radio--item {
+  margin: 8px 0;
+}
+
+.common--menu .menu--section .range--item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.common--menu .menu--section .range--item label + input {
+  margin-left: 12px;
+  flex: 0.8;
+  outline: none;
+}
+
+.common--menu .menu--section .menu--section--items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.common--menu .menu--section .menu--section--items .checkbox--item {
+  margin: 0;
+}
+
+.common--menu .menu--section .menu--section--items.disabled {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+.common--menu .menu--section .menu--section--items .menu--section--item {
+  width: 100%;
+}
+
+.common--menu
+  .menu--section
+  .menu--section--items
+  .menu--section--item
+  .menu--section--item--title {
+  font-size: 0.9rem;
+}
+
+.common--menu
+  .menu--section
+  .menu--section--items
+  .menu--section--item
+  .sorter--color-picker {
+  width: 100%;
+  height: 40px;
+  margin: -3px;
+  padding: 0;
+  border: 1px var(--bg-color) solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.common--menu
+  .menu--section
+  .menu--section--items
+  .menu--section--item
+  .sorter--dropdown {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.common--menu
+  .menu--section
+  .menu--section--items.collection--items
+  .checkbox--item
+  label {
+  font-size: 0.9rem;
+}
+
+.common--menu .menu--section .menu--section--subtext {
+  padding-top: 8px;
+  font-size: 0.8rem;
+}
+
+.common--menu .menu--section .menu--section--subtext.hidden {
+  display: none;
+}
+
+.common--menu .menu--section .filter--counter--item.hidden {
+  display: none;
+}
+
+.common--menu .menu--section .filter--counter--button {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.common--menu .menu--section + .menu--title {
+  margin-top: 20px;
+  padding-top: 12px;
+  font-size: 1.1rem;
+  border-top: 1px solid var(--bg-color-hl);
+}
+
+.common--menu.hidden {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  padding-top: 1.75rem;
+  overflow: hidden;
+  border: 1px var(--txt-color) solid;
+}
+
+.common--menu.hidden .menu--close--button {
+  transform: rotate(180deg);
+}
+
+.common--menu::-webkit-scrollbar {
+  display: none;
+}
+
+.sorter-menu .menu--about--button {
+  display: none;
+}
+
+.menu--title--required {
+  font-size: 0.8rem;
+  color: var(--text-color-err);
+  vertical-align: middle;
+  line-height: 100%;
+}
+
+.menu--title--required::before {
+  font-size: 0.7rem;
+  content: "✶ ";
+}
+
+.menu--section .checkbox--item,
+.menu--section .radio--item {
+  display: flex;
+}
+
+.menu--section .checkbox--item input,
+.menu--section .radio--item input {
+  width: 0;
+  cursor: pointer;
+}
+
+.menu--section .checkbox--item.disabled,
+.menu--section .radio--item.disabled {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+.menu--section .checkbox--item label,
+.menu--section .radio--item label {
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  background-color: #ddd;
+  user-select: none;
+  cursor: pointer;
+}
+
+.menu--section .checkbox--item label:hover,
+.menu--section .radio--item label:hover {
+  background-color: var(--bg-color-l);
+}
+
+.menu--section .checkbox--item input:checked + label,
+.menu--section .radio--item input:checked + label {
+  background-color: var(--bg-color-hl);
+}
+
+@media (max-width: 768px) {
+  .common--menu {
+    display: none;
+  }
+}

@@ -1,0 +1,100 @@
+.canvas--container {
+  position: relative;
+  z-index: 0;
+}
+
+.canvas--container .canvas--drawing {
+  margin-top: 110px;
+  width: 100%;
+  min-height: calc(100vh - 110px);
+}
+
+.canvas--container .canvas--drawing .art--work {
+  cursor: pointer;
+}
+
+.canvas--container .canvas--drawing .art--work:hover {
+  opacity: 0.9;
+}
+
+.canvas--container .canvas--drawing .art--work img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.canvas--container .canvas--drawing.bin {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2px;
+}
+
+.canvas--container .canvas--drawing.bin .year-container {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+  gap: 2px;
+}
+
+.canvas--container .canvas--drawing.bin .year-container .year-info {
+  margin-top: 4px;
+  border-top: 2px var(--txt-color) solid;
+  text-align: center;
+  opacity: 0;
+}
+
+.canvas--container .canvas--drawing.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.canvas--container .canvas--drawing.xy {
+  display: block;
+  position: relative;
+}
+
+.canvas--container.contract {
+  padding-left: var(--menu-width);
+}
+
+.canvas--container .canvas--intro {
+  position: absolute;
+  top: 0;
+  max-width: 500px;
+  margin-top: -20px;
+  padding: 0 20px;
+}
+
+.canvas--container .canvas--intro.hidden {
+  display: none;
+}
+
+.canvas--container .canvas--intro.small {
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .canvas--container .canvas--drawing {
+    margin-top: 0;
+  }
+  .canvas--container.contract {
+    padding-left: 0;
+  }
+  .canvas--container .canvas--intro.small {
+    display: flex;
+  }
+  .canvas--container .canvas--intro.large {
+    display: none;
+  }
+}
