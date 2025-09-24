@@ -164,6 +164,7 @@
 }
 
 
+
 /* ———————————————— INTRO TEXT ———————————————— */
 
 .canvas--container .canvas--intro {
@@ -182,4 +183,21 @@
   flex-direction: column;
   justify-content: center;
   display: none;
+}
+
+
+
+/* ———————————————— INTRO TEXT ———————————————— */
+
+@media (max-width: 768px) {
+  .canvas--container.contract {
+    padding: 0;
+  }
+
+  .canvas--drawing.grid {
+    margin-top: 0;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

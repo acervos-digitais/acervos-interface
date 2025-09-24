@@ -351,3 +351,28 @@ select option {
   cursor: pointer;
   -webkit-appearance: none;
 }
+
+
+
+/* ———————————————— MOBILE ———————————————— */
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+  }
+
+  .common--menu .menu--section {
+    padding: 0;
+    border: none;
+  }
+
+  .menu--mobile--group {
+    margin-top: 1.5rem;
+  }
+
+  .menu--color-picker--items input {
+    width: 6rem;
+  }
+}

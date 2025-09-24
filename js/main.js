@@ -25,18 +25,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   menuData = createMenuData(metaData, clusterData);
   metaData = combineClusterData(metaData, clusterData);
 
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   const detailOverlayEl = document.getElementById("detail-overlay--background");
   const resultsOverlayEl = document.getElementById("results-overlay--background");
 
-  const canvasWrapper = document.getElementById('canvas--wrapper');
-  const canvasDrawing = document.getElementById('canvas--drawing');
-  const scrollV = document.getElementById('scrollbar--vertical');
-  const scrollH = document.getElementById('scrollbar--horizontal');
-  initScrollbar(canvasDrawing, canvasWrapper, scrollV, scrollH);
-  swapScrollAxis(canvasDrawing);
+  if (!isMobile) {
+    const canvasWrapper = document.getElementById('canvas--wrapper');
+    const canvasDrawing = document.getElementById('canvas--drawing');
+    const scrollV = document.getElementById('scrollbar--vertical');
+    const scrollH = document.getElementById('scrollbar--horizontal');
+    initScrollbar(canvasDrawing, canvasWrapper, scrollV, scrollH);
+    swapScrollAxis(canvasDrawing);
 
-  const menuInfoList = document.getElementsByClassName('menu--info');
-  [...menuInfoList].forEach(mi => initMenuInfo(mi));
+    const menuInfoList = document.getElementsByClassName('menu--info');
+    [...menuInfoList].forEach(mi => initMenuInfo(mi));
+  }
 
   const mCanvas = new Canvas(metaData);
   const mAboutOverlay = new AboutOverlay();
@@ -65,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       mResultsOverlay.populateResultsOverlay(ids);
     }
 
-    if (canvasDrawing.classList.contains('bin')) {
+    if (!isMobile && canvasDrawing.classList.contains('bin')) {
       canvasDrawing.scrollTo(0, canvasDrawing.scrollHeight);
     }
   });
@@ -231,11 +235,11 @@ function initScrollbar(content, container, scrollV, scrollH) {
 
 function swapScrollAxis(el) {
   el.addEventListener("wheel", (e) => {
-  e.preventDefault();
+    e.preventDefault();
     e.preventDefault();
     e.shiftKey ?
-    el.scrollTop += e.deltaY * 0.5 :
-    el.scrollLeft += e.deltaY * 0.5;
+      el.scrollTop += e.deltaY * 0.5 :
+      el.scrollLeft += e.deltaY * 0.5;
   }, { passive: false });
 }
 
