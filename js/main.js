@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       mResultsOverlay.populateResultsOverlay(ids);
     }
 
-    if (!isMobile && canvasDrawing.classList.contains('bin')) {
+    if (canvasDrawing.classList.contains('bin')) {
       canvasDrawing.scrollTo(0, canvasDrawing.scrollHeight);
     }
   });
