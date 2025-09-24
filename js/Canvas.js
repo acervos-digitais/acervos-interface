@@ -71,21 +71,8 @@ class Canvas {
 
     const zoomLessEl = document.getElementById('zoom--less');
     const zoomMoreEl = document.getElementById('zoom--more');
-    let holdInterval;
-    
-    zoomLessEl.addEventListener('mouseup', () => clearInterval(holdInterval));
-    zoomLessEl.addEventListener('mouseleave', () => clearInterval(holdInterval));
-    zoomLessEl.addEventListener('mousedown', () => {
-      this.updateScale(-0.025);
-      holdInterval = setInterval(() => this.updateScale(-0.01), 50);
-    });
-        
-    zoomMoreEl.addEventListener('mouseup', () => clearInterval(holdInterval));
-    zoomMoreEl.addEventListener('mouseleave', () => clearInterval(holdInterval));
-    zoomMoreEl.addEventListener('mousedown', () => {
-      this.updateScale(0.025);
-      holdInterval = setInterval(() => this.updateScale(0.01), 50);
-    });
+    zoomLessEl.addEventListener('click', () => this.updateScale(-0.025));
+    zoomMoreEl.addEventListener('click', () => this.updateScale(0.025));
   }
 
   updateScale(delta) {
