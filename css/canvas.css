@@ -1,0 +1,184 @@
+@media (max-width: 768px) {
+  .canvas--container .canvas--drawing {
+    margin-top: 0;
+  }
+
+  .canvas--container.contract {
+    padding-left: 0;
+  }
+
+  .canvas--container .canvas--intro.small {
+    display: flex;
+  }
+
+  .canvas--container .canvas--intro.large {
+    display: none;
+  }
+}
+
+
+
+
+/* ———————————————— CANVAS CONTAINER ———————————————— */
+
+.canvas--container {
+  position: relative;
+  z-index: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.canvas--container.contract {
+  padding-left: var(--menu-width);
+}
+
+.canvas--container .canvas--drawing {
+  margin-top: var(--menu-height);
+  min-width: calc(100vh - var(--menu-width));
+  min-height: calc(100vh - var(--menu-height));
+  max-height: calc(100vh - var(--menu-height));
+  overflow: scroll;
+}
+
+.canvas--container .canvas--wrapper .canvas--drawing {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: calc(100vh - var(--menu-height));
+  overflow: hidden;
+}
+
+.canvas--container .canvas--drawing.bin {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  justify-content: start;
+  gap: 2px;
+  padding-right: 1.5rem;
+}
+
+.canvas--container .canvas--drawing.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.canvas--container .canvas--drawing.xy {
+  display: block;
+  position: relative;
+}
+
+
+
+/* ———————————————— YEAR ———————————————— */
+
+.canvas--container .canvas--drawing.bin .year-container {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  gap: 2px;
+}
+
+.canvas--container .canvas--drawing.bin .year-container .year-info {
+  margin: 4px 0 12px;
+  border-top: 2px var(--txt-color) solid;
+  text-align: center;
+  opacity: 0;
+}
+
+
+
+/* ———————————————— ART WORK ———————————————— */
+
+.art--work {
+  cursor: pointer;
+}
+
+.art--work:hover {
+  opacity: 0.9;
+}
+
+.art--work img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ———————————————— SCROLLBAR ———————————————— */
+
+.canvas--drawing {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.canvas--drawing::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.scrollbar--handle {
+  position: absolute;
+  background-color: var(--txt-color);
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.scrollbar--handle:hover {
+  background-color: var(--txt-color-l);
+}
+
+.zoom--button {
+  all: unset;
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--txt-color);
+  border-radius: 50%;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.zoom--button.less {
+  right: 3.5rem;
+}
+
+.canvas--drawing.bin~.zoom--button {
+  display: flex;
+}
+
+
+/* ———————————————— INTRO TEXT ———————————————— */
+
+.canvas--container .canvas--intro {
+  position: absolute;
+  top: 0;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.canvas--container .canvas--intro.hidden {
+  display: none;
+}
+
+.canvas--container .canvas--intro.small {
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  display: none;
+}

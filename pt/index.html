@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+  <title>Acervos Digitais - Acervos</title>
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../css/main.css" type="text/css" />
+  <link rel="stylesheet" href="../css/canvas.css" type="text/css" />
+  <link rel="stylesheet" href="../css/overlay.css" type="text/css" />
+  <link rel="stylesheet" href="../css/menu.css" type="text/css" />
+  <link rel="stylesheet" href="../css/other-menu.css" type="text/css" />
+  <link rel="stylesheet" href="../css/filter-menu.css" type="text/css" />
+
+  <script type="module" src="../js/main.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <script>if (window.innerWidth < 768) window.location.href = './mobile/';</script>
+</head>
+
+<body>
+  <div class="canvas--container contract" id="canvas--container">
+
+    <nav class="other--menu contract" id="sorter-menu">
+
+      <button class="menu--close--button" id="sorter--close--button">
+        <img src="../assets/icon_left.svg" />
+      </button>
+
+      <section class="menu--section">
+        <div class="menu--section--title">Visualizações</div>
+        <div class="menu--section--items">
+
+          <div class="radio--item">
+            <input type="radio" id="sorter--date--enable" name="sorter-type" value="date" checked>
+            <label for="sorter--date--enable">Linha do Tempo</label>
+          </div>
+
+          <div class="menu--color-picker--items">
+
+            <div class="radio--item">
+              <input type="radio" id="sorter--color--enable" name="sorter-type" value="color">
+              <label for="sorter--color--enable">Cores</label>
+            </div>
+
+            <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+          </div>
+
+
+          <div class="radio--item">
+            <input type="radio" id="sorter--latent--enable" name="sorter-type" value="latent">
+            <label for="sorter--latent--enable">Espaço Latente</label>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="menu--section">
+        <div class="menu--section--title">Curadorias da IA</div>
+        <div class="menu--section--items">
+          <select class="other--dropdown" id="other--cluster-picker">
+            <option value="" selected disabled>Escolha uma curadoria</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="menu--section">
+        <div class="menu--section--title">Crie sua Imagem</div>
+        <div class="menu--section--items">
+          <div class="checkbox--item disabled" id="export--grid--button">
+            <label id="export--grid--items">Mosaico</label>
+          </div>
+          <div class="checkbox--item disabled" id="export--xy--button">
+            <label id="export--xy--items">Composição</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu--section">
+        <div class="menu--section--title" id="filter--counter--found">Resultados: <span class="filter--counter--item"
+            id="filter--counter--count">0</span></div>
+        <div class="filter--counter--button" id="filter--counter--list">Lista de Obras</div>
+      </section>
+    </nav>
+
+    <div id="canvas--wrapper">
+      <div class="canvas--drawing" id="canvas--drawing"></div>
+      <div class="scrollbar vertical" id="scrollbar--vertical"></div>
+      <div class="scrollbar horizontal" id="scrollbar--horizontal"></div>
+      <button class="zoom--button less" id="zoom--less">
+        <img src="../assets/icon_zoom-less.svg">
+      </button>
+      <button class="zoom--button more" id="zoom--more">
+        <img src="../assets/icon_zoom-more.svg">
+      </button>
+    </div>
+
+    <div class="canvas--intro large" id="canvas--intro">
+
+      <h3><b>Como Usar</b></h3>Escolha um ou mais acervos para começar. Use os filtros para refinar as buscas e o menu
+      de visualizações para criar arranjos diferentes a partir das obras filtradas.<br>
+      <br>
+      <h3><b>Filtros</b></h3>Os filtros permitem selecionar elementos das obras. Eles alteram a quantidade de obras
+      incluídas nas visualizações.<br>
+      <br>
+      <h3><b>Visualizações</b></h3>As visualizações apresentam maneiras diferentes de explorar as obras selecionadas a
+      partir dos filtros. As visualizações não alteram a quantidade de obras selecionadas, apenas a ordem e
+      posicionamento em que as obras são dispostas na tela.<br>
+      <br>
+      <h3><b>Curadorias da IA</b></h3>Seleções feitas automaticamente por inteligência artificial, a partir de
+      características visuais e semânticas das obras de arte.<br>
+      <br>
+      <h3><b>Crie sua Imagem</b></h3>Os mosaicos são imagens geradas a partir dos filtros e visualizações escolhidos.
+      Diferente das visualizações na tela, essas imagens não são interativas, e seu tamanho varia de acordo com o número
+      de obras incluídas pelos filtros. Nas composições, recortes de objetos são dispostos de acordo com sua posição e
+      localização na obra original.<br>
+
+    </div>
+
+
+    <div class="canvas--intro small">
+      <h3><b>A interface completa infelizmente não funciona em celulares.<br><br>Acesse uma versão simplificada <a
+            href="./mobile/">aqui</a>.</b></h3>
+    </div>
+
+  </div>
+
+  <div class="results-overlay--background overlay--background hidden" id="results-overlay--background">
+    <div class="overlay--window" id="results-overlay--window">
+      <button class="overlay--close--button" id="results-overlay--close--button">
+        <img src="../assets/icon_close.svg" />
+      </button>
+
+      <div class="overlay--list--wrapper">
+        <div class="overlay--list--title">Obras Incluídas</div>
+        <div class="overlay--list--content" id="results-overlay--list-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-overlay--background overlay--background hidden" id="detail-overlay--background">
+    <div class="overlay--window" id="detail-overlay--window">
+      <button class="overlay--close--button" id="detail-overlay--close--button">
+        <img src="../assets/icon_close.svg" />
+      </button>
+
+      <div class="overlay--image--wrapper">
+        <div class="loader" id="detail-overlay--loader"></div>
+        <img src="" class="overlay--image" id="detail-overlay--image">
+        <div class="overlay--boxes" id="detail-overlay--boxes"></div>
+      </div>
+
+      <div class="overlay--colors" id="detail-overlay--colors"></div>
+
+      <div class="overlay--info" id="detail-overlay--info">
+        <div class="overlay--info--section">
+          <span class="overlay--info--text" id="detail-overlay--title--text"></span>
+        </div>
+        <div class="overlay--info--section">
+          <span class="overlay--info--text" id="detail-overlay--collection--text"></span>
+        </div>
+
+        <div class="overlay--info--link-section">
+          <a class="overlay--info--link" id="detail-overlay--info--link" target="_blank"></a>
+          <span class="overlay--info--button" id="detail-overlay--list--link"></span>
+        </div>
+
+        <div class="overlay--info--subtext hidden" id="detail-overlay--info--subtext">
+          Interpretações geradas automaticamente por Visão Computacional. Em caso de erros, por favor contate
+          acervosdigitais@usp.br.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay--background hidden" id="about-overlay--background">
+    <div class="overlay--window text--window" id="about-overlay--window">
+      <button class="overlay--close--button" id="about-overlay--close--button">
+        <img src="../assets/icon_close.svg" />
+      </button>
+
+      <div class="overlay--info" id="about-overlay--info">
+        <p>Interface para navegar coleções de arte por características visuais.</p><br>
+        <p>Desenvolvido pelo grupo de pesquisa <a href="https://www.acervosdigitais.fau.usp.br/" target="_blank">Acervos
+            Digitais</a>, um projeto temático financiado pela FAPESP.</p><br>
+        <p><a href="https://www.acervosdigitais.fau.usp.br/meta-acervos-navegador-para-museus-em-rede/"
+            target="_blank">Detalhes do projeto</a>.</p><br>
+        <p>Todo o código está disponível <a href="https://github.com/acervos-digitais/" target="_blank">no nosso
+            GitHub</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="filter-menu common--menu" id="filter-menu">
+    <button class="menu--close--button" id="filter--close--button">
+      <img src="../assets/icon_left.svg" />
+    </button>
+
+    <section class="menu--section menu--section--inverted menu--about">
+      <img class="menu--about--logo" src="../assets/logo_acervos-digitais_pt.svg" alt="Logo Acervos Digitais">
+      <div class="menu--about--info">
+        <div><a href="#" id="menu--about--button">SOBRE</a></div>
+        <div><a href="../en">EN</a> PT</div>
+      </div>
+    </section>
+
+    <section class="menu--section menu--section--inverted menu--section--helper">
+      <p>
+        Selecione museus e explore coleções por visualização, cor, curadoria de IA e filtros.
+      </p>
+    </section>
+
+    <section class="menu--section">
+      <div class="menu--header">
+        <h1 class="menu--title">Museus</h1>
+        <div class="menu--info">
+          <p class="menu--info--content">
+            Selecione um ou mais museus para ver suas obras.<br>
+            Use os botões [todos] e [nenhum] para selecionar ou desselecionar todas as obras de uma vez.
+          </p>
+        </div>
+      </div>
+      <div class="menu--section--items collection--items" id="filter--collection--items"></div>
+    </section>
+
+    <section class="menu--section">
+      <div class="menu--header">
+        <h1 class="menu--title">Técnica</h1>
+        <div class="menu--info">
+          <p class="menu--info--content">
+            Use os botões para mostrar apenas as obras que contenham as técnicas selecionadas.<br>
+            Caso nenhuma esteja selecionada, serão mostradas todas as obras.
+          </p>
+        </div>
+      </div>
+      <div class="menu--section--items" id="filter--category--items"></div>
+    </section>
+
+    <section class="menu--section">
+      <div class="menu--header">
+        <h1 class="menu--title">Datas</h1>
+        <div class="menu--info">
+          <p class="menu--info--content">
+            Use os sliders para limitar o período de obras a ser mostrado.
+          </p>
+        </div>
+      </div>
+      <div class="menu--section--items" id="filter--date--items">
+        <div class="range--item">
+          <label>De</label>
+          <input type="range" id="date--filter--min--input">
+          <label id="date--filter--min--value"></label>
+        </div>
+        <div class="range--item">
+          <label>Até</label>
+          <input type="range" id="date--filter--max--input">
+          <label id="date--filter--max--value"></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu--section">
+      <div class="menu--header">
+        <h1 class="menu--title">Fauna e Flora</h1>
+        <div class="menu--info">
+          <p class="menu--info--content">
+            Use os botões para mostrar apenas as obras que contenham os objetos selecionados.<br>
+            Caso nenhum esteja selecionado, serão mostradas todas as obras.
+          </p>
+        </div>
+      </div>
+      <div class="menu--section--items" id="filter--object--items"></div>
+    </section>
+
+  </nav>
+</body>
+
+</html>

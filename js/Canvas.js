@@ -1,0 +1,117 @@
+import { BinDrawer } from "./drawers/BinDrawer.js";
+import { GridDrawer } from "./drawers/GridDrawer.js";
+import { XyDrawer } from "./drawers/XyDrawer.js";
+
+class ArtWork {
+  static IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/500";
+  // static IMG_URL = "https://acervos-digitais.github.io/herbario-media/imgs/arts/100";
+
+  constructor(id, ratio) {
+    const mEl = document.createElement("div");
+    mEl.classList.add("art--work");
+    mEl.style.width = "50px";
+    mEl.style.aspectRatio = 1 / ratio;
+    mEl.dataset.ratio = 1 / ratio;
+    mEl.dataset.id = id;
+    mEl.dataset.src = `${ArtWork.IMG_URL}/${id}.jpg`;
+
+    const imgEl = document.createElement("img");
+
+    mEl.addEventListener("click", () => {
+      const evtOpt = { detail: { id: `${id}` } };
+      document.dispatchEvent(new CustomEvent("show-detail", evtOpt));
+    });
+
+    mEl.appendChild(imgEl);
+    return mEl;
+  }
+}
+
+class Canvas {
+  constructor(metaData) {
+    this.sorted = [];
+    this.scale = 1;
+    this.checked = null;
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let mEl = entry.target;
+          setTimeout(() => mEl.querySelector("img").setAttribute("src", mEl.dataset.src), 100 + Math.random() * 1500);
+          imageObserver.unobserve(mEl);
+        }
+      });
+    });
+
+    this.allArtWorks = Object.values(metaData).map(x => {
+      const mEl = new ArtWork(x.id, x.image.ratio);
+      imageObserver.observe(mEl);
+      return mEl;
+    }).reduce((acc, v) => {
+      acc[v.dataset.id] = v;
+      return acc;
+    }, {});
+
+    const binDrawer = new BinDrawer();
+    const gridDrawer = new GridDrawer();
+    const xyDrawer = new XyDrawer();
+
+    this.allDrawers = {
+      date: binDrawer,
+      color: gridDrawer,
+      latent: xyDrawer,
+    };
+
+    const containerEl = document.getElementById("canvas--container");
+    containerEl.addEventListener("wheel", (evt) => {
+      if (!evt.altKey) return;
+      evt.preventDefault();
+      this.updateScale(evt.deltaY > 0 ? -0.025 : 0.025);
+    });
+
+    const zoomLessEl = document.getElementById('zoom--less');
+    const zoomMoreEl = document.getElementById('zoom--more');
+    let holdInterval;
+    
+    zoomLessEl.addEventListener('mouseup', () => clearInterval(holdInterval));
+    zoomLessEl.addEventListener('mouseleave', () => clearInterval(holdInterval));
+    zoomLessEl.addEventListener('mousedown', () => {
+      this.updateScale(-0.025);
+      holdInterval = setInterval(() => this.updateScale(-0.01), 50);
+    });
+        
+    zoomMoreEl.addEventListener('mouseup', () => clearInterval(holdInterval));
+    zoomMoreEl.addEventListener('mouseleave', () => clearInterval(holdInterval));
+    zoomMoreEl.addEventListener('mousedown', () => {
+      this.updateScale(0.025);
+      holdInterval = setInterval(() => this.updateScale(0.01), 50);
+    });
+  }
+
+  updateScale(delta) {
+    this.scale += delta;
+
+    if (this.scale < 0.1) this.scale = 0.1;
+    if (this.scale > 24) this.scale = 24;
+
+    if (this.checked in this.allDrawers) {
+      this.allDrawers[this.checked].zoom(this.scale);
+    }
+
+    const canvasDrawing = document.getElementById('canvas--drawing');
+    canvasDrawing.dispatchEvent(new Event("scrollbar-update"));
+  }
+
+  draw(checked) {
+    this.checked = checked;
+    if (checked in this.allDrawers) {
+      if (this.sorted.length > 0) {
+        document.getElementById("canvas--intro").classList.add("hidden");
+      }
+
+      this.allDrawers[checked].draw(this.allArtWorks, this.sorted, this.scale);
+    }
+  }
+}
+
+export { Canvas };

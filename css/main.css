@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+  --bg-color-l: #ddd;
+  --bg-color-hl: #aaa;
+  --txt-color: #202020;
+  --txt-color-l: #404040;
+  --txt-color-hl: #808080;
+  --text-color-err: #e44;
+  --menu-width: 360px;
+  --menu-height: 108px;
+  font-size: 13px;
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
+}

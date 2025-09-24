@@ -1,0 +1,61 @@
+.other--menu .menu--close--button {
+  display: none;
+}
+
+.other--menu .menu--section {
+  display: flex;
+  flex-direction: column;
+}
+
+.other--menu .menu--section .menu--section--title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.other--menu .menu--section .menu--section--items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 4px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.other--menu .menu--section .menu--section--items .menu--color-picker--items {
+  position: relative;
+}
+
+.other--menu
+  .menu--section
+  .menu--section--items
+  .menu--color-picker--items
+  .sorter--color-picker {
+  width: 100%;
+}
+
+.other--menu
+  .menu--section
+  .menu--section--items
+  .menu--color-picker--items
+  .sorter--color-picker.hidden {
+  display: none;
+}
+
+.other--menu .menu--section.about--section {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 1.75rem;
+}
+
+.other--menu .menu--section.about--section .about--section--column {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .other--menu.contract {
+    width: 100%;
+  }
+}
