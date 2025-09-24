@@ -40,58 +40,61 @@
         <img src="../assets/icon_left.svg" />
       </button>
 
-      <section class="menu--section">
-        <div class="menu--section--title">Visualizations</div>
-        <div class="menu--section--items">
-
-          <div class="radio--item">
-            <input type="radio" id="sorter--date--enable" name="sorter-type" value="date" checked>
-            <label for="sorter--date--enable">Timeline</label>
-          </div>
-
-          <div class="menu--color-picker--items">
+      <div class="menu--section--wrapper">
+        <section class="menu--section">
+          <div class="menu--section--title">Visualizations</div>
+          <div class="menu--section--items">
 
             <div class="radio--item">
-              <input type="radio" id="sorter--color--enable" name="sorter-type" value="color">
-              <label for="sorter--color--enable">Colors</label>
+              <input type="radio" id="sorter--date--enable" name="sorter-type" value="date" checked>
+              <label for="sorter--date--enable">Timeline</label>
             </div>
 
-            <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+            <div class="menu--color-picker--items">
+
+              <div class="radio--item">
+                <input type="radio" id="sorter--color--enable" name="sorter-type" value="color">
+                <label for="sorter--color--enable">Colors</label>
+              </div>
+
+              <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+            </div>
+
+
+            <div class="radio--item">
+              <input type="radio" id="sorter--latent--enable" name="sorter-type" value="latent">
+              <label for="sorter--latent--enable">Latent Space</label>
+            </div>
+
           </div>
+        </section>
 
-
-          <div class="radio--item">
-            <input type="radio" id="sorter--latent--enable" name="sorter-type" value="latent">
-            <label for="sorter--latent--enable">Latent Space</label>
+        <section class="menu--section">
+          <div class="menu--section--title">AI Curations</div>
+          <div class="menu--section--items">
+            <select class="other--dropdown" id="other--cluster-picker">
+              <option value="" selected disabled>Choose a curation</option>
+            </select>
           </div>
+        </section>
 
-        </div>
-      </section>
+        <section class="menu--section">
+          <div class="menu--section--title">Export images</div>
+          <div class="menu--section--items">
+            <div class="checkbox--item disabled" id="export--grid--button">
+              <label id="export--grid--items">Mosaic</label>
+            </div>
+            <div class="checkbox--item disabled" id="export--xy--button">
+              <label id="export--xy--items">Composition</label>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section class="menu--section">
-        <div class="menu--section--title">AI Curations</div>
-        <div class="menu--section--items">
-          <select class="other--dropdown" id="other--cluster-picker">
-            <option value="" selected disabled>Choose a curation</option>
-          </select>
+        <div class="menu--section--title" id="filter--counter--found">
+          <span class="filter--counter--item" id="filter--counter--count">0</span> results
         </div>
-      </section>
-
-      <section class="menu--section">
-        <div class="menu--section--title">Export images</div>
-        <div class="menu--section--items">
-          <div class="checkbox--item disabled" id="export--grid--button">
-            <label id="export--grid--items">Mosaic</label>
-          </div>
-          <div class="checkbox--item disabled" id="export--xy--button">
-            <label id="export--xy--items">Composition</label>
-          </div>
-        </div>
-      </section>
-
-      <section class="menu--section">
-        <div class="menu--section--title" id="filter--counter--found">Results: <span class="filter--counter--item"
-            id="filter--counter--count">0</span></div>
         <div class="filter--counter--button" id="filter--counter--list">List of Works</div>
       </section>
     </nav>
@@ -114,21 +117,21 @@
       Choose one or more collections to start. Use the filters to refine the
       searches and the visualizations menu to create different arrangements
       from the filtered works.<br />
-
+      <br>
       <h3><b>Filters</b></h3>
       The filters are used to select which works will be displayed. They
       change the number of works included in the visualizations.<br />
-
+      <br>
       <h3><b>Visualizations</b></h3>
       The visualizations present different ways to visually explore the works
       selected through the filters. Visualizations do not change the number of
       displayed works, only the order and positioning in which the works are
       arranged on the screen.<br />
-
+      <br>
       <h3><b>AI Curations</b></h3>
       Selections made automatically by artificial intelligence, based on
       visual and semantic features of the artworks.<br />
-
+      <br>
       <h3><b>Export Images</b></h3>
       Mosaics are images generated from the chosen filters and visualizations.
       Unlike the visualizations on screen, these images are not interactive,

@@ -40,58 +40,61 @@
         <img src="../assets/icon_left.svg" />
       </button>
 
-      <section class="menu--section">
-        <div class="menu--section--title">Visualizações</div>
-        <div class="menu--section--items">
-
-          <div class="radio--item">
-            <input type="radio" id="sorter--date--enable" name="sorter-type" value="date" checked>
-            <label for="sorter--date--enable">Linha do Tempo</label>
-          </div>
-
-          <div class="menu--color-picker--items">
+      <div class="menu--section--wrapper">
+        <section class="menu--section">
+          <div class="menu--section--title">Visualizações</div>
+          <div class="menu--section--items">
 
             <div class="radio--item">
-              <input type="radio" id="sorter--color--enable" name="sorter-type" value="color">
-              <label for="sorter--color--enable">Cores</label>
+              <input type="radio" id="sorter--date--enable" name="sorter-type" value="date" checked>
+              <label for="sorter--date--enable">Linha do Tempo</label>
             </div>
 
-            <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+            <div class="menu--color-picker--items">
+
+              <div class="radio--item">
+                <input type="radio" id="sorter--color--enable" name="sorter-type" value="color">
+                <label for="sorter--color--enable">Cores</label>
+              </div>
+
+              <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+            </div>
+
+
+            <div class="radio--item">
+              <input type="radio" id="sorter--latent--enable" name="sorter-type" value="latent">
+              <label for="sorter--latent--enable">Espaço Latente</label>
+            </div>
+
           </div>
+        </section>
 
-
-          <div class="radio--item">
-            <input type="radio" id="sorter--latent--enable" name="sorter-type" value="latent">
-            <label for="sorter--latent--enable">Espaço Latente</label>
+        <section class="menu--section">
+          <div class="menu--section--title">Curadorias da IA</div>
+          <div class="menu--section--items">
+            <select class="other--dropdown" id="other--cluster-picker">
+              <option value="" selected disabled>Escolha uma curadoria</option>
+            </select>
           </div>
+        </section>
 
-        </div>
-      </section>
+        <section class="menu--section">
+          <div class="menu--section--title">Crie sua Imagem</div>
+          <div class="menu--section--items">
+            <div class="checkbox--item disabled" id="export--grid--button">
+              <label id="export--grid--items">Mosaico</label>
+            </div>
+            <div class="checkbox--item disabled" id="export--xy--button">
+              <label id="export--xy--items">Composição</label>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section class="menu--section">
-        <div class="menu--section--title">Curadorias da IA</div>
-        <div class="menu--section--items">
-          <select class="other--dropdown" id="other--cluster-picker">
-            <option value="" selected disabled>Escolha uma curadoria</option>
-          </select>
+        <div class="menu--section--title" id="filter--counter--found">
+          <span class="filter--counter--item" id="filter--counter--count">0</span> resultados
         </div>
-      </section>
-
-      <section class="menu--section">
-        <div class="menu--section--title">Crie sua Imagem</div>
-        <div class="menu--section--items">
-          <div class="checkbox--item disabled" id="export--grid--button">
-            <label id="export--grid--items">Mosaico</label>
-          </div>
-          <div class="checkbox--item disabled" id="export--xy--button">
-            <label id="export--xy--items">Composição</label>
-          </div>
-        </div>
-      </section>
-
-      <section class="menu--section">
-        <div class="menu--section--title" id="filter--counter--found">Resultados: <span class="filter--counter--item"
-            id="filter--counter--count">0</span></div>
         <div class="filter--counter--button" id="filter--counter--list">Lista de Obras</div>
       </section>
     </nav>

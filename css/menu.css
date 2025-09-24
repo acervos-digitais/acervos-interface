@@ -12,6 +12,7 @@
   padding-left: 1.5rem;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-color: var(--txt-color);
   color: var(--bg-color);
 }
@@ -25,11 +26,21 @@
   padding: 1.5rem;
 }
 
+.other--menu .menu--section--wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter--counter--item {
+  font-weight: 600;
+}
+
 .filter--counter--item.hidden {
   display: none;
 }
 
 .filter--counter--button {
+  padding: 0.4rem 0rem;
   text-decoration: underline;
   cursor: pointer;
 }
