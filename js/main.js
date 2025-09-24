@@ -25,22 +25,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   menuData = createMenuData(metaData, clusterData);
   metaData = combineClusterData(metaData, clusterData);
 
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   const detailOverlayEl = document.getElementById("detail-overlay--background");
   const resultsOverlayEl = document.getElementById("results-overlay--background");
 
-  if (!isMobile) {
-    const canvasWrapper = document.getElementById('canvas--wrapper');
-    const canvasDrawing = document.getElementById('canvas--drawing');
-    const scrollV = document.getElementById('scrollbar--vertical');
-    const scrollH = document.getElementById('scrollbar--horizontal');
-    initScrollbar(canvasDrawing, canvasWrapper, scrollV, scrollH);
-    swapScrollAxis(canvasDrawing);
+  const canvasWrapper = document.getElementById('canvas--wrapper');
+  const canvasDrawing = document.getElementById('canvas--drawing');
+  const scrollV = document.getElementById('scrollbar--vertical');
+  const scrollH = document.getElementById('scrollbar--horizontal');
+  initScrollbar(canvasDrawing, canvasWrapper, scrollV, scrollH);
+  swapScrollAxis(canvasDrawing);
 
-    const menuInfoList = document.getElementsByClassName('menu--info');
-    [...menuInfoList].forEach(mi => initMenuInfo(mi));
-  }
+  const menuInfoList = document.getElementsByClassName('menu--info');
+  [...menuInfoList].forEach(mi => initMenuInfo(mi));
 
   const mCanvas = new Canvas(metaData);
   const mAboutOverlay = new AboutOverlay();
