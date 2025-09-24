@@ -7,3 +7,9 @@
   z-index: 35;
   right: 0;
 }
+
+.filter-menu.hidden {
+  width: 0;
+  height: 0;
+  border: none;
+}

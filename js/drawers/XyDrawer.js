@@ -18,7 +18,8 @@ class XyDrawer extends Drawer {
     for (const { id, x, y } of sorted) {
       this.resetEl(artWorks[id]);
 
-      const w = scale * this.defaultWidth;
+      // const w = scale * this.defaultWidth;
+      const w = this.defaultWidth; // ignorar escala
       const h = (w / parseFloat(artWorks[id].dataset.ratio));
 
       const ypx = Math.min(y * canvasH, canvasH - h);

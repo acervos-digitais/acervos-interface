@@ -158,7 +158,8 @@
   top: 5rem;
 }
 
-.canvas--drawing.bin~.zoom--button {
+.canvas--drawing.bin~.zoom--button,
+.canvas--drawing.grid~.zoom--button {
   display: flex;
 }
 
