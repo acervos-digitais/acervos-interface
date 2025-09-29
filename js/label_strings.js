@@ -1,7 +1,7 @@
 const MENU_LABELS = {
   // general
-  all: { en: "All", pt: "Todos" },
-  none: { en: "None", pt: "Nenhum" },
+  all: { en: "Select All", pt: "Selecionar Todos" },
+  none: { en: "Clear Selection", pt: "Limpar Seleção" },
 
   // categories
   drawing: { en: "drawing", pt: "desenho" },
@@ -43,7 +43,7 @@ const MENU_LABELS = {
   undated: { en: "N/A", pt: "Sem Data" },
   unauthored: { en: "Unknown", pt: "Autoria não identificada" },
   information: { en: "More Information", pt: "Mais Informações" },
-  download: { en: "Download Image", pt: "Baixe Imagem" },
+  download: { en: "Save Image", pt: "Salvar Imagem" },
   composition: { en: "Works included in this composition", pt: "Obras utilizadas nessa composição" },
 };
 

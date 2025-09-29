@@ -19,12 +19,14 @@ let metaData = null;
 let clusterData = null;
 let menuData = null;
 
+const pageURL = window.location.href.replace(/^https?:\/\//, '');
+const isMobile = pageURL.includes('mobile');
+
 document.addEventListener("DOMContentLoaded", async () => {
   metaData = await metaDataP;
   clusterData = await clusterDataP;
   menuData = createMenuData(metaData, clusterData);
   metaData = combineClusterData(metaData, clusterData);
-
 
   const detailOverlayEl = document.getElementById("detail-overlay--background");
   const resultsOverlayEl = document.getElementById("results-overlay--background");
@@ -33,11 +35,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   const canvasDrawing = document.getElementById('canvas--drawing');
   const scrollV = document.getElementById('scrollbar--vertical');
   const scrollH = document.getElementById('scrollbar--horizontal');
-  initScrollbar(canvasDrawing, canvasWrapper, scrollV, scrollH);
-  swapScrollAxis(canvasDrawing);
 
-  const menuInfoList = document.getElementsByClassName('menu--info');
-  [...menuInfoList].forEach(mi => initMenuInfo(mi));
+  if (!isMobile) {
+    initScrollbar(canvasDrawing, canvasWrapper, scrollV, scrollH);
+
+    const menuInfoList = document.getElementsByClassName('menu--info');
+    [...menuInfoList].forEach(mi => initMenuInfo(mi));
+  }
 
   const mCanvas = new Canvas(metaData);
   const mAboutOverlay = new AboutOverlay();
@@ -224,20 +228,6 @@ function initScrollbar(content, container, scrollV, scrollH) {
   scrollbarObserver.observe(content, { childList: true });
 
   updateScrollbar();
-}
-
-
-
-// SCROLL AXIS
-
-function swapScrollAxis(el) {
-  el.addEventListener("wheel", (e) => {
-    e.preventDefault();
-    e.preventDefault();
-    e.shiftKey ?
-      el.scrollTop += e.deltaY * 0.5 :
-      el.scrollLeft += e.deltaY * 0.5;
-  }, { passive: false });
 }
 
 

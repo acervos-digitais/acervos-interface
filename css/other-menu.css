@@ -10,6 +10,7 @@
 .other--menu .menu--section .menu--section--title {
   font-size: 1.2rem;
   margin-bottom: 8px;
+  white-space: nowrap;
 }
 
 .other--menu .menu--section .menu--section--items {
@@ -52,10 +53,4 @@
 .other--menu .menu--section.about--section .about--section--column {
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 768px) {
-  .other--menu.contract {
-    width: 100%;
-  }
 }

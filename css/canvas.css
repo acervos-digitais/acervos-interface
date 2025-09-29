@@ -1,24 +1,3 @@
-@media (max-width: 768px) {
-  .canvas--container .canvas--drawing {
-    margin-top: 0;
-  }
-
-  .canvas--container.contract {
-    padding-left: 0;
-  }
-
-  .canvas--container .canvas--intro.small {
-    display: flex;
-  }
-
-  .canvas--container .canvas--intro.large {
-    display: none;
-  }
-}
-
-
-
-
 /* ———————————————— CANVAS CONTAINER ———————————————— */
 
 .canvas--container {
@@ -85,11 +64,22 @@
   gap: 2px;
 }
 
-.canvas--container .canvas--drawing.bin .year-container .year-info {
-  margin: 4px 0 12px;
+.canvas--container .canvas--drawing.bin .year-container .year-info.visible {
   border-top: 2px var(--txt-color) solid;
   text-align: center;
-  opacity: 0;
+  color: var(--txt-color);
+}
+
+.canvas--container .canvas--drawing.bin .year-container .year-info {
+  margin: 4px 0 12px;
+  border-top: none;
+  background: repeating-linear-gradient(
+    to right,
+    var(--txt-color) 0 8%,
+    transparent 8% 18.25%
+  );
+  height: 2px;
+  color: transparent;
 }
 
 
@@ -98,10 +88,7 @@
 
 .art--work {
   cursor: pointer;
-}
-
-.art--work:hover {
-  opacity: 0.9;
+  overflow: hidden;
 }
 
 .art--work img {
@@ -109,6 +96,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.33s ease-in-out;
+}
+
+.art--work img:hover {
+  transform: scale(1.25);
 }
 
 
@@ -183,21 +175,4 @@
   flex-direction: column;
   justify-content: center;
   display: none;
-}
-
-
-
-/* ———————————————— INTRO TEXT ———————————————— */
-
-@media (max-width: 768px) {
-  .canvas--container.contract {
-    padding: 0;
-  }
-
-  .canvas--drawing.grid {
-    margin-top: 0;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }

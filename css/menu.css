@@ -15,6 +15,14 @@
   justify-content: space-between;
   background-color: var(--txt-color);
   color: var(--bg-color);
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.other--menu::-webkit-scrollbar {
+  height: 0;
 }
 
 .other--menu.contract {
@@ -41,6 +49,7 @@
 
 .filter--counter--button {
   padding: 0.4rem 0rem;
+  text-align: right;
   text-decoration: underline;
   cursor: pointer;
   white-space: nowrap;
@@ -63,7 +72,7 @@
   overscroll-behavior-y: contain;
   font-size: 1rem;
   color: var(--txt-color);
-  background-color: var(--bg-color);
+  background-color: transparent;
   transition: left 0.33s linear, right 0.33s linear;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -85,10 +94,11 @@
 .common--menu .menu--section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 1.5rem;
   border-bottom: 1px solid var(--txt-color);
   border-right: 1px solid var(--txt-color);
+  background-color: var(--bg-color);
 }
 
 .common--menu .menu--section:last-of-type {
@@ -291,6 +301,18 @@
   color: var(--input-bg);
 }
 
+.common--menu .checkbox--item input.all+label,
+.common--menu .checkbox--item input.none+label {
+  border: none;
+  text-decoration: underline;
+  padding: 1rem 0.5rem;
+}
+
+.common--menu .checkbox--item input.all+label:hover,
+.common--menu .checkbox--item input.none+label:hover {
+  background-color: transparent;
+}
+
 select {
   all: unset;
   appearance: none;
@@ -354,25 +376,44 @@ select option {
 
 
 
-/* ———————————————— MOBILE ———————————————— */
+/* ———————————————— 1440px ———————————————— */
 
-@media (max-width: 768px) {
-  .mobile-menu {
-    gap: 1rem;
-    margin-bottom: 3rem;
-    padding: 1.5rem;
+@media (max-width: 1440px) {
+
+  .common--menu,
+  .filter-menu,
+  .menu--info--container {
+    z-index: 0 !important;
   }
 
-  .common--menu .menu--section {
-    padding: 0;
-    border: none;
+  .canvas--container {
+    z-index: 1;
+    pointer-events: none;
   }
 
-  .menu--mobile--group {
-    margin-top: 1.5rem;
+  .canvas--container>* {
+    pointer-events: auto;
   }
 
-  .menu--color-picker--items input {
-    width: 6rem;
+  .menu--section.menu--about {
+    position: unset;
+    margin-top: var(--menu-height);
+    border-top: 1px solid var(--bg-color-hl);
+  }
+
+  .menu--section--helper {
+    margin-top: 0;
+  }
+
+  .other--menu,
+  .other--menu.contract {
+    left: 1.5rem;
+    padding-left: 0;
+    width: calc(100vw - 1.5rem);
+  }
+
+  .common--menu .menu--close--button,
+  .common--menu.hidden .menu--close--button {
+    left: 0;
   }
 }

@@ -23,7 +23,7 @@ class BinDrawer extends Drawer {
       yearInfoEl.style.fontSize = `${1 * scale}rem`;
 
       if (yearId.year % 5 == 0 || yearId.year - prevYear > 1) {
-        yearInfoEl.style.opacity = "1";
+        yearInfoEl.className = "year-info visible";
       }
       prevYear = yearId.year;
 

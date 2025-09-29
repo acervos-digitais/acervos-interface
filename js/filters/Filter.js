@@ -56,6 +56,8 @@ class Filter {
 
     const noneInput = this.inputs.pop();
     const allInput = this.inputs.pop();
+    noneInput.className = 'none ';
+    allInput.className = 'all';
 
     allInput.addEventListener("change", () => {
       this.inputs.forEach(el => el.checked = true);
