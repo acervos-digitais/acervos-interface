@@ -1,3 +1,7 @@
+:root {
+ font-size: 14px;
+}
+
 .common--menu.mobile {
   position: sticky;
   top: 0;
@@ -24,13 +28,6 @@
   top: 0;
   left: 0;
   transform: rotate(270deg);
-}
-
-.common--menu.mobile .menu--mobile--group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 20px;
 }
 
 .common--menu.mobile .menu--color-picker--items {
@@ -66,19 +63,56 @@
 
 .mobile-menu {
   flex: 0 0 auto;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  padding: 1.5rem;
+  gap: 1.5rem;
+  padding: 1.5rem 0 0;
   height: fit-content;
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+}
+
+.mobile-menu .menu--mobile--group {
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: solid 1px var(--bg-color);
+}
+
+.common--menu.mobile .menu--mobile--group.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .common--menu .menu--section {
   padding: 0;
   border: none;
+  background-color: inherit;
+  color: inherit;
 }
 
-.menu--mobile--group {
-  margin-top: 1.5rem;
+.menu--subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.checkbox--item input+label,
+.radio--item input+label {
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+  border: solid 1px var(--bg-color);
+}
+
+.checkbox--item input:checked+label,
+.radio--item input:checked+label {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+}
+
+.common--menu .checkbox--item input.all+label,
+.common--menu .checkbox--item input.none+label {
+  padding: 1rem 2rem 1.5rem 0;
 }
 
 .menu--color-picker--items input {
@@ -111,4 +145,57 @@
 
 .mobile-menu .menu--close--button {
   display: none;
+}
+
+.about--section--column {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.about--section--column a {
+  color: var(--bg-color);
+}
+
+.menu--header button {
+  all: unset;
+  cursor: pointer;
+}
+
+.menu--header .menu--title--button {
+  height: 2.5rem;
+}
+
+.menu--header .menu--title--button.hidden {
+  display: none;
+}
+
+#filter--collection--items.hidden {
+  display: none;
+}
+
+.filter--counter {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  gap: 0.7rem;
+}
+
+.filter--counter--item {
+  font-weight: 400;
+  color: var(--bg-color);
+}
+
+.filter--counter--button {
+  padding: 0;
+}
+
+.sorter--color-picker {
+  all: unset;
+  height: 2rem;
+  width: 9rem !important;
+  padding: 0;
+  border: none;
+  margin-top: -0.5rem;
+  transform: translate(-0.25rem, 0.25rem);
 }

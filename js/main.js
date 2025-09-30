@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const menuInfoList = document.getElementsByClassName('menu--info');
     [...menuInfoList].forEach(mi => initMenuInfo(mi));
+
+  } else {
+    initMuseumButtons();
   }
 
   const mCanvas = new Canvas(metaData);
@@ -263,4 +266,25 @@ function initMenuInfo(mi) {
       if (!mi.contains(hoveredEl)) removeHover();
     }, 100);
   });
+}
+
+
+
+// MOBILE MUSEUM BUTTONS
+
+function initMuseumButtons() {
+  const mbOpen = document.getElementById('museums--button-open');
+  const mbClose = document.getElementById('museums--button-close');
+  const mbItems = document.getElementById('filter--collection--items');
+  
+  let mbIsOpened = true;
+  function toggleMBState(state) {
+    mbIsOpened = state;
+    mbOpen.classList.toggle('hidden', mbIsOpened);
+    mbClose.classList.toggle('hidden', !mbIsOpened);
+    mbItems.classList.toggle('hidden', !mbIsOpened);
+  }
+
+  mbOpen.addEventListener('click', () => toggleMBState(true));
+  mbClose.addEventListener('click', () => toggleMBState(false));
 }

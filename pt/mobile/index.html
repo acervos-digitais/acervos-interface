@@ -29,15 +29,34 @@
 
 
     <nav class="mobile-menu common--menu mobile" id="filter-menu">
-      <h1 class="menu--title">Museums</h1>
 
-      <section class="menu--section">
-        <div class="menu--section--items collection--items" id="filter--collection--items"></div>
-      </section>
+      <div class="menu--mobile--group row">
+        <img class="menu--about--logo" src="../../assets/logo_acervos-digitais_pt-mobile.svg"
+          alt="Logo Acervos Digitais">
+        <section class="menu--section about--section">
+          <div class="about--section--column">
+            <div><a href="#" id="menu--about--button">SOBRE</a></div>
+            <div><a href="../../en/mobile">EN</a> PT</div>
+          </div>
+        </section>
+      </div>
 
       <div class="menu--mobile--group">
-        <section class="menu--section" id="sorter-menu">
-          <div class="menu--section--title">Organização por Cor</div>
+        <section class="menu--section">
+          <div class="menu--header">
+            <h1 class="menu--title">Selecionar Museus</h1>
+            <button>
+              <img class="menu--title--button" id="museums--button-close" src="../../assets/icon_zoom-less.svg">
+              <img class="menu--title--button hidden" id="museums--button-open" src="../../assets/icon_zoom-more.svg">
+            </button>
+          </div>
+          <div class="menu--section--items collection--items" id="filter--collection--items"></div>
+        </section>
+      </div>
+
+      <div class="menu--mobile--group row">
+        <section class="menu--subsection" id="sorter-menu">
+          <div class="menu--section--title">Selecionar Cor</div>
 
           <div class="menu--section--items">
             <div class="menu--color-picker--items">
@@ -46,26 +65,18 @@
                 <input type="radio" id="sorter--color--enable" name="sorter-type" value="color" checked>
                 <label for="sorter--color--enable">Cores</label>
               </div>
-
               <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+
             </div>
           </div>
         </section>
 
-        <section class="menu--section">
-          <div class="menu--section--title">Crie uma Imagem</div>
-          <div class="menu--section--items">
-            <div class="checkbox--item disabled" id="export--grid--button">
-              <label id="export--grid--items">Mosaico</label>
-            </div>
+        <section class="menu--subsection" id="sorter-menu">
+          <div class="filter--counter">
+            <span class="filter--counter--item" id="filter--counter--found">Obras Encontradas:</span>
+            <span class="filter--counter--item" id="filter--counter--count">0</span>
           </div>
-        </section>
-
-        <section class="menu--section about--section">
-          <div class="about--section--column">
-            <div><a href="#" id="menu--about--button">SOBRE</a></div>
-            <div><a href="../../en/mobile">EN</a> PT</div>
-          </div>
+          <div class="filter--counter--button" id="filter--counter--list">Lista de Obras</div>
         </section>
       </div>
 
@@ -77,9 +88,6 @@
 
         <button class="menu--close--button" id="sorter--close--button"></button>
         <span class="filter--counter--item hidden" id="filter--counter--available">Obras Disponíveis:</span>
-        <span class="filter--counter--item" id="filter--counter--found">Obras Encontradas:</span>
-        <span class="filter--counter--item" id="filter--counter--count">0</span>
-        <div class="filter--counter--button" id="filter--counter--list">Lista de Obras</div>
         <div class="menu--section--items" id="filter--category--items"></div>
         <div class="menu--section--items" id="filter--date--items">
           <div class="range--item">
@@ -108,6 +116,15 @@
         <div class="checkbox--item disabled" id="export--xy--button">
           <label id="export--xy--items">Composition</label>
         </div>
+
+        <section class="menu--section">
+          <div class="menu--section--title">Crie uma Imagem</div>
+          <div class="menu--section--items">
+            <div class="checkbox--item disabled" id="export--grid--button">
+              <label id="export--grid--items">Mosaico</label>
+            </div>
+          </div>
+        </section>
       </div>
     </nav>
 

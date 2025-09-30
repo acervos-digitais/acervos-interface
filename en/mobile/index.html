@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
+
   <title>Acervos Digitais - MetaAcervos</title>
-  <link rel="icon" href="../../assets/favicon.svg" />
-  <link rel="apple-touch-icon" href="../../assets/favicon.svg" />
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../assets/favicon.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet">
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="../../css/main.css" type="text/css" />
   <link rel="stylesheet" href="../../css/canvas.css" type="text/css" />
@@ -25,78 +26,87 @@
 
 <body>
   <div class="canvas--container contract" id="canvas--container">
+
+
     <nav class="mobile-menu common--menu mobile" id="filter-menu">
-      <h1 class="menu--title">Museums</h1>
 
-      <section class="menu--section">
-        <div class="menu--section--items collection--items" id="filter--collection--items"></div>
-      </section>
-
-      <div class="menu--mobile--group">
-        <section class="menu--section" id="sorter-menu">
-          <div class="menu--section--title">Sort by Color</div>
-
-          <div class="menu--section--items">
-            <div class="menu--color-picker--items">
-              <div class="radio--item">
-                <input type="radio" id="sorter--color--enable" name="sorter-type" value="color" checked />
-                <label for="sorter--color--enable">Colors</label>
-              </div>
-
-              <input type="color" value="#000000" class="sorter--color-picker hidden"
-                id="color--sorter--color-picker" />
-            </div>
-          </div>
-        </section>
-
-        <section class="menu--section">
-          <div class="menu--section--title">Export Images</div>
-          <div class="menu--section--items">
-            <div class="checkbox--item disabled" id="export--grid--button">
-              <label id="export--grid--items">Mosaic</label>
-            </div>
-          </div>
-        </section>
-
+      <div class="menu--mobile--group row">
+        <img class="menu--about--logo" src="../../assets/logo_acervos-digitais_pt-mobile.svg"
+          alt="Logo Acervos Digitais">
         <section class="menu--section about--section">
           <div class="about--section--column">
-            <div><a href="#" id="menu--about--button">ABOUT</a></div>
-            <div>EN <a href="../../pt/mobile">PT</a></div>
+            <div><a href="#" id="menu--about--button">SOBRE</a></div>
+            <div><a href="../../en/mobile">EN</a> PT</div>
           </div>
         </section>
       </div>
 
-      <button class="menu--close--button" id="filter--close--button">
-        <img src="../../assets/icon_left.svg" />
-      </button>
+      <div class="menu--mobile--group">
+        <section class="menu--section">
+          <div class="menu--header">
+            <h1 class="menu--title">Select Museums</h1>
+            <button>
+              <img class="menu--title--button" id="museums--button-close" src="../../assets/icon_zoom-less.svg">
+              <img class="menu--title--button hidden" id="museums--button-open" src="../../assets/icon_zoom-more.svg">
+            </button>
+          </div>
+          <div class="menu--section--items collection--items" id="filter--collection--items"></div>
+        </section>
+      </div>
+
+      <div class="menu--mobile--group row">
+        <section class="menu--subsection" id="sorter-menu">
+          <div class="menu--section--title">Select Color</div>
+
+          <div class="menu--section--items">
+            <div class="menu--color-picker--items">
+
+              <div class="radio--item">
+                <input type="radio" id="sorter--color--enable" name="sorter-type" value="color" checked>
+                <label for="sorter--color--enable">Colors</label>
+              </div>
+              <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+
+            </div>
+          </div>
+        </section>
+
+        <section class="menu--subsection" id="sorter-menu">
+          <div class="filter--counter">
+            <span class="filter--counter--item" id="filter--counter--found">Results:</span>
+            <span class="filter--counter--item" id="filter--counter--count">0</span>
+          </div>
+          <div class="filter--counter--button" id="filter--counter--list">List of Works</div>
+        </section>
+      </div>
 
       <!-- Graveyard -->
-      <div style="display: none">
+      <div style="display: none;">
+        <button class="menu--close--button" id="filter--close--button">
+          <img src="../../assets/icon_left.svg" />
+        </button>
+
         <button class="menu--close--button" id="sorter--close--button"></button>
         <span class="filter--counter--item hidden" id="filter--counter--available">Obras Disponíveis:</span>
-        <span class="filter--counter--item" id="filter--counter--found">Obras Encontradas:</span>
-        <span class="filter--counter--item" id="filter--counter--count">0</span>
-        <div class="filter--counter--button" id="filter--counter--list">
-          Lista de Obras
-        </div>
         <div class="menu--section--items" id="filter--category--items"></div>
         <div class="menu--section--items" id="filter--date--items">
           <div class="range--item">
             <label>De</label>
-            <input type="range" id="date--filter--min--input" />
+            <input type="range" id="date--filter--min--input">
             <label id="date--filter--min--value"></label>
           </div>
 
           <div class="range--item">
             <label>Até</label>
-            <input type="range" id="date--filter--max--input" />
+            <input type="range" id="date--filter--max--input">
             <label id="date--filter--max--value"></label>
           </div>
+
         </div>
         <div class="menu--section--items" id="filter--object--items"></div>
 
         <div class="radio--item">
-          <input type="radio" id="sorter--date--enable" name="sorter-type" value="date" />
+          <input type="radio" id="sorter--date--enable" name="sorter-type" value="date">
           <label for="sorter--date--enable">Timeline</label>
         </div>
 
@@ -106,22 +116,34 @@
         <div class="checkbox--item disabled" id="export--xy--button">
           <label id="export--xy--items">Composition</label>
         </div>
+
+        <section class="menu--section">
+          <div class="menu--section--title">Crie uma Imagem</div>
+          <div class="menu--section--items">
+            <div class="checkbox--item disabled" id="export--grid--button">
+              <label id="export--grid--items">Mosaico</label>
+            </div>
+          </div>
+        </section>
       </div>
     </nav>
+
+
 
     <div class="canvas--drawing" id="canvas--drawing"></div>
 
     <div class="canvas--intro large" id="canvas--intro">
-      <h3><b>To Use</b></h3>
-      Choose one or more collections to start.<br />
 
-      <h3><b>Color Visualizations</b></h3>
-      Choose a color to sort the selected works by.<br />
+      <h3><b>Como Usar</b></h3>Escolha um ou mais acervos para começar.<br>
 
-      <h3><b>Export Images</b></h3>
-      Generate a static image with all of the works included in the
-      collections selected.<br />
+      <h3><b>Visualização por Cor</b></h3>Escolha uma cor para reorganizar e ressaltar obras com a cor selecionada.<br>
+
+      <h3><b>Crie uma Imagem</b></h3>Exporte uma imagem estática com todas as obras incluídas nas seleções de
+      museus.<br>
+
     </div>
+
+
   </div>
 
   <div class="results-overlay--background overlay--background hidden" id="results-overlay--background">
@@ -131,7 +153,7 @@
       </button>
 
       <div class="overlay--list--wrapper">
-        <div class="overlay--list--title">Included Works</div>
+        <div class="overlay--list--title">Obras Incluídas</div>
         <div class="overlay--list--content" id="results-overlay--list-content"></div>
       </div>
     </div>
@@ -145,7 +167,7 @@
 
       <div class="overlay--image--wrapper">
         <div class="loader" id="detail-overlay--loader"></div>
-        <img src="" class="overlay--image" id="detail-overlay--image" />
+        <img src="" class="overlay--image" id="detail-overlay--image">
         <div class="overlay--boxes" id="detail-overlay--boxes"></div>
       </div>
 
@@ -165,8 +187,8 @@
         </div>
 
         <div class="overlay--info--subtext hidden" id="detail-overlay--info--subtext">
-          Interpretations generated automatically by Computer Vision. In case
-          of errors, please contact acervosdigitais@usp.br.
+          Interpretações geradas automaticamente por Visão Computacional. Em caso de erros, por favor contate
+          acervosdigitais@usp.br.
         </div>
       </div>
     </div>
@@ -179,29 +201,17 @@
       </button>
 
       <div class="overlay--info" id="about-overlay--info">
-        <p>
-          Interface for navigating open source art collections by visual
-          features.
-        </p>
-        <br />
-        <p>
-          Developed by the
-          <a href="https://www.acervosdigitais.fau.usp.br/" target="_blank">Digital Collections and Research</a>
-          Thematic Project, funded by FAPESP.
-        </p>
-        <br />
-        <p>
-          <a href="https://www.acervosdigitais.fau.usp.br/meta-acervos-navegador-para-museus-em-rede/"
-            target="_blank">Details of the project</a>.
-        </p>
-        <br />
-        <p>
-          All code is available
-          <a href="https://github.com/acervos-digitais/" target="_blank">on GitHub</a>.
-        </p>
+        <p>Interface para navegar coleções de arte por características visuais.</p><br>
+        <p>Desenvolvido pelo grupo de pesquisa <a href="https://www.acervosdigitais.fau.usp.br/" target="_blank">Acervos
+            Digitais</a>, um projeto temático financiado pela FAPESP.</p><br>
+        <p><a href="https://www.acervosdigitais.fau.usp.br/meta-acervos-navegador-para-museus-em-rede/"
+            target="_blank">Detalhes do projeto</a>.</p><br>
+        <p>Todo o código está disponível <a href="https://github.com/acervos-digitais/" target="_blank">no nosso
+            GitHub</a>.</p>
       </div>
     </div>
   </div>
+
 </body>
 
 </html>
