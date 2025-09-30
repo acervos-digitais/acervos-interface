@@ -30,11 +30,17 @@
 }
 
 .other--menu .menu--section .menu--section--items .menu--color-picker--items .sorter--color-picker {
-  width: 100%;
+  all: unset;
+  position: absolute;
+  top: 0;
+  left: 0.25rem;
+  height: calc(2.4rem - 1px);
+  width: 3.6rem;
+  border-radius: 1rem;
 }
 
 .other--menu .menu--section .menu--section--items .menu--color-picker--items .sorter--color-picker.hidden {
-  display: none;
+  pointer-events: none;
 }
 
 .other--menu .menu--section.about--section {

@@ -79,7 +79,7 @@
   border-top: none;
   background: repeating-linear-gradient(to right,
       var(--txt-color) 0 2%,
-      transparent 2% 8.9%);
+      transparent 2% 8.45%);
   height: 2px;
   color: transparent;
 }
