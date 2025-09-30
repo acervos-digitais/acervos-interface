@@ -84,6 +84,15 @@
   color: transparent;
 }
 
+.canvas--drawing.bin,
+.canvas--drawing.xy {
+  cursor: grab;
+}
+
+.canvas--drawing.dragging {
+  cursor: grabbing;
+}
+
 
 
 /* ———————————————— ART WORK ———————————————— */

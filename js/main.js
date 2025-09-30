@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const menuInfoList = document.getElementsByClassName('menu--info');
     [...menuInfoList].forEach(mi => initMenuInfo(mi));
 
+    initCanvasDrag(canvasDrawing);
+
   } else {
     initMuseumButtons();
   }
@@ -268,13 +270,54 @@ function initMenuInfo(mi) {
 
 
 
+// CANVAS DRAG
+
+function initCanvasDrag(cnv) {
+  let isDragging = false;
+  let startX, startY, scrollLeft, scrollTop;
+
+  document.addEventListener("mousedown", e => {
+    if (!cnv.classList.contains('bin') && !cnv.classList.contains('xy')) return;
+    if (e.target.tagName !== 'DIV') return;
+
+    isDragging = true;
+    cnv.classList.add("dragging");
+
+    startX = e.pageX - cnv.offsetLeft;
+    startY = e.pageY - cnv.offsetTop;
+    scrollLeft = cnv.scrollLeft;
+    scrollTop = cnv.scrollTop;
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - cnv.offsetLeft;
+    const y = e.pageY - cnv.offsetTop;
+    const moveX = x - startX;
+    const moveY = y - startY;
+
+    cnv.scrollLeft = scrollLeft - moveX;
+    cnv.scrollTop = scrollTop - moveY;
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    cnv.classList.remove("dragging");
+  });
+}
+
+
+
 // MOBILE MUSEUM BUTTONS
 
 function initMuseumButtons() {
   const mbOpen = document.getElementById('museums--button-open');
   const mbClose = document.getElementById('museums--button-close');
   const mbItems = document.getElementById('filter--collection--items');
-  
+
   let mbIsOpened = true;
   function toggleMBState(state) {
     mbIsOpened = state;
