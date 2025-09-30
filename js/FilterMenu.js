@@ -22,11 +22,13 @@ class FilterMenu {
 
     const canvasEl = document.getElementById("canvas--container");
     const otherMenuEl = document.getElementById("sorter-menu");
+    const canvasDrawing = document.getElementById('canvas--drawing');
 
     closeButton.addEventListener("click", () => {
       menuEl.classList.toggle("hidden");
       canvasEl.classList.toggle("contract");
       otherMenuEl.classList.toggle("contract");
+      canvasDrawing.dispatchEvent(new Event("scrollbar-update"));
     });
 
     counterListEl.addEventListener("click", () => {

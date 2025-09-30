@@ -108,7 +108,7 @@
   position: absolute;
   border: 2px #2f2 solid;
   color: var(--bg-color);
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   text-shadow: -1px -1px 0 var(--txt-color-hl), 1px -1px 0 var(--txt-color-hl),
     -1px 1px 0 var(--txt-color-hl), 1px 1px 0 var(--txt-color-hl);
 }
@@ -170,7 +170,7 @@
 }
 
 .overlay--background .overlay--window .overlay--info .overlay--info--text {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .overlay--background
@@ -190,7 +190,7 @@
   .overlay--info
   .overlay--info--link-section
   .overlay--info--button {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: var(--txt-color);
   cursor: pointer;
   text-decoration: underline;
@@ -212,7 +212,7 @@
 .overlay--background .overlay--window .overlay--info .overlay--info--subtext {
   width: 0;
   min-width: 100%;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 }
 
 .overlay--background
@@ -220,6 +220,16 @@
   .overlay--info
   .overlay--info--subtext.hidden {
   display: none;
+}
+
+.overlay--info--link-section {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.overlay--boxes {
+  pointer-events: none;
 }
 
 .overlay--background .overlay--window.text--window {

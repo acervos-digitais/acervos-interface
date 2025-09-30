@@ -18,6 +18,7 @@ class SorterMenu {
     const closeButton = document.getElementById("sorter--close--button");
     closeButton.addEventListener("click", () => {
       menuEl.classList.toggle("hidden");
+      canvasDrawing.dispatchEvent(new Event("scrollbar-update"));
     });
 
     const aboutEl = document.getElementById("about-overlay--background");

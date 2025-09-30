@@ -236,12 +236,13 @@
 }
 
 .menu--info--container {
-  z-index: 30;
+  z-index: 1000;
   position: absolute;
   background: var(--txt-color);
   color: var(--bg-color);
   padding: 1rem 1.5rem;
   border-radius: 0.4rem;
+  border: solid 1px var(--bg-color-hl);
   max-width: 24rem;
 }
 
@@ -388,8 +389,7 @@ select option {
 @media (max-width: 1440px) {
 
   .common--menu,
-  .filter-menu,
-  .menu--info--container {
+  .filter-menu {
     z-index: 0 !important;
   }
 

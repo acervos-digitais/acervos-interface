@@ -121,7 +121,7 @@ function initScrollbar(content, container, scrollV, scrollH) {
   const handleH = document.createElement('div');
   handleH.id = 'scrollbar--handle-horizontal';
   handleH.className = 'scrollbar--handle';
-  handleH.style.bottom = '0';
+  handleH.style.top = '0';
   handleH.style.left = '0';
   handleH.style.height = '9px';
   handleH.style.borderRadius = '4px';
@@ -159,8 +159,7 @@ function initScrollbar(content, container, scrollV, scrollH) {
       handleH.style.display = 'none';
     } else {
       const scrollHPercentage = content.scrollLeft / widthDelta;
-      const handleHOffset = content.getBoundingClientRect().x;
-      const handleHPos = scrollHPercentage * (containerWidth - handleHWidth - marginH) + handleHOffset;
+      const handleHPos = scrollHPercentage * (containerWidth - handleHWidth - marginH);
       handleH.style.transform = `translateX(${handleHPos}px)`;
       handleH.style.display = 'block';
     }
@@ -193,9 +192,8 @@ function initScrollbar(content, container, scrollV, scrollH) {
   }
 
   function startDragH(e) {
-    const handleHOffset = content.getBoundingClientRect().x;
     isDraggingH = true;
-    startX = e.clientX + handleHOffset;
+    startX = e.clientX;
     startHandleHPos = parseFloat(handleH.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
     e.preventDefault();
   }
