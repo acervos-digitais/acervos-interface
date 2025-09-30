@@ -184,6 +184,7 @@
 .filter--counter--item {
   font-weight: 400;
   color: var(--bg-color);
+  padding: 0;
 }
 
 .filter--counter--button {
@@ -198,4 +199,8 @@
   border: none;
   margin-top: -0.5rem;
   transform: translate(-0.25rem, 0.25rem);
+}
+
+.align-right {
+  align-items: end;
 }
