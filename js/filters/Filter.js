@@ -25,13 +25,14 @@ class Filter {
 
     const inputEl = document.createElement("input");
     inputEl.type = type;
-    inputEl.id = id;
+    inputEl.id = `${id}--checkbox`;
     inputEl.value = value;
     if (name) inputEl.name = name;
 
     const labelEl = document.createElement("label");
     labelEl.setAttribute("for", inputEl.id);
     labelEl.innerHTML = getLabel(label);
+    labelEl.id = `${id}--label`;
 
     wrapperEl.appendChild(inputEl);
     wrapperEl.appendChild(labelEl);
@@ -51,12 +52,12 @@ class Filter {
   addAllNone() {
     this.addSpacer();
 
-    this.createInputNoListener("checkbox", `all--${this.slug}--checkbox`, "all", getLabel("all"));
-    this.createInputNoListener("checkbox", `none--${this.slug}--checkbox`, "none", getLabel("none"));
+    this.createInputNoListener("checkbox", `all--${this.slug}`, "all", getLabel("all"));
+    this.createInputNoListener("checkbox", `none--${this.slug}`, "none", getLabel("none"));
 
     const noneInput = this.inputs.pop();
     const allInput = this.inputs.pop();
-    noneInput.className = 'none ';
+    noneInput.className = 'none';
     allInput.className = 'all';
 
     allInput.addEventListener("change", () => {
@@ -75,7 +76,7 @@ class Filter {
   }
 
   checkCollections() {
-    const allCollectionsInputEl = document.getElementById("all--collection--checkbox");
+    const allCollectionsInputEl = document.getElementById("all--collection");
     const collectionsInputEls = document.getElementById("filter--collection--items").querySelectorAll("input");
     const totalCollections = collectionsInputEls.length;
     const checkedCollections = Array.from(collectionsInputEls).filter(el => el.checked).length;
