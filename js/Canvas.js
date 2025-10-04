@@ -83,15 +83,18 @@ class Canvas {
   updateScale(delta) {
     this.zoomLevel += delta;
 
-    if (this.zoomLevel < -16) this.zoomLevel = 16;
-    if (this.zoomLevel > 16) this.zoomLevel = 16;
+    const canvasDrawing = document.getElementById('canvas--drawing');
+    canvasDrawing.dispatchEvent(new Event("scrollbar-update"));
+
+    const zoomLimits = canvasDrawing.classList.contains('grid') ? { min: -16, max: 3 } : { min: -16, max: 16 };
+
+    if (this.zoomLevel < zoomLimits.min) this.zoomLevel = zoomLimits.min;
+    if (this.zoomLevel > zoomLimits.max) this.zoomLevel = zoomLimits.max;
+    console.log(this.zoomLevel, delta)
 
     if (this.checked in this.allDrawers) {
       this.allDrawers[this.checked].zoom(this.zoomLevel);
     }
-
-    const canvasDrawing = document.getElementById('canvas--drawing');
-    canvasDrawing.dispatchEvent(new Event("scrollbar-update"));
   }
 
   draw(checked) {
