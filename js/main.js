@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.addEventListener("sort-data", () => {
     mCanvas.sorted = mSorters.sort();
-    // console.log(mCanvas.sorted);
     mCanvas.draw(mSorters.checked);
     mExportMenu.update(mCanvas.sorted, mFilters.objectFilter.selectedVals);
     if (mSorters.checked) {
@@ -78,6 +77,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (canvasDrawing.classList.contains('bin')) {
       canvasDrawing.scrollTo(0, canvasDrawing.scrollHeight);
     }
+    
+    mCanvas.updateScale(0);
   });
 
   document.addEventListener("show-results", () => {
