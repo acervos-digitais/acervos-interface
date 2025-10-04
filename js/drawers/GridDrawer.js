@@ -6,14 +6,14 @@ class GridDrawer extends Drawer {
     this.defaultCols = 8;
   }
 
-  draw(artWorks, sorted, scale) {
+  draw(artWorks, sorted, zoomLevel) {
     this.arts = [];
     this.drawingEl.innerHTML = "";
 
     this.drawingEl.classList = ["canvas--drawing"];
     this.drawingEl.classList.add("grid");
 
-    const numCols = parseInt(this.defaultCols / scale);
+    const numCols = this.defaultCols - parseInt(zoomLevel);
     const gapSum = (numCols - 1) * 2;
 
     for (const { id, distance } of sorted) {
@@ -28,8 +28,8 @@ class GridDrawer extends Drawer {
     window.scrollTo(0, 0);
   }
 
-  zoom(scale) {
-    const numCols = parseInt(this.defaultCols / scale);
+  zoom(zoomLevel) {
+    const numCols = this.defaultCols - parseInt(zoomLevel);
     const gapSum = (numCols - 1) * 2;
 
     this.arts.forEach(el => el.style.width = `calc((100% - ${gapSum}px) / ${numCols})`);

@@ -30,7 +30,7 @@ class ArtWork {
 class Canvas {
   constructor(metaData) {
     this.sorted = [];
-    this.scale = 1;
+    this.zoomLevel = 0;
     this.checked = null;
 
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -66,7 +66,7 @@ class Canvas {
     containerEl.addEventListener("wheel", (evt) => {
       if (!evt.altKey) return;
       evt.preventDefault();
-      this.updateScale(evt.deltaY > 0 ? -0.025 : 0.025);
+      this.updateScale(evt.deltaY > 0 ? -0.1 : 0.1);
     });
 
     const pageURL = window.location.href.replace(/^https?:\/\//, '');
@@ -75,19 +75,19 @@ class Canvas {
     if (!isMobile) {
       const zoomLessEl = document.getElementById('zoom--less');
       const zoomMoreEl = document.getElementById('zoom--more');
-      zoomLessEl.addEventListener('click', () => this.updateScale(-0.025));
-      zoomMoreEl.addEventListener('click', () => this.updateScale(0.025));
+      zoomLessEl.addEventListener('click', () => this.updateScale(-1));
+      zoomMoreEl.addEventListener('click', () => this.updateScale(1));
     }
   }
 
   updateScale(delta) {
-    this.scale += delta;
+    this.zoomLevel += delta;
 
-    if (this.scale < 0.1) this.scale = 0.1;
-    if (this.scale > 24) this.scale = 24;
+    if (this.zoomLevel < -16) this.zoomLevel = 16;
+    if (this.zoomLevel > 16) this.zoomLevel = 16;
 
     if (this.checked in this.allDrawers) {
-      this.allDrawers[this.checked].zoom(this.scale);
+      this.allDrawers[this.checked].zoom(this.zoomLevel);
     }
 
     const canvasDrawing = document.getElementById('canvas--drawing');
@@ -101,7 +101,7 @@ class Canvas {
         document.getElementById("canvas--intro").classList.add("hidden");
       }
 
-      this.allDrawers[checked].draw(this.allArtWorks, this.sorted, this.scale);
+      this.allDrawers[checked].draw(this.allArtWorks, this.sorted, this.zoomLevel);
     }
   }
 }
