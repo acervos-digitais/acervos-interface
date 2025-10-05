@@ -71,9 +71,11 @@
   0% {
     box-shadow: 8px 0, -16px 0;
   }
+
   50% {
     box-shadow: 8px 0, -8px 0;
   }
+
   100% {
     box-shadow: 16px 0, -8px 0;
   }
@@ -96,11 +98,7 @@
   height: 100%;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--image--wrapper
-  .overlay--boxes
-  .overlay--boxes--box {
+.overlay--background .overlay--window .overlay--image--wrapper .overlay--boxes .overlay--boxes--box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,32 +119,17 @@
   -ms-overflow-style: none;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--list--wrapper::-webkit-scrollbar {
+.overlay--background .overlay--window .overlay--list--wrapper::-webkit-scrollbar {
   display: none;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--list--wrapper
-  .overlay--list--title {
+.overlay--background .overlay--window .overlay--list--wrapper .overlay--list--title {
   font-size: 1.5rem;
-  margin-bottom: 12px;
+  margin-bottom: 2rem;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--list--wrapper
-  .overlay--list--item {
-  margin-bottom: 1rem;
-}
-
-.overlay--background
-  .overlay--window
-  .overlay--list--wrapper
-  .overlay--list--item::before {
-  content: "• ";
+.overlay--background .overlay--window .overlay--list--wrapper .overlay--list--item {
+  margin-bottom: 1.5rem;
 }
 
 .overlay--background .overlay--window .overlay--colors {
@@ -169,41 +152,23 @@
 
 .overlay--background .overlay--window .overlay--info .overlay--info--text {
   font-size: 1.2rem;
+  line-height: 1.5rem;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--info
-  .overlay--info--link-section {
+.overlay--background .overlay--window .overlay--info .overlay--info--link-section {
   margin-top: 2.5rem;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--info
-  .overlay--info--link-section
-  a,
-.overlay--background
-  .overlay--window
-  .overlay--info
-  .overlay--info--link-section
-  .overlay--info--button {
+.overlay--background .overlay--window .overlay--info .overlay--info--link-section a,
+.overlay--background .overlay--window .overlay--info .overlay--info--link-section .overlay--info--button {
   font-size: 1.2rem;
   color: var(--txt-color);
   cursor: pointer;
   text-decoration: underline;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--info
-  .overlay--info--link-section
-  a:hover,
-.overlay--background
-  .overlay--window
-  .overlay--info
-  .overlay--info--link-section
-  .overlay--info--button:hover {
+.overlay--background .overlay--window .overlay--info .overlay--info--link-section a:hover,
+.overlay--background .overlay--window .overlay--info .overlay--info--link-section .overlay--info--button:hover {
   color: var(--txt-color-hl);
 }
 
@@ -213,10 +178,7 @@
   font-size: 1.2rem;
 }
 
-.overlay--background
-  .overlay--window
-  .overlay--info
-  .overlay--info--subtext.hidden {
+.overlay--background .overlay--window .overlay--info .overlay--info--subtext.hidden {
   display: none;
 }
 
@@ -250,7 +212,7 @@
 .overlay--list--item {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .overlay--list--item img {
@@ -262,10 +224,12 @@
   .overlay--background .overlay--window {
     max-width: 100%;
   }
+
   .overlay--background .overlay--window.text--window {
     width: 100%;
     min-width: unset;
   }
+
   .overlay--background .overlay--window .overlay--image--wrapper img {
     max-width: 90vw;
     max-height: 70vh;

@@ -77,7 +77,7 @@ class DetailOverlay extends Overlay {
       this.colorsEl.appendChild(colorEl);
     });
 
-    this.titleEl.innerHTML = `<b>${getLabel(titleText)}</b><br>${getLabel(creatorText)}<br>${getLabel(yearText)}`;
+    this.titleEl.innerHTML = `<b>${getLabel(titleText)}</b> (${getLabel(yearText)})<br>${getLabel(creatorText)}`;
     this.collectionEl.innerHTML = `<b>${getLabel("collection")}: ${data.museum}</b>`;
     this.linkEl.innerHTML = `${getLabel("information")}`;
     this.linkEl.setAttribute("href", data.url);
