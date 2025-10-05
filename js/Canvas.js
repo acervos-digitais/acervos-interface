@@ -90,7 +90,6 @@ class Canvas {
 
     if (this.zoomLevel < zoomLimits.min) this.zoomLevel = zoomLimits.min;
     if (this.zoomLevel > zoomLimits.max) this.zoomLevel = zoomLimits.max;
-    console.log(this.zoomLevel, delta)
 
     if (this.checked in this.allDrawers) {
       this.allDrawers[this.checked].zoom(this.zoomLevel);

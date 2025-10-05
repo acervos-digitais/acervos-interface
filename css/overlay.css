@@ -139,9 +139,7 @@
   .overlay--window
   .overlay--list--wrapper
   .overlay--list--item {
-  margin-bottom: 4px;
-  padding-left: 50px;
-  text-indent: -50px;
+  margin-bottom: 1rem;
 }
 
 .overlay--background
@@ -177,7 +175,7 @@
   .overlay--window
   .overlay--info
   .overlay--info--link-section {
-  margin: 12px 0;
+  margin-top: 2.5rem;
 }
 
 .overlay--background
@@ -243,6 +241,21 @@
 
 .results-overlay--background {
   z-index: 90;
+}
+
+.overlay--info .overlay--info--section {
+  max-width: 48rem;
+}
+
+.overlay--list--item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.overlay--list--item img {
+  width: 2rem;
+  height: fit-content;
 }
 
 @media (max-width: 768px) {

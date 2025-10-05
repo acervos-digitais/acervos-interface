@@ -1,5 +1,5 @@
 :root {
- font-size: 14px;
+  font-size: 14px;
 }
 
 .common--menu.mobile {
@@ -90,6 +90,10 @@
   color: inherit;
 }
 
+.common--menu .menu--section--items.collection--items {
+  gap: 1rem 0.5rem;
+}
+
 .menu--subsection {
   display: flex;
   flex-direction: column;
@@ -164,6 +168,8 @@
 
 .menu--header .menu--title--button {
   height: 2.5rem;
+  border-radius: 50%;
+  border: solid 2px var(--bg-color);
 }
 
 .menu--header .menu--title--button.hidden {
@@ -182,7 +188,7 @@
 }
 
 .filter--counter--item {
-  font-weight: 400;
+  font-weight: 700;
   color: var(--bg-color);
   padding: 0;
 }

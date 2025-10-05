@@ -23,14 +23,22 @@ class ResultsOverlay extends Overlay {
 
     const itemEl = document.createElement("div");
     itemEl.classList.add("overlay--list--item");
-    itemEl.innerHTML = `${getLabel(creatorText)}, ${getLabel(titleText)} (${getLabel(yearText)}). `;
+
+    const IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/500";
+    const imgEl = document.createElement('img');
+    imgEl.src = `${IMG_URL}/${data.id}.jpg`;
+
+    const pEl = document.createElement('p');
+    pEl.innerHTML = `${getLabel(creatorText)}, ${getLabel(titleText)} (${getLabel(yearText)}).<br>`;
 
     const linkEl = document.createElement("a");
     linkEl.innerHTML = `${data.museum}`;
     linkEl.setAttribute("href", data.url);
     linkEl.setAttribute("target", "_blank");
 
-    itemEl.appendChild(linkEl);
+    itemEl.appendChild(imgEl);
+    itemEl.appendChild(pEl);
+    pEl.appendChild(linkEl);
     return itemEl;
   }
 
