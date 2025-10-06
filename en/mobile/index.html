@@ -56,22 +56,22 @@
 
       <div class="menu--mobile--group row">
         <section class="menu--subsection" id="sorter-menu">
-          <div class="menu--section--title">Select Color</div>
-
+          <div class="menu--section--items--color">
+            <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
+            <label class="menu--section--title"
+              onclick="document.getElementById('color--sorter--color-picker').click()">Color</label>
+          </div>
           <div class="menu--section--items">
             <div class="menu--color-picker--items">
-
               <div class="radio--item">
                 <input type="radio" id="sorter--color--enable" name="sorter-type" value="color" checked>
                 <label for="sorter--color--enable">Colors</label>
               </div>
-              <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
-
             </div>
           </div>
         </section>
 
-        <section class="menu--subsection align-right" id="sorter-menu">
+        <section class="menu--subsection" id="sorter-menu">
           <div class="filter--counter">
             <span class="filter--counter--item" id="filter--counter--count">0</span>
             <span class="filter--counter--item" id="filter--counter--found">Results</span>
@@ -131,16 +131,19 @@
 
 
     <div class="canvas--drawing" id="canvas--drawing"></div>
+    <div class="zoom--container">
+      <button class="zoom--button less" id="zoom--less">
+        <img src="../../assets/icon_zoom-less.svg">
+      </button>
+      <button class="zoom--button more" id="zoom--more">
+        <img src="../../assets/icon_zoom-more.svg">
+      </button>
+    </div>
 
     <div class="canvas--intro large" id="canvas--intro">
-
-      <h3><b>Como Usar</b></h3>Escolha um ou mais acervos para começar.<br>
-
+      <!-- <h3><b>Como Usar</b></h3>Escolha um ou mais acervos para começar.<br>
       <h3><b>Visualização por Cor</b></h3>Escolha uma cor para reorganizar e ressaltar obras com a cor selecionada.<br>
-
-      <h3><b>Crie uma Imagem</b></h3>Exporte uma imagem estática com todas as obras incluídas nas seleções de
-      museus.<br>
-
+      <h3><b>Crie uma Imagem</b></h3>Exporte uma imagem estática com todas as obras incluídas nas seleções demuseus.<br> -->
     </div>
 
 

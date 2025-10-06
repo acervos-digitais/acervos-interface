@@ -29,6 +29,10 @@
   position: relative;
 }
 
+.other--menu .menu--section .menu--section--items .menu--color-picker--items label {
+  padding-left: 4rem;
+}
+
 .other--menu .menu--section .menu--section--items .menu--color-picker--items .sorter--color-picker {
   all: unset;
   position: absolute;

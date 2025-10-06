@@ -182,6 +182,14 @@
   display: none;
 }
 
+.overlay--background .overlay--window .overlay--info img {
+  height: 2.5rem;
+}
+
+.overlay--background .overlay--window .overlay--info a {
+  color: var(--txt-color-hl);
+}
+
 .overlay--info--link-section {
   display: flex;
   flex-direction: row;

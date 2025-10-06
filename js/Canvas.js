@@ -69,15 +69,10 @@ class Canvas {
       this.updateScale(evt.deltaY > 0 ? -0.1 : 0.1);
     });
 
-    const pageURL = window.location.href.replace(/^https?:\/\//, '');
-    const isMobile = pageURL.includes('mobile');
-
-    if (!isMobile) {
-      const zoomLessEl = document.getElementById('zoom--less');
-      const zoomMoreEl = document.getElementById('zoom--more');
-      zoomLessEl.addEventListener('click', () => this.updateScale(-1));
-      zoomMoreEl.addEventListener('click', () => this.updateScale(1));
-    }
+    const zoomLessEl = document.getElementById('zoom--less');
+    const zoomMoreEl = document.getElementById('zoom--more');
+    zoomLessEl.addEventListener('click', () => this.updateScale(-1));
+    zoomMoreEl.addEventListener('click', () => this.updateScale(1));
   }
 
   updateScale(delta) {

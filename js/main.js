@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   mSorters.validIdsSet = mFilters.filter(allIdsSet);
 
   const buttonSelectAll = document.getElementById('all--collection--label');
-  buttonSelectAll.click();
+  setTimeout(() => buttonSelectAll.click(), 0);
 });
 
 
