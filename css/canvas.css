@@ -72,6 +72,7 @@
   border-top: 2px var(--txt-color) solid;
   text-align: center;
   color: var(--txt-color);
+  background: none;
 }
 
 .canvas--container .canvas--drawing.bin .year-container .year-info {

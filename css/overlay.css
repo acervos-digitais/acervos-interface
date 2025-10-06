@@ -186,7 +186,7 @@
   height: 2.5rem;
 }
 
-.overlay--background .overlay--window .overlay--info a {
+.overlay--background .overlay--window a {
   color: var(--txt-color-hl);
 }
 

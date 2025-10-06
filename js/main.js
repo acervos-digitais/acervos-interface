@@ -76,6 +76,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (canvasDrawing.classList.contains('bin')) {
       canvasDrawing.scrollTo(0, canvasDrawing.scrollHeight);
+    } else if (canvasDrawing.classList.contains('grid')) {
+      canvasDrawing.scrollTo(0, 0);
     }
     
     mCanvas.updateScale(0);
