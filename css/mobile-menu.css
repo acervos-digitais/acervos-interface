@@ -8,6 +8,7 @@
   display: flex;
   width: 100%;
   height: unset;
+  overflow: hidden;
 }
 
 .common--menu.mobile .menu--close--button {
