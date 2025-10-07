@@ -215,8 +215,9 @@
 
 .overlay--info .overlay--info--section {
   max-width: 48rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
-
 .overlay--list--item {
   display: flex;
   flex-direction: row;

@@ -284,7 +284,7 @@ function initCanvasDrag(cnv) {
 
   document.addEventListener("mousedown", e => {
     if (!cnv.classList.contains('bin') && !cnv.classList.contains('xy')) return;
-    if (e.target.tagName !== 'DIV' || e.target.className.includes('scrollbar')) return;
+    if (e.target.tagName !== 'DIV' || e.target.className.includes('scrollbar') || e.button !== 0) return;
 
     isDragging = true;
     cnv.classList.add("dragging");
