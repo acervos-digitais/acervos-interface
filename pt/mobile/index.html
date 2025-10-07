@@ -58,7 +58,8 @@
         <section class="menu--subsection" id="sorter-menu">
           <div class="menu--section--items--color">
             <input type="color" value="#000000" class="sorter--color-picker hidden" id="color--sorter--color-picker">
-            <label class="menu--section--title" onclick="document.getElementById('color--sorter--color-picker').click()">Cores</label>
+            <label class="menu--section--title"
+              onclick="document.getElementById('color--sorter--color-picker').click()">Cores</label>
           </div>
           <div class="menu--section--items">
             <div class="menu--color-picker--items">
@@ -131,11 +132,11 @@
 
     <div class="canvas--drawing" id="canvas--drawing"></div>
     <div class="zoom--container">
-      <button class="zoom--button less" id="zoom--less">
-        <img src="../../assets/icon_zoom-less.svg">
-      </button>
       <button class="zoom--button more" id="zoom--more">
         <img src="../../assets/icon_zoom-more.svg">
+      </button>
+      <button class="zoom--button less" id="zoom--less">
+        <img src="../../assets/icon_zoom-less.svg">
       </button>
     </div>
 
