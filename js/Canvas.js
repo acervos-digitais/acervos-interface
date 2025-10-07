@@ -78,10 +78,15 @@ class Canvas {
   updateScale(delta) {
     this.zoomLevel += delta;
 
+    const pageURL = window.location.href.replace(/^https?:\/\//, '');
+    const isMobile = pageURL.includes('mobile');
     const canvasDrawing = document.getElementById('canvas--drawing');
     canvasDrawing.dispatchEvent(new Event("scrollbar-update"));
 
-    const zoomLimits = canvasDrawing.classList.contains('grid') ? { min: -16, max: 3 } : { min: -16, max: 16 };
+    const zoomLimits = canvasDrawing.classList.contains('grid') ? isMobile ?
+      { min: -16, max: 6 } :
+      { min: -16, max: 3 } :
+      { min: -16, max: 16 };
 
     if (this.zoomLevel < zoomLimits.min) this.zoomLevel = zoomLimits.min;
     if (this.zoomLevel > zoomLimits.max) this.zoomLevel = zoomLimits.max;

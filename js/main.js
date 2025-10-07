@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       canvasDrawing.scrollTo(0, 0);
     }
     
-    mCanvas.updateScale(0);
+    mCanvas.updateScale(isMobile ? 4 : 0);
   });
 
   document.addEventListener("show-results", () => {
@@ -324,13 +324,15 @@ function initMuseumButtons() {
   const mbClose = document.getElementById('museums--button-close');
   const mbItems = document.getElementById('filter--collection--items');
 
-  let mbIsOpened = true;
   function toggleMBState(state) {
     mbIsOpened = state;
     mbOpen.classList.toggle('hidden', mbIsOpened);
     mbClose.classList.toggle('hidden', !mbIsOpened);
     mbItems.classList.toggle('hidden', !mbIsOpened);
   }
+
+  let mbIsOpened = false;
+  toggleMBState();
 
   mbOpen.addEventListener('click', () => toggleMBState(true));
   mbClose.addEventListener('click', () => toggleMBState(false));

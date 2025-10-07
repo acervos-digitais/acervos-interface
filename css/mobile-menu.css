@@ -1,5 +1,5 @@
 :root {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .common--menu.mobile {
@@ -51,10 +51,6 @@
 
 
 /* MOBILE */
-
-:root {
-  font-size: 12px;
-}
 
 .canvas--container.contract {
   display: flex;
@@ -194,8 +190,14 @@
   padding: 0;
 }
 
-.filter--counter--button {
+.about--section--column,
+.menu--section--title,
+.filter--counter,
+.filter--counter--button,
+.overlay--list--item p,
+.overlay--info p {
   padding: 0;
+  font-size: 14px !important;
 }
 
 .menu--section--items--color {
