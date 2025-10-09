@@ -8,6 +8,7 @@ import { Canvas } from "./Canvas.js";
 import { AboutOverlay } from "./overlays/AboutOverlay.js";
 import { DetailOverlay } from "./overlays/DetailOverlay.js";
 import { ResultsOverlay } from "./overlays/ResultsOverlay.js";
+import { MobileOverlay } from "./overlays/MobileOverlay.js";
 
 const META_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_processed.json";
 const CLUSTER_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_clusters.json";
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   } else {
     initMuseumButtons();
+    const mMobileOverlay = new MobileOverlay();
   }
 
   const mCanvas = new Canvas(metaData);
@@ -79,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else if (canvasDrawing.classList.contains('grid')) {
       canvasDrawing.scrollTo(0, 0);
     }
-    
+
     mCanvas.updateScale(isMobile ? 4 : 0);
   });
 
