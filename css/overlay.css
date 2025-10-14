@@ -43,6 +43,10 @@
   cursor: pointer;
 }
 
+.overlay--close--button img {
+  width: 2.25rem;
+}
+
 .overlay--background .overlay--window .overlay--close--button:hover {
   background-color: var(--bg-color-l);
 }
@@ -226,7 +230,7 @@
 
 .overlay--list--item img {
   width: 2rem;
-  height: fit-content;
+  height: min-content;
 }
 
 @media (max-width: 768px) {
@@ -242,5 +246,10 @@
   .overlay--background .overlay--window .overlay--image--wrapper img {
     max-width: 90vw;
     max-height: 70vh;
+  }
+
+  #mobile-overlay--window {
+    width: calc(100vw - 8rem);
+    height: calc(100vh - 24rem);
   }
 }

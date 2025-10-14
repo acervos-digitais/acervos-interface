@@ -204,6 +204,10 @@
   left: 0;
 }
 
+.common--menu .menu--close--button img {
+  width: 1.5rem;
+}
+
 .common--menu.hidden .menu--close--button img {
   transform: rotate(180deg);
 }
@@ -264,7 +268,7 @@
 .menu--section .checkbox--item input,
 .menu--section .radio--item input {
   width: 0;
-  cursor: pointer;
+  display: none;
 }
 
 .menu--section .checkbox--item.disabled,
