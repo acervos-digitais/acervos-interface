@@ -45,6 +45,29 @@ const MENU_LABELS = {
   information: { en: "More Information", pt: "Mais Informações" },
   download: { en: "Save Image", pt: "Salvar Imagem" },
   composition: { en: "See list of works in this composition", pt: "Ver lista de obras desta composição" },
+
+  // clusters
+  cluster: {
+    en: [
+      'figure studies',
+      'religious figures',
+      'landscape paintings',
+      'portrait paintings',
+      'abstract figures',
+      'formal portraits',
+      'architectural sketches',
+      'geometric shapes',
+    ],
+    pt: [
+      'estudos de figuras',
+      'figuras religiosas',
+      'pinturas de retrato',
+      'figuras abstratas',
+      'retratos formais',
+      'esboços',
+      'formas geométricas',
+    ],
+  }
 };
 
 function getLabel(l) {
