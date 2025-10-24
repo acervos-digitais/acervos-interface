@@ -28,3 +28,24 @@ body {
   text-transform: uppercase;
   overflow: hidden;
 }
+
+.nodata--container {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nodata--container p {
+  text-align: center;
+}
+
+.nodata--container a {
+  color: var(--txt-color-l);
+}

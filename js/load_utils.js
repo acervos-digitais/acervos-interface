@@ -43,11 +43,47 @@ const COLLECTION_LABELS = {
 };
 
 async function fetchData(mUrl) {
-  const response = await fetch(mUrl);
-  return await response.json();
+  try {
+    const response = await fetch(mUrl);
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error("Error fetching data:", error);
+
+    const container = document.createElement('div');
+    container.className = 'nodata--container';
+    container.id = 'nodata';
+
+    const lang = window.location.href.includes("en") ? "en" : "pt";
+    const p = document.createElement('p');
+    p.className = 'nodata--p';
+    p.innerHTML = {
+      pt: `
+          <b>Perdão, não foi possível carregar os dados</b><br>
+          Parece que o Louvre não foi o único que perdeu suas obras...<br>
+          Por favor, tente novamente mais tarde<br>
+          <br>
+          Acompanhe atualizações em nosso <a href="https://www.instagram.com/acervos_digitais/">Instagram</a>
+          `,
+      en: `
+          <b>Data could not be loaded</b><br>
+          It seems like the Louvre wasn't the only one that lost their art works<br>
+          Please, try again later<br>
+          <br>
+          Follow updates on our <a href="https://www.instagram.com/acervos_digitais/">Instagram</a>
+          `,
+    }[lang];
+
+    container.appendChild(p);
+    document.body.appendChild(container);
+    return null;
+  }
 }
 
-function pruneCollections(menuData, thold=10) {
+function pruneCollections(menuData, thold = 10) {
   menuData.collections = Object.entries(menuData.collections).reduce((acc, [k, v]) => {
     if (v.length >= thold && !k.includes("Religiosa e Tradicional")) {
       acc[COLLECTION_LABELS[k]] = v;
@@ -121,7 +157,7 @@ function createMenuData(metaData, clusterData) {
     return acc;
   }, {});
 
-  menuData.dates.yearsIds = Object.entries(yearsIds).map(([year, ids]) => ({ year: parseInt(year), ids })).toSorted((a,b) => a.year - b.year);
+  menuData.dates.yearsIds = Object.entries(yearsIds).map(([year, ids]) => ({ year: parseInt(year), ids })).toSorted((a, b) => a.year - b.year);
 
   return pruneCollections(menuData);
 }
