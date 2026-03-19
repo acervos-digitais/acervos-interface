@@ -57,15 +57,18 @@ const MENU_LABELS = {
       'formal portraits',
       'architectural sketches',
       'geometric shapes',
+      'all',
     ],
     pt: [
       'estudos de figuras',
       'figuras religiosas',
+      'pinturas de paisagem',
       'pinturas de retrato',
       'figuras abstratas',
       'retratos formais',
       'esboços',
       'formas geométricas',
+      'todas',
     ],
   }
 };
