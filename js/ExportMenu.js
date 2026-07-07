@@ -10,10 +10,10 @@ class ExportMenu {
     Client.connect("acervos-digitais/acervos-gradio").then(res => this.gradio = res);
 
     const gridButton = document.getElementById("export--grid--button");
-    const xyButton = document.getElementById("export--xy--button");
+    const compositionButton = document.getElementById("export--composition--button");
 
     gridButton.addEventListener("click", () => this.createImage("/objects"));
-    xyButton.addEventListener("click", () => this.createImage("/xy"));
+    compositionButton.addEventListener("click", () => this.createImage("/composition"));
   }
 
   update(sorted, objects) {
@@ -21,7 +21,7 @@ class ExportMenu {
     this.objects = objects;
 
     const gridItemsEl = document.getElementById("export--grid--button");
-    const xyItemsEl = document.getElementById("export--xy--button");
+    const compositionItemsEl = document.getElementById("export--composition--button");
 
     if (this.sorted.length > 0) {
       gridItemsEl.classList.remove("disabled");
@@ -30,9 +30,9 @@ class ExportMenu {
     }
 
     if (this.sorted.length > 0 && this.objects.length > 0) {
-      xyItemsEl.classList.remove("disabled");
+      compositionItemsEl.classList.remove("disabled");
     } else {
-      xyItemsEl.classList.add("disabled");
+      compositionItemsEl.classList.add("disabled");
     }
   }
 
