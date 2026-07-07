@@ -1,4 +1,39 @@
-import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+// import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+
+class Client {
+  static apiUrl = "";
+  static callUrl = "";
+  static async connect(hfId) {
+    Client.apiUrl = `https://${hfId.replace("/", "-")}.hf.space/gradio_api`;
+    Client.callUrl = `${Client.apiUrl}/call`;
+    return Client;
+  }
+
+  static async predict(endpoint, obj) {
+    const url = `${Client.callUrl}${endpoint}`;
+    const postResponse = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: [ obj.idBoxes_in ]
+      }),
+    });
+
+    const postResult = await postResponse.json();
+
+    const eventResponse = await fetch(`${url}/${postResult.event_id}`);
+    const eventResultText = await eventResponse.text();
+
+    const dataMatch = eventResultText.match(/event: complete\ndata:\s*(.+)/);
+    const dataJsonString = `{"data": ${dataMatch[1]}}`;
+
+    const result = JSON.parse(dataJsonString);
+    result.data[0].url = `${Client.apiUrl}/file=${result.data[0].path}`;
+    return result;
+  }
+}
 
 class ExportMenu {
   constructor(metaData) {
