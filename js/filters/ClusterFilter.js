@@ -10,7 +10,7 @@ class ClusterFilter extends Filter {
 
     const opt = document.createElement("option");
     opt.value = -1;
-    opt.innerHTML = getLabel('cluster')[data.labels.length];
+    opt.innerHTML = getLabel("cluster").slice(-1)[0];
     this.picker.appendChild(opt);
 
     for (let clusterIdx = 0; clusterIdx < data.labels.length; clusterIdx++) {
