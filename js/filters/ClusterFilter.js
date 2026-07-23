@@ -10,14 +10,14 @@ class ClusterFilter extends Filter {
 
     const opt = document.createElement("option");
     opt.value = -1;
-    opt.innerHTML = getLabel("cluster").slice(-1)[0];
+    opt.innerHTML = getLabel("clusters9").slice(-1)[0];
     this.picker.appendChild(opt);
 
     for (let clusterIdx = 0; clusterIdx < data.labels.length; clusterIdx++) {
       const opt = document.createElement("option");
       opt.value = clusterIdx;
       // opt.innerHTML = `${data.labels[clusterIdx].split(",")[0]}`; // original labels
-      opt.innerHTML = getLabel('cluster')[clusterIdx];
+      opt.innerHTML = getLabel("clusters9")[clusterIdx];
       this.picker.appendChild(opt);
     }
 

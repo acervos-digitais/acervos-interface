@@ -42,7 +42,10 @@ const COLLECTION_LABELS = {
   "Coleção Brasiliana Itaú": "Brasiliana Itaú",
 };
 
-const NUM_CLUSTERS = 8;
+const CLUSTER = {
+  count: 9,
+  dimRed: "umap",
+};
 
 async function fetchData(mUrl) {
   try {
@@ -104,6 +107,7 @@ function createMenuData(metaData, clusterData) {
     dates: {},
     objects: {},
   };
+  const cClusterData = clusterData[CLUSTER.count][CLUSTER.dimRed];
 
   for (const id of Object.keys(metaData)) {
     const item = metaData[id];
@@ -132,10 +136,10 @@ function createMenuData(metaData, clusterData) {
   }
 
   const lang = window.location.href.includes("en") ? "en" : "pt";
-  menuData.clusters.labels = clusterData[NUM_CLUSTERS].clusters.descriptions.gemma3[lang].map(x => x.join(", "));
-  menuData.clusters.ids = new Array(NUM_CLUSTERS).fill(null).map(() => []);
+  menuData.clusters.labels = cClusterData.clusters.descriptions.gemma3[lang].map(x => x.join(", "));
+  menuData.clusters.ids = new Array(CLUSTER.count).fill(null).map(() => []);
 
-  for (const [id, { cluster, distances }] of Object.entries(clusterData[NUM_CLUSTERS].images)) {
+  for (const [id, { cluster, distances }] of Object.entries(cClusterData.images)) {
     menuData.clusters.ids[cluster].push(id);
   }
 
@@ -165,10 +169,11 @@ function createMenuData(metaData, clusterData) {
 }
 
 function combineClusterData(metaData, clusterData) {
+  const cClusterData = clusterData[CLUSTER.count][CLUSTER.dimRed];
   for (const id of Object.keys(metaData)) {
     metaData[id].cluster = {
-      idx: clusterData[NUM_CLUSTERS].images[id].cluster,
-      distances: clusterData[NUM_CLUSTERS].images[id].distances,
+      idx: cClusterData.images[id].cluster,
+      distances: cClusterData.images[id].distances,
     }
   }
   return metaData;

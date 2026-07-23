@@ -47,7 +47,7 @@ const MENU_LABELS = {
   composition: { en: "See list of works in this composition", pt: "Ver lista de obras desta composição" },
 
   // clusters
-  cluster: {
+  clusters8: {
     en: [
       'figure studies',
       'religious figures',
@@ -68,6 +68,32 @@ const MENU_LABELS = {
       'retratos formais',
       'esboços',
       'formas geométricas',
+      'todas',
+    ],
+  },
+  clusters9: {
+    en: [
+      'abstract figures',
+      'religious figures',
+      'landscape paintings',
+      'figure studies',
+      'architectural sketches',
+      'still life',
+      'formal portraits',
+      'geometric shapes',
+      'portrait paintings',
+      'all',
+    ],
+    pt: [
+      'figuras abstratas',
+      'figuras religiosas',
+      'pinturas de paisagem',
+      'estudos de figuras',
+      'esboços',
+      'natureza morta',
+      'retratos formais',
+      'formas geométricas',
+      'pinturas de retrato',
       'todas',
     ],
   }
