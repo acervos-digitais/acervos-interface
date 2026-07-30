@@ -14,7 +14,7 @@ import { MobileOverlay } from "./overlays/MobileOverlay.js";
 // const CLUSTER_DATA_URL = "https://raw.githubusercontent.com/acervos-digitais/herbario-data/main/json/20250705_clusters.json";
 
 const META_DATA_URL = "https://acervos-digitais.github.io/herbario-data/json/20250705_processed.json";
-const CLUSTER_DATA_URL = "https://acervos-digitais.github.io/herbario-data/json/20260722_clusters.json";
+const CLUSTER_DATA_URL = "https://acervos-digitais.github.io/herbario-data/json/20260801_clusters.json";
 
 // const META_DATA_URL = "https://digitais.acervos.at.eu.org/json/herbario/20250705_processed.json";
 // const CLUSTER_DATA_URL = "https://digitais.acervos.at.eu.org/json/herbario/20260722_clusters.json";
