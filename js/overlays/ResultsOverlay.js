@@ -24,7 +24,8 @@ class ResultsOverlay extends Overlay {
     const itemEl = document.createElement("div");
     itemEl.classList.add("overlay--list--item");
 
-    const IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/500";
+    // const IMG_URL = "https://197.acervos.at.eu.org/imgs/herbario/arts/500";
+    const IMG_URL = "https://acervos-digitais.github.io/herbario-media/imgs/arts/500";
     const imgEl = document.createElement('img');
     imgEl.src = `${IMG_URL}/${data.id}.jpg`;
 

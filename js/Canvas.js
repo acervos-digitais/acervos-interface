@@ -3,8 +3,8 @@ import { GridDrawer } from "./drawers/GridDrawer.js";
 import { XyDrawer } from "./drawers/XyDrawer.js";
 
 class ArtWork {
-  static IMG_URL = "https://digitais.acervos.at.eu.org/imgs/herbario/arts/500";
-  // static IMG_URL = "https://acervos-digitais.github.io/herbario-media/imgs/arts/500";
+  // static IMG_URL = "https://197.acervos.at.eu.org/imgs/herbario/arts/500";
+  static IMG_URL = "https://acervos-digitais.github.io/herbario-media/imgs/arts/500";
 
   constructor(id, ratio) {
     const mEl = document.createElement("div");
