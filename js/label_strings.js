@@ -12,6 +12,7 @@ const MENU_LABELS = {
   dog: { en: "dog", pt: "cachorro" },
   horse: { en: "horse", pt: "cavalo" },
   ox: { en: "ox", pt: "boi" },
+  fish: { en: "fish", pt: "peixe" },
   "painting of human": { en: "person", pt: "pessoa" },
 
   bush: { en: "bush", pt: "moita" },
@@ -28,6 +29,7 @@ const MENU_LABELS = {
 
   "human face": { en: "face", pt: "rosto" },
   "human hand": { en: "hand", pt: "mão" },
+  "human foot": { en: "foot", pt: "pé" },
   "naked human back": { en: "back", pt: "costas" },
   "naked human breast": { en: "breast", pt: "peito" },
   "naked human buttocks": { en: "gluteous", pt: "nádega" },

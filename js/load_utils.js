@@ -3,6 +3,7 @@ const OBJ_THOLDS = {
   dog: 0,
   horse: 0,
   ox: 1,
+  fish: 1,
   "painting of human": 1,
   bush: 0,
   flower: 0,
@@ -16,6 +17,7 @@ const OBJ_THOLDS = {
   "palm tree": 0,
   "human face": 1,
   "human hand": 1,
+  "human foot": 1,
   "naked human back": 1,
   "naked human breast": 1,
   "naked human buttocks": 1,
@@ -46,6 +48,10 @@ const CLUSTER = {
   count: 9,
   dimRed: "umap",
 };
+
+const OBJECTS = {
+  model: "all",
+}
 
 async function fetchData(mUrl) {
   try {
@@ -113,7 +119,7 @@ function createMenuData(metaData, clusterData) {
     const item = metaData[id];
     const col = item.museum;
 
-    item.objects = item.objects.filter(o => o.score > OBJ_THOLDS[o.label]);
+    item.objects = item.objects[OBJECTS.model].filter(o => o.score > OBJ_THOLDS[o.label]);
 
     if (!(col in menuData.collections)) {
       menuData.collections[col] = [];

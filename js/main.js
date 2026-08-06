@@ -10,10 +10,10 @@ import { DetailOverlay } from "./overlays/DetailOverlay.js";
 import { ResultsOverlay } from "./overlays/ResultsOverlay.js";
 import { MobileOverlay } from "./overlays/MobileOverlay.js";
 
-// const META_DATA_URL = "https://197.acervos.at.eu.org/json/herbario/20250705_processed.json";
+// const META_DATA_URL = "https://197.acervos.at.eu.org/json/herbario/20260801_processed.json";
 // const CLUSTER_DATA_URL = "https://197.acervos.at.eu.org/json/herbario/20260801_clusters.json";
 
-const META_DATA_URL = "https://acervos-digitais.github.io/herbario-data/json/20250705_processed.json";
+const META_DATA_URL = "https://acervos-digitais.github.io/herbario-data/json/20260801_processed.json";
 const CLUSTER_DATA_URL = "https://acervos-digitais.github.io/herbario-data/json/20260801_clusters.json";
 
 const metaDataP = fetchData(META_DATA_URL);
